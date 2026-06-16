@@ -19,14 +19,18 @@
             <p>Bem-vindo ao seu ponto de encontro na jornada das seis cordas! Se você acabou de comprar sua primeira guitarra ou está lutando para fazer a pestana soar limpa, este é o seu lugar. Aqui, desmistificamos a teoria musical, analisamos equipamentos e trazemos as melhores dicas de treino para você dominar o braço do instrumento sem frustração.</p>
         </div>
 
-        <div class="pedalboard-container">
-            <h3>⚡ Altere o efeito da sua Guitarra Virtual:</h3>
-            <div class="pedalboard">
-                <button class="pedal distortion active" onclick="mudarEfeito('distortion')">Overdrive / Heavy</button>
-                <button class="pedal clean" onclick="mudarEfeito('clean')">Clean / Chorus</button>
-                <button class="pedal delay" onclick="mudarEfeito('delay')">Ambient / Delay</button>
+        <div class="afinador-container">
+            <h3>🎸 Afinador de Ouvido Interativo</h3>
+            <p class="afinador-instrucao">Clique nas notas abaixo para ouvir o som de cada corda e afinar sua guitarra:</p>
+            <div class="cordas-board">
+                <button class="nota-btn" onclick="tocarNota(329.63, 'Mi (E) - 1ª Corda')">E (1ª)</button>
+                <button class="nota-btn" onclick="tocarNota(246.94, 'Si (B) - 2ª Corda')">B (2ª)</button>
+                <button class="nota-btn" onclick="tocarNota(196.00, 'Sol (G) - 3ª Corda')">G (3ª)</button>
+                <button class="nota-btn" onclick="tocarNota(146.83, 'Ré (D) - 4ª Corda')">D (4ª)</button>
+                <button class="nota-btn" onclick="tocarNota(110.00, 'Lá (A) - 5ª Corda')">A (5ª)</button>
+                <button class="nota-btn" onclick="tocarNota(82.41, 'Mi (E) - 6ª Corda')">E (6ª)</button>
             </div>
-            <p id="status-efeito">Efeito atual: <strong style="color: #ff3333;">Distorção Ativada (Som Pesado)</strong></p>
+            <p id="nota-tocando">Toque em uma corda para ouvir...</p>
         </div>
         
         <img id="guitarra-img" src="https://images.unsplash.com/photo-1605020420620-20c943cc4669?q=80&w=1200" alt="Guitarra elétrica realista em chamas de fogo" class="imagem-blog">
@@ -43,7 +47,7 @@
 
         <section class="card">
             <h2>03. Correção de Vícios Técnicos</h2>
-            <p>No início do aprendizado, a repetição de movimentos incorretos pode gerar vícios difíceis de corrigir no futuro, além de causar desconforto muscular. Um dos erros mais comuns é a aplicação de força excessiva na mão que monta os acordes; o correto é positioning o dedo o mais próximo possível do traste metálico, exigindo o mínimo de pressão para a nota soar limpa. Outro ponto crítico é a negligence com o ritmo: o uso do metrônomo desde as primeiras sessões garante que o estudante desenvolva precisão temporal, que é a base para tocar em conjunto.</p>
+            <p>No início do aprendizado, a repetição de movimentos incorretos pode gerar vícios difícieis de corrigir no futuro, além de causar desconforto muscular. Um dos erros mais comuns é a aplicação de força excessiva na mão que monta os acordes; o correto é posicionar o dedo o mais próximo possível do traste metálico, exigindo o mínimo de pressão para a nota soar limpa. Outro ponto crítico é a negligence com o ritmo: o uso do metrônomo desde as primeiras sessões garante que o estudante desenvolva precisão temporal, que é a base para tocar em conjunto.</p>
         </section>
 
         <section class="card">
@@ -57,23 +61,34 @@
     </footer>
 
     <script>
-        function mudarEfeito(tipo) {
-            document.querySelectorAll('.pedal').forEach(btn => btn.classList.remove('active'));
-            document.querySelector('.' + tipo).classList.add('active');
-            
-            const textoStatus = document.getElementById('status-efeito');
-            const imagem = document.getElementById('guitarra-img');
-            
-            if (tipo === 'distortion') {
-                textoStatus.innerHTML = 'Efeito atual: <strong style="color: #ff3333;">Distorção Ativada (Som Pesado)</strong>';
-                imagem.style.filter = 'drop-shadow(0 0 25px rgba(255, 51, 51, 0.8)) contrast(1.2)';
-            } else if (tipo === 'clean') {
-                textoStatus.innerHTML = 'Efeito atual: <strong style="color: #00ffcc;">Som Limpo / Chorus Ativado</strong>';
-                imagem.style.filter = 'drop-shadow(0 0 25px rgba(0, 255, 204, 0.6)) hue-rotate(90deg)';
-            } else if (tipo === 'delay') {
-                textoStatus.innerHTML = 'Efeito atual: <strong style="color: #ff9f43;">Ambient Eco / Delay Ativado</strong>';
-                imagem.style.filter = 'drop-shadow(0 0 25px rgba(255, 159, 67, 0.7)) sepia(0.4)';
+        let audioCtx = null;
+
+        function tocarNota(frequencia, nomeNota) {
+            // Inicializa o contexto de áudio do navegador se não estiver ativo
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             }
+
+            // Mostra na tela qual nota está tocando
+            document.getElementById('nota-tocando').innerHTML = `Tocando agora: <strong style="color: #ff9f43;">${nomeNota}</strong>`;
+
+            // Cria o oscilador (gerador de som) e o controle de volume
+            let o = audioCtx.createOscillator();
+            let g = audioCtx.createGain();
+            
+            // Configura para soar parecido com uma onda senoidal limpa
+            o.type = "sine";
+            o.frequency.value = frequencia;
+            
+            // Faz o som sumir suavemente (fade out) para não ficar estalado
+            g.gain.setValueAtTime(0.3, audioCtx.currentTime);
+            g.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + 1.5);
+            
+            o.connect(g);
+            g.connect(audioCtx.destination);
+            
+            o.start(0);
+            o.stop(audioCtx.currentTime + 1.5);
         }
     </script>
 

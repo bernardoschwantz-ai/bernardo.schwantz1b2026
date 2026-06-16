@@ -1,41 +1,32 @@
-/* ==========================================================================
-   CONFIGURAÇÕES GERAIS E FONTE MODERNA
-   ========================================================================== */
+/* Configurações Gerais e Fonte Limpa */
 body {
-    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0b0b0e; /* Preto profundo de estúdio */
-    color: #e0e0e6; /* Texto claro de alta leitura */
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    background-color: #0b0b0e;
+    color: #e0e0e6;
     line-height: 1.7;
     margin: 0;
     padding: 0;
 }
 
-/* ==========================================================================
-   CONTAINER PRINCIPAL (CAIXA DO BLOG)
-   ========================================================================== */
 main {
     max-width: 750px;
     margin: 50px auto;
     padding: 40px;
-    background: linear-gradient(145deg, #13131a, #1c1c24); /* Degradê escuro */
+    background: linear-gradient(145deg, #13131a, #1c1c24);
     border-radius: 12px;
     border: 1px solid #2d2d3d;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
 }
 
-/* ==========================================================================
-   TÍTULOS E SUBTÍTULOS
-   ========================================================================== */
 h1 {
     font-family: 'Roboto', sans-serif;
-    color: #ff3333; /* Vermelho neon estilo rock */
+    color: #ff3333;
     text-align: center;
     font-size: 3rem;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: -1px;
     margin-bottom: 5px;
-    text-shadow: 0 0 10px rgba(255, 51, 51, 0.3);
 }
 
 .subtitulo {
@@ -46,25 +37,6 @@ h1 {
     margin-bottom: 30px;
 }
 
-h2 {
-    font-family: 'Roboto', sans-serif;
-    color: #ff9f43; /* Laranja de distorção */
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-top: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* ==========================================================================
-   TEXTOS E CAIXA DE INTRODUÇÃO
-   ========================================================================== */
-p {
-    font-size: 1.05rem;
-    color: #c5c5d2;
-    margin-bottom: 0;
-}
-
 .intro-box {
     background-color: #242432;
     padding: 20px;
@@ -73,107 +45,96 @@ p {
     margin-bottom: 30px;
 }
 
-.intro-box p {
-    color: #e0e0e6;
-}
-
-/* ==========================================================================
-   O DIFERENCIAL: PEDALERA VIRTUAL INTERATIVA
-   ========================================================================== */
-.pedalboard-container {
+/* Novo Estilo do Afinador */
+.afinador-container {
     background: #111116;
-    padding: 20px;
+    padding: 25px;
     border-radius: 8px;
-    border: 2px dashed #ff3333;
-    margin-bottom: 30px;
+    border: 2px solid #ff3333;
+    margin-bottom: 35px;
     text-align: center;
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.1);
 }
 
-.pedalboard-container h3 {
-    margin-top: 0;
-    font-size: 1.1rem;
+.afinador-container h3 {
+    margin: 0 0 5px 0;
     color: #ff9f43;
     text-transform: uppercase;
+    font-size: 1.3rem;
 }
 
-.pedalboard {
+.afinador-instrucao {
+    font-size: 0.95rem;
+    color: #8f90a6;
+    margin-bottom: 15px;
+}
+
+.cordas-board {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin: 15px 0;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
 }
 
-.pedal {
+.nota-btn {
     font-family: 'Roboto', sans-serif;
-    background: #252530;
+    background: #1c1c24;
     color: #fff;
     border: 2px solid #3d3d52;
-    padding: 10px 20px;
+    padding: 12px 18px;
     font-weight: bold;
-    border-radius: 6px;
+    font-size: 1rem;
+    border-radius: 50%; /* Botões redondos imitando tarraxas */
     cursor: pointer;
     transition: all 0.2s ease;
+    width: 60px;
+    height: 60px;
 }
 
-.pedal:hover {
-    background: #343444;
-}
-
-.pedal.active {
-    background: #ff3333;
+.nota-btn:hover {
+    background: #ff9f43;
     border-color: #fff;
-    box-shadow: 0 0 15px rgba(255, 51, 51, 0.6);
+    color: #000;
+    transform: scale(1.1);
 }
 
-/* ==========================================================================
-   IMAGEM DA GUITARRA EM CHAMAS
-   ========================================================================== */
+#nota-tocando {
+    font-size: 1rem;
+    color: #a5a5b4;
+    margin-top: 10px;
+}
+
+/* Imagem limpa sem filtros ruins */
 .imagem-blog {
     width: 100%;
     height: 350px;
     object-fit: cover;
     border-radius: 8px;
     border: 2px solid #3d3d52;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
     margin-bottom: 40px;
-    filter: drop-shadow(0 0 25px rgba(255, 51, 51, 0.8)) contrast(1.2);
-    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.imagem-blog:hover {
-    transform: scale(1.01);
-}
-
-/* ==========================================================================
-   SEÇÕES / CARDS DE CONTEÚDO
-   ========================================================================== */
+/* Cards das Seções */
 .card {
     background: #181822;
     padding: 25px;
     border-radius: 8px;
     margin-bottom: 25px;
     border-bottom: 3px solid #2d2d3d;
-    transition: all 0.3s ease;
 }
 
-.card:hover {
-    border-bottom-color: #ff9f43; /* Muda para laranja no hover */
-    transform: translateY(-2px);
+h2 {
+    font-family: 'Roboto', sans-serif;
+    color: #ff9f43;
+    font-size: 1.5rem;
+    margin-top: 0;
+    text-transform: uppercase;
 }
 
-/* ==========================================================================
-   RODAPÉ
-   ========================================================================== */
+p {
+    font-size: 1.05rem;
+    color: #c5c5d2;
+}
+
 footer {
-    text-align: center;
-    padding: 30px;
-    background-color: #050507;
-    color: #666673;
-    margin-top: 60px;
-    font-size: 0.95rem;
-    border-top: 1px solid #1c1c24;
-}
-
-footer strong {
-    color: #ff3333;
-}
