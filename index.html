@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acorde Perfeito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,7 +43,7 @@
 
         <section class="card">
             <h2>03. Correção de Vícios Técnicos</h2>
-            <p>No início do aprendizado, a repetição de movimentos incorretos pode gerar vícios difíceis de corrigir no futuro, além de causar desconforto muscular. Um dos erros mais comuns é a aplicação de força excessiva na mão que monta os acordes; o correto é posicionar o dedo o mais próximo possível do traste metálico, exigindo o mínimo de pressão para a nota soar limpa. Outro ponto crítico é a negligence com o ritmo: o uso do metrônomo desde as primeiras sessões garante que o estudante desenvolva precisão temporal, que é a base para tocar em conjunto.</p>
+            <p>No início do aprendizado, a repetição de movimentos incorretos pode gerar vícios difíceis de corrigir no futuro, além de causar desconforto muscular. Um dos erros mais comuns é a aplicação de força excessiva na mão que monta os acordes; o correto é positioning o dedo o mais próximo possível do traste metálico, exigindo o mínimo de pressão para a nota soar limpa. Outro ponto crítico é a negligence com o ritmo: o uso do metrônomo desde as primeiras sessões garante que o estudante desenvolva precisão temporal, que é a base para tocar em conjunto.</p>
         </section>
 
         <section class="card">
@@ -55,16 +58,12 @@
 
     <script>
         function mudarEfeito(tipo) {
-            // Remove a classe ativa de todos os botões da pedalera
             document.querySelectorAll('.pedal').forEach(btn => btn.classList.remove('active'));
-            
-            // Adiciona a classe ativa no botão que foi clicado
             document.querySelector('.' + tipo).classList.add('active');
             
             const textoStatus = document.getElementById('status-efeito');
             const imagem = document.getElementById('guitarra-img');
             
-            // Altera o texto explicativo e o brilho da guitarra baseado no botão clicado
             if (tipo === 'distortion') {
                 textoStatus.innerHTML = 'Efeito atual: <strong style="color: #ff3333;">Distorção Ativada (Som Pesado)</strong>';
                 imagem.style.filter = 'drop-shadow(0 0 25px rgba(255, 51, 51, 0.8)) contrast(1.2)';

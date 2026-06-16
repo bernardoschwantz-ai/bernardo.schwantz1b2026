@@ -1,4 +1,11 @@
-/* Estilização da Pedalera Virtual */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0b0b0e;
+    color: #e0e0e6;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+}/* Estilização da Pedalera Virtual */
 .pedalboard-container {
     background: #111116;
     padding: 20px;
