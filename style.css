@@ -1,113 +1,38 @@
-/* Configurações Gerais - Pegada Dark Rock */
-body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: #0b0b0e; /* Preto profundo de estúdio */
-    color: #e0e0e6; /* Branco acinzentado de alta leitura */
-    line-height: 1.7;
-    margin: 0;
-    padding: 0;
-}
-
-/* Container Principal */
-main {
-    max-width: 750px;
-    margin: 50px auto;
-    padding: 40px;
-    background: linear-gradient(145deg, #13131a, #1c1c24); /* Degradê sutil e moderno */
-    border-radius: 12px;
-    border: 1px solid #2d2d3d;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-}
-
-/* Título Principal Radical */
-h1 {
-    color: #ff3333; /* Vermelho neon pulsante */
-    text-align: center;
-    font-size: 3rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -1px;
-    margin-bottom: 5px;
-    text-shadow: 0 0 10px rgba(255, 51, 51, 0.3);
-}
-
-/* Subtítulo */
-.subtitulo {
-    text-align: center;
-    color: #8f90a6;
-    font-size: 1.2rem;
-    font-style: italic;
-    margin-bottom: 30px;
-}
-
-/* Caixa de Introdução de Destaque */
-.intro-box {
-    background-color: #242432;
+/* Estilização da Pedalera Virtual */
+.pedalboard-container {
+    background: #111116;
     padding: 20px;
-    border-left: 4px solid #ff3333;
-    border-radius: 4px;
+    border-radius: 8px;
+    border: 2px dashed #ff3333;
     margin-bottom: 30px;
-}
-
-/* Imagem Estilizada do Palco */
-.imagem-blog {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 2px solid #3d3d52;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-    margin-bottom: 40px;
-    transition: transform 0.3s ease;
-}
-
-.imagem-blog:hover {
-    transform: scale(1.01);
-    border-color: #ff9f43; /* Muda para laranja ao passar o mouse */
-}
-
-/* Cartões de Seções (Blocos separados para organizar o conteúdo) */
-.card {
-    background: #181822;
-    padding: 25px;
-    border-radius: 8px;
-    margin-bottom: 25px;
-    border-bottom: 3px solid #2d2d3d;
-    transition: all 0.3s ease;
-}
-
-.card:hover {
-    border-bottom-color: #ff9f43; /* Laranja no hover */
-    transform: translateY(-2px);
-}
-
-/* Títulos das Seções */
-h2 {
-    color: #ff9f43; /* Laranja radiante de distorção */
-    font-size: 1.6rem;
-    margin-top: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* Parágrafos internos */
-p {
-    font-size: 1.05rem;
-    color: #c5c5d2;
-    margin-bottom: 0;
-}
-
-/* Rodapé Premium */
-footer {
     text-align: center;
-    padding: 30px;
-    background-color: #050507;
-    color: #666673;
-    margin-top: 60px;
-    font-size: 0.95rem;
-    border-top: 1px solid #1c1c24;
 }
-
-footer strong {
-    color: #ff3333;
+.pedalboard-container h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: #ff9f43;
+}
+.pedalboard {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+.pedal {
+    background: #252530;
+    color: #fff;
+    border: 2px solid #3d3d52;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.pedal:hover {
+    background: #343444;
+}
+.pedal.active {
+    background: #ff3333;
+    border-color: #fff;
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.6);
 }

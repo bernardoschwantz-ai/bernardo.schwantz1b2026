@@ -15,8 +15,18 @@
         <div class="intro-box">
             <p>Bem-vindo ao seu ponto de encontro na jornada das seis cordas! Se você acabou de comprar sua primeira guitarra ou está lutando para fazer a pestana soar limpa, este é o seu lugar. Aqui, desmistificamos a teoria musical, analisamos equipamentos e trazemos as melhores dicas de treino para você dominar o braço do instrumento sem frustração.</p>
         </div>
+
+        <div class="pedalboard-container">
+            <h3>⚡ Altere o efeito da sua Guitarra Virtual:</h3>
+            <div class="pedalboard">
+                <button class="pedal distortion active" onclick="mudarEfeito('distortion')">Overdrive / Heavy</button>
+                <button class="pedal clean" onclick="mudarEfeito('clean')">Clean / Chorus</button>
+                <button class="pedal delay" onclick="mudarEfeito('delay')">Ambient / Delay</button>
+            </div>
+            <p id="status-efeito">Efeito atual: <strong style="color: #ff3333;">Distorção Ativada (Som Pesado)</strong></p>
+        </div>
         
-        <img src="imagem01.jpg" alt="Guitarra elétrica com luzes de palco" class="imagem-blog">
+        <img id="guitarra-img" src="https://images.unsplash.com/photo-1605020420620-20c943cc4669?q=80&w=1200" alt="Guitarra elétrica realista em chamas de fogo" class="imagem-blog">
         
         <section class="card">
             <h2>01. Introdução ao Universo da Guitarra</h2>
@@ -43,6 +53,30 @@
         <p>⚡ Desenvolvido com muito Rock por: <strong>Bernardo Oliveira</strong> | Turma 1 B ⚡</p>
     </footer>
 
+    <script>
+        function mudarEfeito(tipo) {
+            // Remove a classe ativa de todos os botões da pedalera
+            document.querySelectorAll('.pedal').forEach(btn => btn.classList.remove('active'));
+            
+            // Adiciona a classe ativa no botão que foi clicado
+            document.querySelector('.' + tipo).classList.add('active');
+            
+            const textoStatus = document.getElementById('status-efeito');
+            const imagem = document.getElementById('guitarra-img');
+            
+            // Altera o texto explicativo e o brilho da guitarra baseado no botão clicado
+            if (tipo === 'distortion') {
+                textoStatus.innerHTML = 'Efeito atual: <strong style="color: #ff3333;">Distorção Ativada (Som Pesado)</strong>';
+                imagem.style.filter = 'drop-shadow(0 0 25px rgba(255, 51, 51, 0.8)) contrast(1.2)';
+            } else if (tipo === 'clean') {
+                textoStatus.innerHTML = 'Efeito atual: <strong style="color: #00ffcc;">Som Limpo / Chorus Ativado</strong>';
+                imagem.style.filter = 'drop-shadow(0 0 25px rgba(0, 255, 204, 0.6)) hue-rotate(90deg)';
+            } else if (tipo === 'delay') {
+                textoStatus.innerHTML = 'Efeito atual: <strong style="color: #ff9f43;">Ambient Eco / Delay Ativado</strong>';
+                imagem.style.filter = 'drop-shadow(0 0 25px rgba(255, 159, 67, 0.7)) sepia(0.4)';
+            }
+        }
+    </script>
+
 </body>
 </html>
-
