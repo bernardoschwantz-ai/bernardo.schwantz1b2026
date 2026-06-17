@@ -16,7 +16,7 @@
             left: 0;
             width: 100%;
             height: 50px;
-            background-color: rgba(30, 30, 30, 0.9);
+            background-color: rgba(30, 30, 30, 0.95);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             display: flex;
@@ -48,20 +48,18 @@
             100% { transform: scale(1.15); }
         }
 
-        /* Ajuste forçado para as imagens da sidebar não quebrarem o layout */
+        /* Dimensionamento correto e renderização das imagens das guitarras */
         .sidebar-guitar-img {
             width: 100% !important;
             height: 150px !important;
-            object-fit: contain !important; /* Garante que a imagem apareça inteira sem cortar */
-            background-color: #2a2a2a; /* Fundo escuro para contrastar com os cards */
+            object-fit: cover !important;
             border-radius: 6px;
-            padding: 5px;
-            box-sizing: border-box;
+            display: block;
         }
 
-        /* Compensar o espaço da barra fixa */
+        /* Ajuste do topo da página para a barra não cobrir o conteúdo */
         body {
-            margin-top: 50px !important;
+            margin-top: 70px !important;
         }
     </style>
 </head>
@@ -85,21 +83,21 @@
             <h3 class="sidebar-title">⚡ Guia de Modelos</h3>
             
             <div class="guitar-model-card">
-                <img src="https://undraw.co/api/illustrations/svg?name=music" alt="Stratocaster" class="sidebar-guitar-img">
+                <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5278f?auto=format&fit=crop&w=300&q=80" alt="Stratocaster" class="sidebar-guitar-img">
                 <h4>Stratocaster</h4>
                 <p><strong>Características:</strong> Corpo ergonômico, 3 captadores single-coil.</p>
                 <p class="ponto-forte"><strong>Ponto Forte:</strong> Som estalado e limpo (perfeito para Blues e Funk).</p>
             </div>
 
             <div class="guitar-model-card">
-                <img src="https://undraw.co/api/illustrations/svg?name=melody" alt="Les Paul" class="sidebar-guitar-img">
+                <img src="https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=300&q=80" alt="Les Paul" class="sidebar-guitar-img">
                 <h4>Les Paul</h4>
                 <p><strong>Características:</strong> Corpo pesado de mogno, 2 humbuckers.</p>
                 <p class="ponto-forte"><strong>Ponto Forte:</strong> Longo sustain e peso para distorções pesadas (Rock/Metal).</p>
             </div>
 
             <div class="guitar-model-card">
-                <img src="https://undraw.co/api/illustrations/svg?name=singing" alt="Telecaster" class="sidebar-guitar-img">
+                <img src="https://images.unsplash.com/photo-1514649923863-cebf75b2e009?auto=format&fit=crop&w=300&q=80" alt="Telecaster" class="sidebar-guitar-img">
                 <h4>Telecaster</h4>
                 <p><strong>Características:</strong> Design rústico, 2 captadores single-coil.</p>
                 <p class="ponto-forte"><strong>Ponto Forte:</strong> Som brilhante com agudos marcantes (Indie/Pop-Rock).</p>
@@ -125,7 +123,7 @@
                 <p id="nota-tocando">Toque em uma corda para ouvir o eco...</p>
             </div>
             
-            <img id="guitarra-img" src="https://images.unsplash.com/photo-1525201548942-d8b8979d4a48?q=80&w=1200" alt="Guitarra elétrica Stratocaster em chamas" class="imagem-blog">
+            <img id="guitarra-img" src="https://images.unsplash.com/photo-1525201548942-d8b8979d4a48?auto=format&fit=crop&w=1200&q=80" alt="Guitarra elétrica Stratocaster em chamas" class="imagem-blog">
             
             <section class="card" id="artigo1">
                 <h2>01. Introdução ao Universo da Guitarra</h2>
@@ -191,7 +189,7 @@
             <div class="acordes-grid">
                 <div class="acorde-texto">
                     <p>Um acorde é a união de três ou mais notas tocadas simultaneamente, formando a base harmônica sobre a qual as melodias se desenvolvem. Para o guitarrista iniciante, o maior desafio não é apenas memorizar os formatos no braço do instrumento (como as digitações abertas de Dó, Sol, Ré e Lá), mas sim conseguir transitar entre eles de forma fluida e sem interromper o andamento do compasso rítmico.</p>
-                    <p style="margin-top: 15px;">A técnica mais eficaz para acelerar essas transições é o conceito de <strong>"Dedos-Guia"</strong>. Ao mudar de um acorde para outro, verifique se existe algum dedo que permanece na mesma corda ou traste em ambas as posições. Manter esse dedo fixado serve como uma âncora física, permitindo que o cérebro organize o restante da mão sem perder a referência do braço da guitarra, Instruments o movimento de "procura" a cada troca rítmica.</p>
+                    <p style="margin-top: 15px;">A técnica mais eficaz para acelerar essas transições é o conceito de <strong>"Dedos-Guia"</strong>. Ao mudar de um acorde para outro, verifique se existe algum dedo que permanece na mesma corda ou traste em ambas as posições. Manter esse dedo fixado serve como uma âncora física, permitindo que o cérebro organize o restante da mão sem perder a referência do braço da guitarra, eliminando o movimento de "procura" a cada troca rítmica.</p>
                 </div>
                 <div class="acorde-destaque">
                     <h4>💡 Dica de Ouro para Pestanas</h4>
