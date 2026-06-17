@@ -11,50 +11,112 @@
 </head>
 <body>
 
-    <main>
+    <header class="site-header">
         <h1>Acorde Perfeito</h1>
         <p class="subtitulo">O Guia Supremo do Guitarrista Iniciante</p>
-        
-        <div class="intro-box">
-            <p>Bem-vindo ao seu ponto de encontro na jornada das seis cordas! Se você acabou de comprar sua primeira guitarra ou está lutando para fazer a pestana soar limpa, este é o seu lugar. Aqui, desmistificamos a teoria musical, analisamos equipamentos e trazemos as melhores dicas de treino para você dominar o braço do instrumento sem frustração.</p>
-        </div>
+    </header>
 
-        <div class="afinador-container">
-            <h3>🎸 Afinador de Ouvido Interativo</h3>
-            <p class="afinador-instrucao">Clique nas notas abaixo para ouvir o som de cada corda e afinar sua guitarra:</p>
-            <div class="cordas-board">
-                <button class="nota-btn" onclick="tocarNota(329.63, 'Mi (E) - 1ª Corda')">E (1ª)</button>
-                <button class="nota-btn" onclick="tocarNota(246.94, 'Si (B) - 2ª Corda')">B (2ª)</button>
-                <button class="nota-btn" onclick="tocarNota(196.00, 'Sol (G) - 3ª Corda')">G (3ª)</button>
-                <button class="nota-btn" onclick="tocarNota(146.83, 'Ré (D) - 4ª Corda')">D (4ª)</button>
-                <button class="nota-btn" onclick="tocarNota(110.00, 'Lá (A) - 5ª Corda')">A (5ª)</button>
-                <button class="nota-btn" onclick="tocarNota(82.41, 'Mi (E) - 6ª Corda')">E (6ª)</button>
+    <div class="layout-container">
+        
+        <aside class="sidebar sidebar-left">
+            <h3 class="sidebar-title">⚡ Guia de Modelos</h3>
+            
+            <div class="guitar-model-card">
+                <h4>Stratocaster</h4>
+                <p><strong>Características:</strong> Corpo ergonômico, 3 captadores single-coil e ponte com alavanca.</p>
+                <p class="ponto-forte"><strong>Ponto Forte:</strong> Som estalado, limpo e versatilidade (perfeito para Blues, Funk e Rock).</p>
             </div>
-            <p id="nota-tocando">Toque em uma corda para ouvir...</p>
-        </div>
-        
-        <img id="guitarra-img" src="https://images.unsplash.com/photo-1605020420620-20c943cc4669?q=80&w=1200" alt="Guitarra elétrica realista em chamas de fogo" class="imagem-blog">
-        
-        <section class="card">
-            <h2>Introdução ao Universo da Guitarra</h2>
-            <p>A guitarra elétrica é um dos instrumentos mais icônicos do mundo, moldando gêneros que vão do rock e blues ao pop e jazz. Para quem decide iniciar os estudos, o instrumento oferece uma curva de aprendizado recompensadora, unindo teoria musical e aplicação prática desde os primeiros acordes. Compreender a anatomia da guitarra — como o funcionamento dos captadores, a escala e os controles de tom e volume — é o primeiro passo para o músico desenvolver sua identidade sonora e explorar a versatilidade que o instrumento oferece.</p>
-        </section>
 
-        <section class="card">
-            <h2>Guia de Modelos e Captação</h2>
-            <p>A escolha de uma guitarra envolve entender como o design e a eletrônica afetam o som final. Modelos clássicos como a Stratocaster e a Telecaster utilizam captadores single-coil (bobina simples), conhecidos por um som brilhante, estalado e com alta definição, ideais para vertentes mais limpas. Por outro lado, modelos como a Les Paul utilizam captadores humbucker (bobina dupla), desenvolvidos para cancelar ruídos e entregar um som mais encorpado, com maior sustentação, sendo a escolha preferida para distorções pesadas no rock e no metal.</p>
-        </section>
+            <div class="guitar-model-card">
+                <h4>Les Paul</h4>
+                <p><strong>Características:</strong> Corpo pesado de mogno, 2 captadores humbucker e som encorpado.</p>
+                <p class="ponto-forte"><strong>Ponto Forte:</strong> Sustentação longa das notas e peso para distorções (perfeito para Hard Rock e Heavy Metal).</p>
+            </div>
 
-        <section class="card">
-            <h2>Correção de Vícios Técnicos</h2>
-            <p>No início do aprendizado, a repetição de movimentos incorretos pode gerar vícios difícieis de corrigir no futuro, além de causar desconforto muscular. Um dos erros mais comuns é a aplicação de força excessiva na mão que monta os acordes; o correto é posicionar o dedo o mais próximo possível do traste metálico, exigindo o mínimo de pressão para a nota soar limpa. Outro ponto crítico é a negligence com o ritmo: o uso do metrônomo desde as primeiras sessões garante que o estudante desenvolva precisão temporal, que é a base para tocar em conjunto.</p>
-        </section>
+            <div class="guitar-model-card">
+                <h4>Telecaster</h4>
+                <p><strong>Características:</strong> Design rústico e simples, 2 captadores single-coil e placa de metal na ponte.</p>
+                <p class="ponto-forte"><strong>Ponto Forte:</strong> Som brilhante com agudos marcantes e estalados (perfeito para Country, Indie e Pop-Rock).</p>
+            </div>
+        </aside>
 
-        <section class="card">
-            <h2>Planejamento de Rotina de Treino</h2>
-            <p>O desenvolvimento técnico na guitarra depende diretamente da regularidade dos estímulos enviados ao cérebro. Estudos de aprendizado motor comprovam que sessões diárias curtas e focadas, de 20 a 30 minutos, são significativamente mais eficazes do que longos períodos de treino isolados no fim de semana. Dividir o tempo de prática entre aquecimento físico, exercícios técnicos (como palhetada alternativa e escalas) e a aplicação em repertório musical otimiza a fixação da memória muscular, tornando os movimentos automáticos e fluidos a longo prazo.</p>
-        </section>
-    </main>
+        <main class="main-content">
+            <div class="intro-box">
+                <p>Bem-vindo ao seu ponto de encontro na jornada das seis cordas! Se você acabou de comprar sua primeira guitarra ou está lutando para fazer a pestana soar limpa, este é o seu lugar. Aqui, desmistificamos a teoria musical, analisamos equipamentos e trazemos as melhores dicas de treino para você dominar o braço do instrumento sem frustração.</p>
+            </div>
+
+            <div class="afinador-container">
+                <h3>🎸 Afinador com Efeito de Eco Virtual</h3>
+                <p class="afinador-instrucao">Clique nas notas para ouvir o som realista ecoando no espaço:</p>
+                <div class="cordas-board">
+                    <button class="nota-btn" onclick="tocarNotaComEco(329.63, 'Mi (E) - 1ª Corda')">E (1ª)</button>
+                    <button class="nota-btn" onclick="tocarNotaComEco(246.94, 'Si (B) - 2ª Corda')">B (2ª)</button>
+                    <button class="nota-btn" onclick="tocarNotaComEco(196.00, 'Sol (G) - 3ª Corda')">G (3ª)</button>
+                    <button class="nota-btn" onclick="tocarNotaComEco(146.83, 'Ré (D) - 4ª Corda')">D (4ª)</button>
+                    <button class="nota-btn" onclick="tocarNotaComEco(110.00, 'Lá (A) - 5ª Corda')">A (5ª)</button>
+                    <button class="nota-btn" onclick="tocarNotaComEco(82.41, 'Mi (E) - 6ª Corda')">E (6ª)</button>
+                </div>
+                <p id="nota-tocando">Toque em uma corda para ouvir o eco...</p>
+            </div>
+            
+            <img id="guitarra-img" src="https://images.unsplash.com/photo-1605020420620-20c943cc4669?q=80&w=1200" alt="Guitarra elétrica realista em chamas de fogo" class="imagem-blog">
+            
+            <section class="card" id="artigo1">
+                <h2>01. Introdução ao Universo da Guitarra</h2>
+                <p>A guitarra elétrica é um dos instrumentos mais icônicos do mundo, moldando gêneros que vão do rock e blues ao pop e jazz. Para quem decide iniciar os estudos, o instrumento oferece uma curva de aprendizado recompensadora, unindo teoria musical e aplicação prática desde os primeiros acordes. Compreender a anatomia da guitarra — como o funcionamento dos captadores, a escala e os controles de tom e volume — é o primeiro passo para o músico desenvolver sua identidade sonora e explorar a versatilidade que o instrumento oferece.</p>
+            </section>
+
+            <section class="card" id="artigo2">
+                <h2>02. Guia de Modelos e Captação</h2>
+                <p>A escolha de uma guitarra envolve entender como o design e a eletrônica afetam o som final. Modelos clássicos como a Stratocaster e a Telecaster utilizam captadores single-coil (bobina simples), conhecidos por um som brilhante, estalado e com alta definição, ideais para vertentes mais limpas. Por outro lado, modelos como a Les Paul utilizam captadores humbucker (bobina dupla), desenvolvidos para cancelar ruídos e entregar um som mais encorpado, com maior sustentação, sendo a escolha preferida para distorções pesadas no rock e no metal.</p>
+            </section>
+
+            <section class="card" id="artigo3">
+                <h2>03. Correção de Vícios Técnicos</h2>
+                <p>No início do aprendizado, a repetição de movimentos incorretos pode gerar vícios difícieis de corrigir no futuro, além de causar desconforto muscular. Um dos erros mais comuns é a aplicação de força excessiva na mão que monta os acordes; o correto é posicionar o dedo o mais próximo possível do traste metálico, exigindo o mínimo de pressão para a nota soar limpa. Outro ponto crítico é a negligence com o ritmo: o uso do metrônomo desde as primeiras sessões garante que o estudante desenvolva precisão temporal, que é a base para tocar em conjunto.</p>
+            </section>
+
+            <section class="card" id="artigo4">
+                <h2>04. Planejamento de Rotina de Treino</h2>
+                <p>O desenvolvimento técnico na guitarra depende diretamente da regularidade dos estímulos enviados ao cérebro. Estudos de aprendizado motor comprovam que sessões diárias curtas e focadas, de 20 a 30 minutos, são significativamente mais eficazes do que longos períodos de treino isolados no fim de semana. Dividir o tempo de prática entre aquecimento físico, exercícios técnicos (como palhetada alternativa e escalas) e a aplicação em repertório musical otimiza a fixação da memória muscular, tornando os movimentos automáticos e fluidos a longo prazo.</p>
+            </section>
+
+            <section class="card" id="artigo5">
+                <h2>05. O Segredo da Palhetada Alternada</h2>
+                <p>Dominar o movimento de subida e descida da palheta de forma simétrica é essencial para ganhar velocidade e fluidez. Muitos iniciantes tendem a usar apenas palhetadas para baixo, o que limita o ritmo e causa fadiga precoce no pulso. O movimento ideal deve partir da articulação do pulso e não do antebraço inteiro, mantendo a palheta ligeiramente inclinada em relação às cordas para cortar a resistência do metal, garantindo dinâmicas equilibradas tanto em palhetadas ascendentes quanto descendentes.</p>
+            </section>
+
+            <section class="card" id="artigo6">
+                <h2>06. Como Escolher o Primeiro Amplificador</h2>
+                <p>Para quem treina em casa, a potência bruta não é o fator mais importante, mas sim a fidelidade e os recursos de simulação do equipamento. Os modernos amplificadores digitais de modelagem oferecem simulações de gabinetes lendários e efeitos embutidos como overdrive, delay e reverb diretamente no circuito. Ter uma saída dedicada para fones de ouvido e uma entrada auxiliar para disparar backing tracks são diferenciais indispensáveis para manter a rotina de estudos produtiva sem incomodar os vizinhos ou o restante da casa.</p>
+            </section>
+
+            <section class="card" id="artigo7">
+                <h2>07. Como Ler Tablaturas Sem Erros</h2>
+                <p>A tablatura é o sistema de notação mais prático para guitarristas, representando visualmente as seis cordas do instrumento, com a linha superior indicando a corda mais fina (E) e a inferior indicando a mais grossa (E). Os números sobre as linhas apontam o traste exato que deve ser pressionado. O principal erro de interpretação consiste em ignorar os símbolos de técnicas expressivas indispensáveis, como o 'h' para hammer-on, 'p' para pull-off, e as setas indicativas de bend, elementos que conferem dinâmica à execução.</p>
+            </section>
+
+            <section class="card" id="artigo8">
+                <h2>08. Higiene e Manutenção das Cordas</h2>
+                <p>O suor e a umidade natural das mãos aceleram o processo de oxidação do aço e do níquel das cordas, resultando em um som opaco, perda de sustentação e desgaste prematuro dos trastes. Criar o hábito de passar um pano de microfibra limpo e seco ao longo de toda a extensão das cordas após cada sessão de treino prolonga consideravelmente a vida útil do encordoamento. Adicionalmente, realizar a troca periódica do conjunto a cada três ou quatro meses mantém a afinação estável e preserva o brilho tonal original.</p>
+            </section>
+        </main>
+
+        <aside class="sidebar sidebar-right">
+            <h3 class="sidebar-title">📌 Ir para o Assunto</h3>
+            <nav class="shortcut-menu">
+                <a href="#artigo1">01. Universo da Guitarra</a>
+                <a href="#artigo2">02. Modelos e Captação</a>
+                <a href="#artigo3">03. Vícios Técnicos</a>
+                <a href="#artigo4">04. Rotina de Treino</a>
+                <a href="#artigo5">05. Palhetada Alternada</a>
+                <a href="#artigo6">06. Amplificadores</a>
+                <a href="#artigo7">07. Ler Tablaturas</a>
+                <a href="#artigo8">08. Manutenção de Cordas</a>
+            </nav>
+        </aside>
+
+    </div>
 
     <footer>
         <p>⚡ Desenvolvido com muito Rock por: <strong>Bernardo Oliveira</strong> | Turma 1 B ⚡</p>
@@ -63,32 +125,40 @@
     <script>
         let audioCtx = null;
 
-        function tocarNota(frequencia, nomeNota) {
-            // Inicializa o contexto de áudio do navegador se não estiver ativo
+        function tocarNotaComEco(frequencia, nomeNota) {
             if (!audioCtx) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             }
 
-            // Mostra na tela qual nota está tocando
-            document.getElementById('nota-tocando').innerHTML = `Tocando agora: <strong style="color: #ff9f43;">${nomeNota}</strong>`;
+            document.getElementById('nota-tocando').innerHTML = `Ecoando: <strong style="color: #ff9f43;">${nomeNota}</strong>`;
 
-            // Cria o oscilador (gerador de som) e o controle de volume
-            let o = audioCtx.createOscillator();
-            let g = audioCtx.createGain();
+            // Tempo atual do relógio de áudio
+            let agora = audioCtx.currentTime;
+
+            // Criamos a nota principal e mais 3 repetições (ecos) decrescentes
+            criarSomIndividual(frequencia, agora, 0.3);       // Nota Principal
+            criarSomIndividual(frequencia, agora + 0.3, 0.15); // 1º Eco (300ms depois)
+            criarSomIndividual(frequencia, agora + 0.6, 0.07); // 2º Eco (600ms depois)
+            criarSomIndividual(frequencia, agora + 0.9, 0.02); // 3º Eco (900ms depois)
+        }
+
+        function criarSomIndividual(frequencia, momentoExato, volumeInicial) {
+            let oscilador = audioCtx.createOscillator();
+            let controleVolume = audioCtx.createGain();
             
-            // Configura para soar parecido com uma onda senoidal limpa
-            o.type = "sine";
-            o.frequency.value = frequencia;
+            // Usando onda triangular para um som levemente mais encorpado e acústico
+            oscilador.type = "triangle";
+            oscilador.frequency.value = frequencia;
             
-            // Faz o som sumir suavemente (fade out) para não ficar estalado
-            g.gain.setValueAtTime(0.3, audioCtx.currentTime);
-            g.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + 1.5);
+            // Configuração do ganho e fade out linear para simular o sumiço do eco
+            controleVolume.gain.setValueAtTime(volumeInicial, momentoExato);
+            controleVolume.gain.exponentialRampToValueAtTime(0.00001, momentoExato + 0.6);
             
-            o.connect(g);
-            g.connect(audioCtx.destination);
+            oscilador.connect(controleVolume);
+            controleVolume.connect(audioCtx.destination);
             
-            o.start(0);
-            o.stop(audioCtx.currentTime + 1.5);
+            oscilador.start(momentoExato);
+            oscilador.stop(momentoExato + 0.6);
         }
     </script>
 
