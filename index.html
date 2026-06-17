@@ -8,8 +8,60 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos para a nova barra fixada no topo */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: rgba(30, 30, 30, 0.9); /* Fundo escuro semi-transparente */
+            backdrop-filter: blur(8px); /* Efeito de vidro borrado elegante */
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000; /* Garante que ficará por cima de tudo */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            border-bottom: 2px solid #ff9f43; /* Linha sutil com a cor laranja do seu afinador */
+        }
+
+        .top-navbar-content {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 1px;
+        }
+
+        .top-navbar-content .guitar-icon {
+            font-size: 1.4rem;
+            animation: pulse 2s infinite alternate; /* Pequena animação pulsante no ícone */
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+
+        /* Compensar o espaço da barra fixa para não cobrir o cabeçalho original */
+        body {
+            margin-top: 50px !important;
+        }
+    </style>
 </head>
 <body>
+
+    <div class="top-navbar">
+        <div class="top-navbar-content">
+            <span class="guitar-icon">🎸</span>
+            <span>BERNARDO</span>
+        </div>
+    </div>
 
     <header class="site-header">
         <h1>Acorde Perfeito</h1>
@@ -22,7 +74,7 @@
             <h3 class="sidebar-title">⚡ Guia de Modelos</h3>
             
             <div class="guitar-model-card">
-                <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5278f?q=80&w=300" alt="Stratocaster" class="sidebar-guitar-img">
+                <img src="https://images.unsplash.com/photo-1551075506-11f8793bdf2d?q=80&w=400" alt="Stratocaster" class="sidebar-guitar-img">
                 <h4>Stratocaster</h4>
                 <p><strong>Características:</strong> Corpo ergonômico, 3 captadores single-coil.</p>
                 <p class="ponto-forte"><strong>Ponto Forte:</strong> Som estalado e limpo (perfeito para Blues e Funk).</p>
@@ -36,7 +88,7 @@
             </div>
 
             <div class="guitar-model-card">
-                <img src="https://images.unsplash.com/photo-1618941759473-b78f42777170?q=80&w=300" alt="Telecaster" class="sidebar-guitar-img">
+                <img src="https://images.unsplash.com/photo-1593113589131-f1eb9c93a8d1?q=80&w=400" alt="Telecaster" class="sidebar-guitar-img">
                 <h4>Telecaster</h4>
                 <p><strong>Características:</strong> Design rústico, 2 captadores single-coil.</p>
                 <p class="ponto-forte"><strong>Ponto Forte:</strong> Som brilhante com agudos marcantes (Indie/Pop-Rock).</p>
@@ -96,7 +148,7 @@
 
             <section class="card" id="artigo7">
                 <h2>07. Como Ler Tablaturas Sem Erros</h2>
-                <p>A tablatura é o sistema de notação mais prático para guitarristas, representando visualmente as seis cordas do instrumento, com a linha superior indicando a corda mais fina (E) e a inferior indicando a mais grossa (E). Os números sobre as linhas apontam o traste exato que deve ser pressionado. O principal erro de interpretação consiste em ignorar os símbolos de técnicas expressivas indispensáveis, como o 'h' para hammer-on, 'p' para pull-off, e as setas indicativas de bend, elementos que conferem dinâmica à execução.</p>
+                <p>A tablatura é o sistema de notação mais prático para guitarristas, representando visualmente as seis cordas do instrumento, com a linha superior indicando a corda mais fina (E) e a inferior indicando a mais grossa (E). Os números sobre as linhas apontam o traste exato que deve ser pressionado. O principal erro de interpretação consiste em ignorar os símbolos de técnicas expressivas indispensáveis, como o 'h' para hammer-on, 'p' para pull-off, e as setas indicativas de bend, elements que conferem dinâmica à execução.</p>
             </section>
 
             <section class="card" id="artigo8">
@@ -120,7 +172,9 @@
             </nav>
         </aside>
 
-    </div> <section class="full-width-section" id="secao-acordes">
+    </div> 
+    
+    <section class="full-width-section" id="secao-acordes">
         <div class="full-width-content">
             <h2>09. Dominando a Formação e a Transição de Acordes</h2>
             <div class="acordes-grid">
