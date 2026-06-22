@@ -133,7 +133,7 @@
 
             <section class="card" id="artigo2">
                 <h2>02. Guia de Modelos e Captação</h2>
-                <p>A escolha de uma guitarra envolve entender como o design e a eletrônica afetam o som final. Modelos clássicos como a Stratocaster e a Telecaster utilizam captadores single-coil (bobina simples), conhecidos por um som brilhante, estalado e com alta definição, ideais para vertentes mais limpas. Por outro lado, models como a Les Paul utilizam captadores humbucker (bobina dupla), desenvolvidos para cancelar ruídos e entregar um som mais encorpado, com maior sustentação, sendo a escolha preferida para distorções pesadas no rock e no metal.</p>
+                <p>A escolha de uma guitarra envolve entender como o design e a eletrônica afetam o som final. Modelos clássicos como a Stratocaster e a Telecaster utilizam captadores single-coil (bobina simples), conhecidos por um som brilhante, estalado e com alta definição, ideais para vertentes mais limpas. Por outro lado, modelos como a Les Paul utilizam captadores humbucker (bobina dupla), desenvolvidos para cancelar ruídos e entregar um som mais encorpado, com maior sustentação, sendo a escolha preferida para distorções pesadas no rock e no metal.</p>
             </section>
 
             <section class="card" id="artigo3">
@@ -143,7 +143,7 @@
 
             <section class="card" id="artigo4">
                 <h2>04. Planejamento de Rotina de Treino</h2>
-                <p>O desenvolvimento técnico na guitarra depende diretamente da regularidade os estímulos enviados ao cérebro. Estudos de aprendizado motor comprovam que sessões diárias curtas e focadas, de 20 a 30 minutos, são significativamente mais eficazes do que longos períodos de treino isolados no fim de semana. Dividir o tempo de prática entre aquecimento físico, exercícios técnicos (como palhetada alternativa e escalas) e a aplicação em repertório musical otimiza a fixação da memória muscular, tornando os movimentos automáticos e fluidos a longo prazo.</p>
+                <p>O desenvolvimento técnico na guitarra depende diretamente da regularidade dos estímulos enviados ao cérebro. Estudos de aprendizado motor comprovam que sessões diárias curtas e focadas, de 20 a 30 minutos, são significativamente mais eficazes do que longos períodos de treino isolados no fim de semana. Dividir o tempo de prática entre aquecimento físico, exercícios técnicos (como palhetada alternativa e escalas) e a aplicação em repertório musical otimiza a fixação da memória muscular, tornando os movimentos automáticos e fluidos a longo prazo.</p>
             </section>
 
             <section class="card" id="artigo5">
@@ -172,7 +172,7 @@
             <nav class="shortcut-menu">
                 <a href="#artigo1">01. Universo da Guitarra</a>
                 <a href="#artigo2">02. Modelos e Captação</a>
-                <a href="#artigo3">03. Vícios Técnicos</a>
+                <a href="#artigo3">03. Vícios Técnico</a>
                 <a href="#artigo4">04. Rotina de Treino</a>
                 <a href="#artigo5">05. Palhetada Alternada</a>
                 <a href="#artigo6">06. Amplificadores</a>
@@ -194,7 +194,7 @@
                 </div>
                 <div class="acorde-destaque">
                     <h4>💡 Dica de Ouro para Pestanas</h4>
-                    <p>Se a sua pestana (como o acorde de Fá Maior) está soando abafada, o segredo não é aplicar força bruta com a mão, mas sim rotacionar levemente o dedo indicador para o lado esquerdo. Usar a parte lateral e mais rígida do osso do indicador, au invés da polpa macia do dedo, cria uma superfície de pressão uniforme que faz todas as seis cordas vibrarem com clareza máxima.</p>
+                    <p>Se a sua pestana (como o acorde de Fá Maior) está soando abafada, o segredo não é aplicar força bruta com a mão, mas sim rotacionar levemente o dedo indicador para o lado esquerdo. Usar a parte lateral e mais rígida do osso do indicador, ao invés da polpa macia do dedo, cria uma superfície de pressão uniforme que faz todas as seis cordas vibrarem com clareza máxima.</p>
                 </div>
             </div>
         </div>
@@ -212,7 +212,8 @@
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             }
 
-            document.getElementById('nota-tocando').innerHTML = `Ecoando: <strong style="color: #ffaa00;">${nomeNota}</strong>`;
+            // Alterado o estilo inline para usar cinza claro prateado (#e2e8f0) em vez de amarelo
+            document.getElementById('nota-tocando').innerHTML = `Ecoando: <strong style="color: #e2e8f0;">${nomeNota}</strong>`;
 
             let agora = audioCtx.currentTime;
 
