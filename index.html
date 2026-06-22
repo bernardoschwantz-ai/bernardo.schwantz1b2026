@@ -16,22 +16,22 @@
             left: 0;
             width: 100%;
             height: 50px;
-            background-color: rgba(30, 30, 30, 0.95);
+            background-color: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 10000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            border-bottom: 2px solid #ff9f43;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            border-bottom: 2px solid #ff3333;
         }
 
         .top-navbar-content {
             font-family: 'Roboto', sans-serif;
             font-weight: 700;
             font-size: 1.2rem;
-            color: #ffffff;
+            color: #111116;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -48,16 +48,18 @@
             100% { transform: scale(1.15); }
         }
 
-        /* Dimensionamento correto e renderização das imagens das guitarras */
+        /* Correção e padronização absoluta das imagens das guitarras */
         .sidebar-guitar-img {
             width: 100% !important;
-            height: 150px !important;
+            height: 140px !important;
             object-fit: cover !important;
             border-radius: 6px;
             display: block;
+            margin-bottom: 12px;
+            background-color: #f0f0f5;
         }
 
-        /* Ajuste do topo da página para a barra não cobrir o conteúdo */
+        /* Ajuste do topo para o conteúdo não sumir atrás da barra */
         body {
             margin-top: 70px !important;
         }
@@ -83,21 +85,21 @@
             <h3 class="sidebar-title">⚡ Guia de Modelos</h3>
             
             <div class="guitar-model-card">
-                <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5278f?auto=format&fit=crop&w=300&q=80" alt="Stratocaster" class="sidebar-guitar-img">
+                <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5278f?w=400&auto=format&fit=crop&q=70" alt="Stratocaster" class="sidebar-guitar-img">
                 <h4>Stratocaster</h4>
                 <p><strong>Características:</strong> Corpo ergonômico, 3 captadores single-coil.</p>
                 <p class="ponto-forte"><strong>Ponto Forte:</strong> Som estalado e limpo (perfeito para Blues e Funk).</p>
             </div>
 
             <div class="guitar-model-card">
-                <img src="https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=300&q=80" alt="Les Paul" class="sidebar-guitar-img">
+                <img src="https://images.unsplash.com/photo-1550985616-10810253b84d?w=400&auto=format&fit=crop&q=70" alt="Les Paul" class="sidebar-guitar-img">
                 <h4>Les Paul</h4>
                 <p><strong>Características:</strong> Corpo pesado de mogno, 2 humbuckers.</p>
                 <p class="ponto-forte"><strong>Ponto Forte:</strong> Longo sustain e peso para distorções pesadas (Rock/Metal).</p>
             </div>
 
             <div class="guitar-model-card">
-                <img src="https://images.unsplash.com/photo-1514649923863-cebf75b2e009?auto=format&fit=crop&w=300&q=80" alt="Telecaster" class="sidebar-guitar-img">
+                <img src="https://images.unsplash.com/photo-1615214352210-917fa42d76b1?w=400&auto=format&fit=crop&q=70" alt="Telecaster" class="sidebar-guitar-img">
                 <h4>Telecaster</h4>
                 <p><strong>Características:</strong> Design rústico, 2 captadores single-coil.</p>
                 <p class="ponto-forte"><strong>Ponto Forte:</strong> Som brilhante com agudos marcantes (Indie/Pop-Rock).</p>
@@ -123,7 +125,7 @@
                 <p id="nota-tocando">Toque em uma corda para ouvir o eco...</p>
             </div>
             
-            <img id="guitarra-img" src="https://images.unsplash.com/photo-1525201548942-d8b8979d4a48?auto=format&fit=crop&w=1200&q=80" alt="Guitarra elétrica Stratocaster em chamas" class="imagem-blog">
+            <img id="guitarra-img" src="https://images.unsplash.com/photo-1525201548942-d8b8979d4a48?w=1000&auto=format&fit=crop&q=80" alt="Guitarra elétrica Stratocaster" class="imagem-blog">
             
             <section class="card" id="artigo1">
                 <h2>01. Introdução ao Universo da Guitarra</h2>
