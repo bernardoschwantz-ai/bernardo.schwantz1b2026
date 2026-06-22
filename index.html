@@ -16,22 +16,22 @@
             left: 0;
             width: 100%;
             height: 50px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(10, 10, 12, 0.95);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 10000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-            border-bottom: 2px solid #ff3333;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid #ff4500;
         }
 
         .top-navbar-content {
             font-family: 'Roboto', sans-serif;
             font-weight: 700;
             font-size: 1.2rem;
-            color: #111116;
+            color: #ffffff;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -48,18 +48,17 @@
             100% { transform: scale(1.15); }
         }
 
-        /* Correção e padronização absoluta das imagens das guitarras */
+        /* Dimensionamento correto das imagens locais */
         .sidebar-guitar-img {
             width: 100% !important;
-            height: 140px !important;
+            height: 150px !important;
             object-fit: cover !important;
             border-radius: 6px;
             display: block;
-            margin-bottom: 12px;
-            background-color: #f0f0f5;
+            background-color: #1a1a1a;
+            border: 1px solid #ff4500;
         }
 
-        /* Ajuste do topo para o conteúdo não sumir atrás da barra */
         body {
             margin-top: 70px !important;
         }
@@ -85,21 +84,21 @@
             <h3 class="sidebar-title">⚡ Guia de Modelos</h3>
             
             <div class="guitar-model-card">
-                <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5278f?w=400&auto=format&fit=crop&q=70" alt="Stratocaster" class="sidebar-guitar-img">
+                <img src="imagens/imagem01.jpg" alt="Stratocaster" class="sidebar-guitar-img">
                 <h4>Stratocaster</h4>
                 <p><strong>Características:</strong> Corpo ergonômico, 3 captadores single-coil.</p>
                 <p class="ponto-forte"><strong>Ponto Forte:</strong> Som estalado e limpo (perfeito para Blues e Funk).</p>
             </div>
 
             <div class="guitar-model-card">
-                <img src="https://images.unsplash.com/photo-1550985616-10810253b84d?w=400&auto=format&fit=crop&q=70" alt="Les Paul" class="sidebar-guitar-img">
+                <img src="imagens/imagem01.jpg" alt="Les Paul" class="sidebar-guitar-img">
                 <h4>Les Paul</h4>
                 <p><strong>Características:</strong> Corpo pesado de mogno, 2 humbuckers.</p>
                 <p class="ponto-forte"><strong>Ponto Forte:</strong> Longo sustain e peso para distorções pesadas (Rock/Metal).</p>
             </div>
 
             <div class="guitar-model-card">
-                <img src="https://images.unsplash.com/photo-1615214352210-917fa42d76b1?w=400&auto=format&fit=crop&q=70" alt="Telecaster" class="sidebar-guitar-img">
+                <img src="imagens/imagem01.jpg" alt="Telecaster" class="sidebar-guitar-img">
                 <h4>Telecaster</h4>
                 <p><strong>Características:</strong> Design rústico, 2 captadores single-coil.</p>
                 <p class="ponto-forte"><strong>Ponto Forte:</strong> Som brilhante com agudos marcantes (Indie/Pop-Rock).</p>
@@ -125,7 +124,7 @@
                 <p id="nota-tocando">Toque em uma corda para ouvir o eco...</p>
             </div>
             
-            <img id="guitarra-img" src="https://images.unsplash.com/photo-1525201548942-d8b8979d4a48?w=1000&auto=format&fit=crop&q=80" alt="Guitarra elétrica Stratocaster" class="imagem-blog">
+            <img id="guitarra-img" src="imagens/imagem01.jpg" alt="Guitarra elétrica principal" class="imagem-blog">
             
             <section class="card" id="artigo1">
                 <h2>01. Introdução ao Universo da Guitarra</h2>
@@ -134,7 +133,7 @@
 
             <section class="card" id="artigo2">
                 <h2>02. Guia de Modelos e Captação</h2>
-                <p>A escolha de uma guitarra envolve entender como o design e a eletrônica afetam o som final. Modelos clássicos como a Stratocaster e a Telecaster utilizam captadores single-coil (bobina simples), conhecidos por um som brilhante, estalado e com alta definição, ideais para vertentes mais limpas. Por outro lado, modelos como a Les Paul utilizam captadores humbucker (bobina dupla), desenvolvidos para cancelar ruídos e entregar um som mais encorpado, com maior sustentação, sendo a escolha preferida para distorções pesadas no rock e no metal.</p>
+                <p>A escolha de uma guitarra envolve entender como o design e a eletrônica afetam o som final. Modelos clássicos como a Stratocaster e a Telecaster utilizam captadores single-coil (bobina simples), conhecidos por um som brilhante, estalado e com alta definição, ideais para vertentes mais limpas. Por outro lado, models como a Les Paul utilizam captadores humbucker (bobina dupla), desenvolvidos para cancelar ruídos e entregar um som mais encorpado, com maior sustentação, sendo a escolha preferida para distorções pesadas no rock e no metal.</p>
             </section>
 
             <section class="card" id="artigo3">
@@ -144,7 +143,7 @@
 
             <section class="card" id="artigo4">
                 <h2>04. Planejamento de Rotina de Treino</h2>
-                <p>O desenvolvimento técnico na guitarra depende diretamente da regularidade dos estímulos enviados ao cérebro. Estudos de aprendizado motor comprovam que sessões diárias curtas e focadas, de 20 a 30 minutos, são significativamente mais eficazes do que longos períodos de treino isolados no fim de semana. Dividir o tempo de prática entre aquecimento físico, exercícios técnicos (como palhetada alternativa e escalas) e a aplicação em repertório musical otimiza a fixação da memória muscular, tornando os movimentos automáticos e fluidos a longo prazo.</p>
+                <p>O desenvolvimento técnico na guitarra depende diretamente da regularidade os estímulos enviados ao cérebro. Estudos de aprendizado motor comprovam que sessões diárias curtas e focadas, de 20 a 30 minutos, são significativamente mais eficazes do que longos períodos de treino isolados no fim de semana. Dividir o tempo de prática entre aquecimento físico, exercícios técnicos (como palhetada alternativa e escalas) e a aplicação em repertório musical otimiza a fixação da memória muscular, tornando os movimentos automáticos e fluidos a longo prazo.</p>
             </section>
 
             <section class="card" id="artigo5">
@@ -195,7 +194,7 @@
                 </div>
                 <div class="acorde-destaque">
                     <h4>💡 Dica de Ouro para Pestanas</h4>
-                    <p>Se a sua pestana (como o acorde de Fá Maior) está soando abafada, o segredo não é aplicar força bruta com a mão, mas sim rotacionar levemente o dedo indicador para o lado esquerdo. Usar a parte lateral e mais rígida do osso do indicador, ao invés da polpa macia do dedo, cria uma superfície de pressão uniforme que faz todas as seis cordas vibrarem com clareza máxima.</p>
+                    <p>Se a sua pestana (como o acorde de Fá Maior) está soando abafada, o segredo não é aplicar força bruta com a mão, mas sim rotacionar levemente o dedo indicador para o lado esquerdo. Usar a parte lateral e mais rígida do osso do indicador, au invés da polpa macia do dedo, cria uma superfície de pressão uniforme que faz todas as seis cordas vibrarem com clareza máxima.</p>
                 </div>
             </div>
         </div>
@@ -213,7 +212,7 @@
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             }
 
-            document.getElementById('nota-tocando').innerHTML = `Ecoando: <strong style="color: #ff9f43;">${nomeNota}</strong>`;
+            document.getElementById('nota-tocando').innerHTML = `Ecoando: <strong style="color: #ffaa00;">${nomeNota}</strong>`;
 
             let agora = audioCtx.currentTime;
 

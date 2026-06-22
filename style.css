@@ -1,8 +1,10 @@
-/* Configurações Gerais e Fontes - Light Mode Premium */
+/* Configurações Gerais e Efeito Chamas de Fundo */
 body {
     font-family: 'Roboto', 'Segoe UI', sans-serif;
-    background-color: #f7fafc;
-    color: #2d3748;
+    /* Efeito de chamas subindo no fundo usando múltiplos gradientes escuros e incandescentes */
+    background: linear-gradient(0deg, rgba(230,57,70,0.15) 0%, rgba(255,107,0,0.1) 40%, #030305 80%), #030305;
+    background-attachment: fixed;
+    color: #e2e8f0;
     line-height: 1.7;
     margin: 0;
     padding: 0;
@@ -14,19 +16,22 @@ body {
 }
 
 h1 {
-    color: #1a202c; /* Título principal em tom quase preto para dar peso */
-    font-size: 3rem;
+    color: #ff3333;
+    font-size: 3.5rem;
     font-weight: 900;
     text-transform: uppercase;
     margin: 0;
     letter-spacing: -1px;
+    text-shadow: 0 0 20px rgba(255, 51, 51, 0.7), 0 0 40px rgba(255, 69, 0, 0.4);
 }
 
 .subtitulo {
-    color: #718096;
-    font-size: 1.1rem;
+    color: #ffaa00;
+    font-size: 1.2rem;
     font-style: italic;
+    font-weight: bold;
     margin: 8px 0 0 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
 /* LAYOUT TRI-COLUNA */
@@ -42,67 +47,70 @@ h1 {
 .sidebar {
     flex: 1;
     min-width: 280px;
-    background: #ffffff;
+    background: rgba(15, 15, 20, 0.85);
+    backdrop-filter: blur(5px);
     padding: 20px;
     border-radius: 12px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #ff4500;
     height: fit-content;
     position: sticky;
     top: 75px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(255, 69, 0, 0.15);
 }
 
 .sidebar-title {
-    color: #1a202c;
+    color: #ffaa00;
     text-transform: uppercase;
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 1.1rem;
+    font-weight: 900;
     margin-top: 0;
-    border-bottom: 2px solid #b30000; /* Linha de destaque em vermelho escuro */
+    border-bottom: 2px solid #ff3333;
     padding-bottom: 10px;
     margin-bottom: 20px;
     letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(255,170,0,0.3);
 }
 
 /* Esquerda: Cards de Modelos */
 .guitar-model-card {
-    background: #ffffff;
+    background: rgba(25, 25, 30, 0.9);
     padding: 16px;
     border-radius: 8px;
     margin-bottom: 20px;
     font-size: 0.9rem;
-    border: 1px solid #e2e8f0;
-    border-top: 4px solid #1a202c; /* Detalhe superior escuro */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    border: 1px solid #333;
+    border-left: 4px solid #ff4500;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
 }
 
-/* Efeito Hover do Card de Guitarras */
 .guitar-model-card:hover {
     transform: translateY(-4px);
-    border-top-color: #b30000; /* Muda para o vermelho no hover */
-    box-shadow: 0 10px 15px -3px rgba(179, 0, 0, 0.1);
+    border-left-color: #ff3333;
+    box-shadow: 0 0 20px rgba(255, 51, 51, 0.4);
+    background: #1e1e24;
 }
 
 .guitar-model-card h4 {
-    margin: 0 0 8px 0;
-    color: #1a202c;
-    font-size: 1.1rem;
+    margin: 10px 0 5px 0;
+    color: #ffffff;
+    font-size: 1.2rem;
     font-weight: 700;
 }
 
 .guitar-model-card p {
     margin: 0 0 6px 0;
-    color: #4a5568;
-    font-size: 0.85rem;
+    color: #cbd5e0;
+    font-size: 0.88rem;
 }
 
 .ponto-forte {
-    color: #b30000 !important; /* Texto do ponto forte combinando com o destaque */
-    background: rgba(179, 0, 0, 0.05);
+    color: #ffffff !important;
+    background: linear-gradient(90deg, #ff4500, #ff3333);
     padding: 6px 8px;
     border-radius: 4px;
     font-weight: 700;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 /* Direita: Menu de Links */
@@ -112,59 +120,65 @@ h1 {
     gap: 8px;
 }
 .shortcut-menu a {
-    color: #4a5568;
+    color: #e2e8f0;
     text-decoration: none;
     font-size: 0.95rem;
     padding: 10px 14px;
-    background: #f7fafc;
+    background: rgba(30, 30, 40, 0.6);
     border-radius: 6px;
     transition: all 0.2s ease;
     border-left: 3px solid transparent;
     font-weight: 500;
 }
 .shortcut-menu a:hover {
-    background: #1a202c;
+    background: #ff3333;
     color: #ffffff;
-    border-left-color: #b30000;
+    border-left-color: #ffaa00;
     transform: translateX(4px);
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.5);
 }
 
 /* COLUNA CENTRAL */
 .main-content {
     flex: 2.3;
-    background: #ffffff;
+    background: rgba(10, 10, 12, 0.9);
+    backdrop-filter: blur(5px);
     padding: 35px;
     border-radius: 12px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #222;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
 }
 
 .intro-box {
-    background-color: #f7fafc;
-    color: #4a5568;
+    background-color: rgba(255, 69, 0, 0.05);
+    color: #e2e8f0;
     padding: 22px;
-    border-left: 4px solid #b30000;
+    border-left: 4px solid #ff3333;
     border-radius: 4px;
     margin-bottom: 30px;
     font-size: 1.05rem;
+    border-right: 1px solid rgba(255, 69, 0, 0.1);
+    border-top: 1px solid rgba(255, 69, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 69, 0, 0.1);
 }
 
-/* Afinador Estilizado (Mantido escuro para destacar os botões iluminados) */
+/* Afinador Realista */
 .afinador-container {
-    background: #1a202c;
+    background: #000000;
     color: #fff;
     padding: 25px;
     border-radius: 10px;
-    border: 1px solid #2d3748;
+    border: 2px solid #ff3333;
     margin-bottom: 35px;
     text-align: center;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(255, 51, 51, 0.2);
 }
 .afinador-container h3 {
     margin: 0 0 6px 0;
-    color: #ffffff;
+    color: #ffaa00;
     font-size: 1.3rem;
     letter-spacing: 0.5px;
+    text-shadow: 0 0 10px rgba(255,170,0,0.4);
 }
 .afinador-instrucao {
     font-size: 0.9rem;
@@ -178,9 +192,9 @@ h1 {
 }
 .nota-btn {
     font-family: 'Roboto', sans-serif;
-    background: #2d3748;
-    color: #fff;
-    border: 1px solid #4a5568;
+    background: #1a1a1a;
+    color: #ffaa00;
+    border: 2px solid #ff4500;
     width: 52px;
     height: 52px;
     font-weight: 700;
@@ -189,11 +203,11 @@ h1 {
     transition: all 0.2s ease;
 }
 .nota-btn:hover {
-    background: #b30000;
+    background: #ff3333;
     color: #fff;
     border-color: #ffffff;
     transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(179, 0, 0, 0.6);
+    box-shadow: 0 0 20px #ff3333;
 }
 #nota-tocando {
     margin-top: 14px;
@@ -207,31 +221,32 @@ h1 {
     height: 380px;
     object-fit: cover;
     border-radius: 10px;
-    border: 1px solid #e2e8f0;
+    border: 2px solid #ff4500;
     margin-bottom: 35px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 0 25px rgba(255, 69, 0, 0.3);
 }
 
 /* Cards de Conteúdo Central */
 .card {
-    background: #ffffff;
+    background: rgba(20, 20, 25, 0.9);
     padding: 30px;
     border-radius: 8px;
     margin-bottom: 25px;
-    border: 1px solid #e2e8f0;
-    border-bottom: 3px solid #edf2f7;
+    border: 1px solid #222;
+    border-bottom: 3px solid #ff4500;
     scroll-margin-top: 75px;
     transition: all 0.3s ease;
 }
 
 .card:hover {
-    border-bottom-color: #b30000;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04);
+    border-bottom-color: #ff3333;
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.2);
     transform: translateY(-2px);
+    background: rgba(30, 30, 35, 0.95);
 }
 
 .card h2 {
-    color: #1a202c;
+    color: #ffaa00;
     font-size: 1.35rem;
     margin-top: 0;
     font-weight: 700;
@@ -240,24 +255,25 @@ h1 {
     transition: color 0.2s ease;
 }
 .card:hover h2 {
-    color: #b30000;
+    color: #ff3333;
 }
 
 .card p {
     font-size: 0.98rem;
-    color: #4a5568;
+    color: #e2e8f0;
     margin: 0;
 }
 
 /* SEÇÃO DE LARGURA TOTAL */
 .full-width-section {
-    background: #ffffff;
-    border-top: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
+    background: rgba(5, 5, 5, 0.95);
+    border-top: 2px solid #ff3333;
+    border-bottom: 2px solid #ff3333;
     padding: 55px 20px;
     margin: 50px 0 0 0;
     display: flex;
     justify-content: center;
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
 }
 
 .full-width-content {
@@ -266,12 +282,13 @@ h1 {
 }
 
 .full-width-content h2 {
-    color: #1a202c;
+    color: #ff3333;
     font-size: 1.8rem;
     text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 30px;
     text-align: center;
+    text-shadow: 0 0 10px rgba(255,51,51,0.5);
 }
 
 .acordes-grid {
@@ -282,21 +299,21 @@ h1 {
 .acorde-texto {
     flex: 2;
     font-size: 1.05rem;
-    color: #4a5568;
+    color: #cbd5e0;
 }
 
 .acorde-destaque {
     flex: 1;
-    background: #f7fafc;
+    background: #111;
     padding: 25px;
     border-radius: 10px;
-    border: 1px solid #e2e8f0;
-    border-left: 4px solid #b30000;
+    border: 1px solid #ff4500;
+    box-shadow: inset 0 0 15px rgba(255,69,0,0.1);
 }
 
 .acorde-destaque h4 {
     margin-top: 0;
-    color: #b30000;
+    color: #ffaa00;
     font-size: 1.15rem;
     text-transform: uppercase;
 }
@@ -305,12 +322,12 @@ h1 {
 footer {
     text-align: center;
     padding: 35px;
-    background-color: #1a202c;
-    color: #a0aec0;
-    border-top: 3px solid #b30000;
+    background-color: #000000;
+    color: #718096;
+    border-top: 3px solid #ff3333;
 }
 footer strong {
-    color: #ffffff;
+    color: #ffaa00;
 }
 
 /* Responsividade */
