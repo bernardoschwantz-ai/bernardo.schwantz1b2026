@@ -346,7 +346,7 @@ html, body {
 a, button, select, input[type="submit"], .acorde-btn, th, td {
     cursor: url('images/palheta-pointer.png') 16 16, pointer !important;
 }
-/* CURSOR PALHETA PREMIUM (Injetado via SVG Data URI) */
+/* CURSOR PALHETA PREMIUM (Base64 - Compatível com todas as páginas e navegadores) */
 html, body, button, a, input, select, textarea {
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 32 32'><defs><linearGradient id='pGrad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%23ff5f1f'/><stop offset='100%' stop-color='%23b22222'/></linearGradient></defs><path d='M2,4 C10,0 22,2 29,11 C33,18 26,26 16,31 C6,26 -1,18 2,4 Z' fill='url(%23pGrad)' stroke='%23ffffff' stroke-width='1.5'/><circle cx='16' cy='12' r='3' fill='%23ffffff' opacity='0.3'/><line x1='12' y1='12' x2='20' y2='12' stroke='%23000000' stroke-width='1' opacity='0.4'/><line x1='14' y1='15' x2='18' y2='15' stroke='%23000000' stroke-width='1' opacity='0.4'/></svg>") 0 0, auto !important;
+    cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDMyIDMyJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J3BHcmFkJyB4MT0nMCUnIHkxPScwJScgeDI9JzEwMCUnIHkyPScxMDAnJz48c3RvcCBvZmZzZXQ9JzAlJyBzdG9wLWNvbG9yPScjZmY1ZjFmJy8+PHN0b3Agb2Zmc2V0PScxMDAlJyBzdG9wLWNvbG9yPScjYjIyMjIyJy8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHBhdGggZD0nTTIsNCBDMTAsMCAyMiwyIDI5LDExQzMzLDE4IDI2LDI2IDE2LDMxQzYsMjYgLTEsMTggMiw0IFonIGZpbGw9J3VybCgjcEdyYWQpJyBzdHJva2U9JyNmZmZmZmYnIHN0cm9rZS13aWR0aD0nMS41Jy8+PGNpcmNsZSBjeD0nMTYnIGN5PScxMicgcj0nMycgZmlsbD0nI2ZmZmZmZicgb3BhY2l0eT0nMC4zJy8+PGxpbmUgeDE9JzEyJyB5MT0nMTInIHgyPSIyMCIgeTI9JzEyJyBzdHJva2U9JyMwMDAwMDAnIHN0cm9rZS13aWR0aD0nMScgb3BhY2l0eT0nMC40Jy8+PGxpbmUgeDE9JzE0JyB5MT0nMTUnIHgyPScxOCcgeTI9JzE1JyBzdHJva2U9JyMwMDAwMDAnIHN0cm9rZS13aWR0aD0nMScgb3BhY2l0eT0nMC40Jy8+PC9zdmc+") 0 0, auto !important;
 }
