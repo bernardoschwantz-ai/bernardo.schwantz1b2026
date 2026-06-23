@@ -143,6 +143,7 @@
             color: #ffffff;
         }
 
+        /* Botão Alterado para "Música" */
         .btn-live-rock {
             background: linear-gradient(90deg, #ff4500, #ff8c00);
             padding: 8px 16px;
@@ -160,7 +161,7 @@
             100% { box-shadow: 0 0 15px rgba(255, 69, 0, 0.9); }
         }
 
-        /* Estilos do Player de Música Flutuante */
+        /* Player de Música Estilizado com Suporte a Playlist Real (+de 25 Músicas) */
         .rock-player {
             position: fixed;
             bottom: 20px;
@@ -168,52 +169,37 @@
             background: #111115;
             border: 2px solid #ff4500;
             border-radius: 10px;
-            padding: 15px;
+            padding: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.8);
             z-index: 9999;
             font-family: 'Roboto', sans-serif;
-            width: 280px;
-            display: none; /* Inicia oculto, aparece ao clicar em MODO ROCKER */
+            width: 320px;
+            display: none; 
+        }
+
+        .player-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
         }
 
         .player-title {
             color: #ff4500;
             font-weight: 900;
-            margin: 0 0 5px 0;
-            font-size: 1rem;
+            margin: 0;
+            font-size: 0.95rem;
             text-transform: uppercase;
         }
 
-        .track-info {
-            color: #fff;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            font-weight: bold;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .player-controls {
-            display: flex;
-            gap: 10px;
-        }
-
-        .player-btn {
-            background: #222;
-            border: 1px solid #ff4500;
-            color: #fff;
-            padding: 8px 12px;
-            border-radius: 4px;
+        .close-player {
+            background: none;
+            border: none;
+            color: #888;
             cursor: pointer;
-            font-weight: bold;
-            flex: 1;
-            transition: background 0.2s;
+            font-size: 1rem;
         }
-
-        .player-btn:hover {
-            background: #ff4500;
-        }
+        .close-player:hover { color: #fff; }
 
         .sidebar-guitar-img {
             width: 100% !important;
@@ -250,19 +236,17 @@
                 <a href="guia-compra.html" class="nav-link-btn">Guia de Compra</a>
             </li>
             <li class="nav-item">
-                <button onclick="alternarPlayer()" class="btn-live-rock">MODO ROCKER 🔥</button>
+                <button onclick="alternarPlayer()" class="btn-live-rock">MÚSICA 🎵</button>
             </li>
         </ul>
     </nav>
 
     <div id="rock-player-widget" class="rock-player">
-        <p class="player-title">⚡ Rádio Rock Classic</p>
-        <div id="current-track" class="track-info">Parado - Toque para iniciar</div>
-        <div class="player-controls">
-            <button class="player-btn" onclick="controlarMusica('play')">Play</button>
-            <button class="player-btn" onclick="controlarMusica('pause')">Pause</button>
-            <button class="player-btn" onclick="controlarMusica('next')">Próxima ➔</button>
+        <div class="player-header">
+            <p class="player-title">⚡ Classic Rock Hits (+25 Musicas)</p>
+            <button class="close-player" onclick="alternarPlayer()">✕</button>
         </div>
+        <iframe width="100%" height="180" src="https://www.youtube.com/embed/videoseries?list=PL4mH_OorZzYpC9V-IepbA_4gK7_W_E93X" title="Playlist Rock" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius:6px; background:#000;"></iframe>
     </div>
 
     <header class="site-header">
@@ -414,81 +398,21 @@
 
     <script>
         let audioCtx = null;
-        let somMusica = null;
-        let tocandoAgora = false;
-        let indiceMusica = 0;
-
-        // Lista de músicas do Modo Rocker (Simulação por ondas sintetizadas)
-        const playlist = [
-            { titulo: "AC/DC - Back in Black", freq: 110.00, padrao: [1, 1, 1, 0.5, 0.5, 0.5] },
-            { titulo: "Guns N' Roses - Sweet Child O' Mine", freq: 146.83, padrao: [1, 1.2, 1.5, 1.2, 1.8, 1.5] }
-        ];
-
-        function inicializarAudio() {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            }
-        }
 
         function alternarPlayer() {
             const player = document.getElementById('rock-player-widget');
             if (player.style.display === 'block') {
                 player.style.display = 'none';
-                pararSomMusica();
             } else {
                 player.style.display = 'block';
             }
         }
 
-        function controlarMusica(acao) {
-            inicializarAudio();
-            
-            if (acao === 'play') {
-                if (!tocandoAgora) {
-                    tocandoAgora = true;
-                    reproduzirRiffRocker();
-                }
-            } else if (acao === 'pause') {
-                pararSomMusica();
-            } else if (acao === 'next') {
-                indiceMusica = (indiceMusica + 1) % playlist.length;
-                pararSomMusica();
-                tocandoAgora = true;
-                reproduzirRiffRocker();
-            }
-        }
-
-        function reproduzirRiffRocker() {
-            const track = playlist[indiceMusica];
-            document.getElementById('current-track').innerText = `Tocando: ${track.titulo}`;
-            
-            somMusica = audioCtx.createOscillator();
-            let ganho = audioCtx.createGain();
-            
-            somMusica.type = "sawtooth"; // Som rústico simulando guitarra
-            somMusica.frequency.setValueAtTime(track.freq, audioCtx.currentTime);
-            
-            ganho.gain.setValueAtTime(0.08, audioCtx.currentTime);
-            
-            somMusica.connect(ganho);
-            ganho.connect(audioCtx.destination);
-            somMusica.start();
-        }
-
-        function pararSomMusica() {
-            tocandoAgora = false;
-            document.getElementById('current-track').innerText = "Música pausada";
-            if (somMusica) {
-                try {
-                    somMusica.stop();
-                } catch(e) {}
-                somMusica = null;
-            }
-        }
-
         // Sistema do Afinador Original
         function tocarNotaComEco(frequencia, nomeNota) {
-            inicializarAudio();
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
             document.getElementById('nota-tocando').innerHTML = `Ecoando: <strong style="color: #e2e8f0;">${nomeNota}</strong>`;
             let agora = audioCtx.currentTime;
 
