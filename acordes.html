@@ -86,6 +86,8 @@
             font-weight: bold;
             border-radius: 8px;
             cursor: pointer;
+            text-align: center;
+            text-decoration: none;
             transition: all 0.3s ease;
         }
 
@@ -102,6 +104,7 @@
             padding: 25px;
             margin-bottom: 25px;
             border-left: 5px solid #ff4500;
+            scroll-margin-top: 90px; /* Para não cobrir o título ao rolar a página */
         }
 
         .card-acorde h3 {
@@ -114,14 +117,24 @@
             font-size: 1.1rem;
             color: #cbd5e1;
             line-height: 1.6;
+            margin-bottom: 15px;
         }
 
-        #status-som {
-            text-align: center;
-            font-size: 1.2rem;
+        /* Caixa com a posição dos dedos */
+        .posicao-dedos-box {
+            background-color: rgba(255, 69, 0, 0.05);
+            border: 1px solid rgba(255, 69, 0, 0.3);
+            border-radius: 6px;
+            padding: 15px;
+            font-family: monospace;
+            font-size: 1.05rem;
             color: #ff8c00;
-            margin-bottom: 20px;
-            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .posicao-dedos-box strong {
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
         }
     </style>
 </head>
@@ -142,55 +155,107 @@
 
     <div class="container-acordes">
         <header style="text-align: center; margin-bottom: 40px;">
-            <h1 style="font-size: 2.5rem; color: #fff;">Dicionário de Acordes Oficiais</h1>
-            <p style="color: #cbd5e1;">Clique nos botões para ouvir a nota fundamental afinada de cada acorde:</p>
+            <h1 style="font-size: 2.5rem; color: #fff;">Posicionamento dos Acordes</h1>
+            <p style="color: #cbd5e1;">Clique em um acorde para pular direto para o guia de montagem no braço:</p>
         </header>
 
-        <p id="status-som">Toque em um acorde para ouvir...</p>
-
         <div class="grid-botoes-acordes">
-            <button class="btn-nota-oficial" onclick="tocarNotaOficial(261.63, 'Dó'); tocarSomClique();">Dó (C)</button>
-            <button class="btn-nota-oficial" onclick="tocarNotaOficial(293.66, 'Ré'); tocarSomClique();">Ré (D)</button>
-            <button class="btn-nota-oficial" onclick="tocarNotaOficial(329.63, 'Mi'); tocarSomClique();">Mi (E)</button>
-            <button class="btn-nota-oficial" onclick="tocarNotaOficial(349.23, 'Fá'); tocarSomClique();">Fá (F)</button>
-            <button class="btn-nota-oficial" onclick="tocarNotaOficial(392.00, 'Sol'); tocarSomClique();">Sol (G)</button>
-            <button class="btn-nota-oficial" onclick="tocarNotaOficial(440.00, 'Lá'); tocarSomClique();">Lá (A)</button>
-            <button class="btn-nota-oficial" onclick="tocarNotaOficial(493.88, 'Si'); tocarSomClique();">Si (B)</button>
+            <a href="#docard" class="btn-nota-oficial" onclick="tocarSomClique();">Dó</a>
+            <a href="#recard" class="btn-nota-oficial" onclick="tocarSomClique();">Ré</a>
+            <a href="#micard" class="btn-nota-oficial" onclick="tocarSomClique();">Mi</a>
+            <a href="#facard" class="btn-nota-oficial" onclick="tocarSomClique();">Fá</a>
+            <a href="#solcard" class="btn-nota-oficial" onclick="tocarSomClique();">Sol</a>
+            <a href="#lacard" class="btn-nota-oficial" onclick="tocarSomClique();">Lá</a>
+            <a href="#sicard" class="btn-nota-oficial" onclick="tocarSomClique();">Si</a>
         </div>
 
-        <section class="card-acorde">
-            <h3>Acorde de Dó Maior</h3>
-            <p class="info-nota">Formado pelas notas Dó, Mi e Sol. É um dos primeiros acordes que todo guitarrista aprende, sendo a base da música ocidental e essencial para treinar a abertura dos dedos no braço do instrumento.</p>
+        <section class="card-acorde" id="docard">
+            <h3>Acorde de Dó Maior (C)</h3>
+            <p class="info-nota">Um dos acordes fundamentais abertos. Certifique-se de arquear bem os dedos para não abafar as cordas soltas adjacentes.</p>
+            <div class="posicao-dedos-box">
+                <strong>COMO MONTAR NO BRAÇO:</strong><br>
+                • Dedo 1: 2ª corda (Si), na Casa 1<br>
+                • Dedo 2: 4ª corda (Ré), na Casa 2<br>
+                • Dedo 3: 5ª corda (Lá), na Casa 3<br>
+                • Cordas Soltas: 1ª (Mi) e 3ª (Sol)<br>
+                • Atenção: Não toque a 6ª corda (Mi grossa).
+            </div>
         </section>
 
-        <section class="card-acorde">
-            <h3>Acorde de Ré Maior</h3>
-            <p class="info-nota">Formado pelas notas Ré, Fá sustenido e Lá. Possui um formato triangular bem confortável nas primeiras três cordas e tem um som brilhante e muito alegre, muito usado no Rock clássico.</p>
+        <section class="card-acorde" id="recard">
+            <h3>Acorde de Ré Maior (D)</h3>
+            <p class="info-nota">Possui um formato triangular muito comum e brilhante. Toque a palhetada apenas da quarta corda para baixo.</p>
+            <div class="posicao-dedos-box">
+                <strong>COMO MONTAR NO BRAÇO:</strong><br>
+                • Dedo 1: 3ª corda (Sol), na Casa 2<br>
+                • Dedo 2: 1ª corda (Mi fina), na Casa 2<br>
+                • Dedo 3: 2ª corda (Si), na Casa 3<br>
+                • Corda Solta: 4ª corda (Ré)<br>
+                • Atenção: Não toque a 5ª e a 6ª corda.
+            </div>
         </section>
 
-        <section class="card-acorde">
-            <h3>Acorde de Mi Maior</h3>
-            <p class="info-nota">Formado pelas notas Mi, Sol sustenido e Si. Usa todas as seis cordas da guitarra, o que confere a ele um som encorpado, pesado e cheio de sustentação natural.</p>
+        <section class="card-acorde" id="micard">
+            <h3>Acorde de Mi Maior (E)</h3>
+            <p class="info-nota">Acorde cheio e poderoso que utiliza todas as seis cordas da guitarra, excelente para bases de rock.</p>
+            <div class="posicao-dedos-box">
+                <strong>COMO MONTAR NO BRAÇO:</strong><br>
+                • Dedo 1: 3ª corda (Sol), na Casa 1<br>
+                • Dedo 2: 5ª corda (Lá), na Casa 2<br>
+                • Dedo 3: 4ª corda (Ré), na Casa 2<br>
+                • Cordas Soltas: 1ª, 2ª e 6ª cordas<br>
+                • Atenção: Pode palhetar todas as 6 cordas uniformemente.
+            </div>
         </section>
 
-        <section class="card-acorde">
-            <h3>Acorde de Fá Maior</h3>
-            <p class="info-nota">Formado pelas notas Fá, Lá e Dó. Geralmente introduz o estudante ao desafio da <strong>pestana</strong>. Exige o uso do osso lateral do dedo indicador para pressionar todas as cordas na primeira casa.</p>
+        <section class="card-acorde" id="facard">
+            <h3>Acorde de Fá Maior (F)</h3>
+            <p class="info-nota">O primeiro grande teste do iniciante por introduzir a pestana. Pressione firmemente perto do traste metálico.</p>
+            <div class="posicao-dedos-box">
+                <strong>COMO MONTAR NO BRAÇO:</strong><br>
+                • Dedo 1: Pestana completa cobrindo todas as cordas na Casa 1<br>
+                • Dedo 2: 3ª corda (Sol), na Casa 2<br>
+                • Dedo 3: 5ª corda (Lá), na Casa 3<br>
+                • Dedo 4: 4ª corda (Ré), na Casa 3
+            </div>
         </section>
 
-        <section class="card-acorde">
-            <h3>Acorde de Sol Maior</h3>
-            <p class="info-nota">Formado pelas notas Sol, Si e Ré. Um acorde aberto que exige uma boa extensão do dedo anelar e mindinho nas cordas mais agudas, ideal para ganhar flexibilidade na mão esquerda.</p>
+        <section class="card-acorde" id="solcard">
+            <h3>Acorde de Sol Maior (G)</h3>
+            <p class="info-nota">Um acorde muito aberto que exige flexibilidade para alcançar as extremidades do braço do instrumento.</p>
+            <div class="posicao-dedos-box">
+                <strong>COMO MONTAR NO BRAÇO:</strong><br>
+                • Dedo 1: 5ª corda (Lá), na Casa 2<br>
+                • Dedo 2: 6ª corda (Mi grossa), na Casa 3<br>
+                • Dedo 3: 1ª corda (Mi fina), na Casa 3<br>
+                • Cordas Soltas: 2ª, 3ª e 4ª cordas
+            </div>
         </section>
 
-        <section class="card-acorde">
-            <h3>Acorde de Lá Maior</h3>
-            <p class="info-nota">Formado pelas notas Lá, Dó sustenido e Mi. É montado espremendo três dedos na mesma casa (casa 2), ótimo para praticar o posicionamento bem vertical da ponta dos dedos para não abafar as cordas vizinhas.</p>
+        <section class="card-acorde" id="lacard">
+            <h3>Acorde de Lá Maior (A)</h3>
+            <p class="info-nota">Três dedos posicionados lado a lado dentro da mesma casa. Mantenha os dedos compactos para caberem perfeitamente.</p>
+            <div class="posicao-dedos-box">
+                <strong>COMO MONTAR NO BRAÇO:</strong><br>
+                • Dedo 1: 4ª corda (Ré), na Casa 2<br>
+                • Dedo 2: 3ª corda (Sol), na Casa 2<br>
+                • Dedo 3: 2ª corda (Si), na Casa 2<br>
+                • Cordas Soltas: 1ª (Mi fina) e 5ª (Lá)<br>
+                • Atenção: Não toque a 6ª corda.
+            </div>
         </section>
 
-        <section class="card-acorde">
-            <h3>Acorde de Si Maior</h3>
-            <p class="info-nota">Formado pelas notas Si, Ré sustenido e Fá sustenido. Geralmente feito com formato de pestana na segunda casa, sendo uma ótima evolução técnica para quem já dominou o acorde de Fá.</p>
+        <section class="card-acorde" id="sicard">
+            <h3>Acorde de Si Maior (B)</h3>
+            <p class="info-nota">Uma estrutura de pestana móvel baseada no formato de Lá, localizada duas casas acima no braço.</p>
+            <div class="posicao-dedos-box">
+                <strong>COMO MONTAR NO BRAÇO:</strong><br>
+                • Dedo 1: Pestana da 1ª à 5ª corda na Casa 2<br>
+                • Dedo 2: 4ª corda (Ré), na Casa 4<br>
+                • Dedo 3: 3ª corda (Sol), na Casa 4<br>
+                • Dedo 4: 2ª corda (Si), na Casa 4<br>
+                • Atenção: Não toque a 6ª corda.
+            </div>
         </section>
     </div>
 
@@ -203,8 +268,11 @@
             }
         }
 
+        // Mantém apenas o som sutil do clique interativo ao navegar e interagir
         function tocarSomClique() {
             verificarAudioContext();
+            if(audioCtx.state === 'suspended') audioCtx.resume();
+            
             let agora = audioCtx.currentTime;
             let osc = audioCtx.createOscillator();
             let ganho = audioCtx.createGain();
@@ -218,34 +286,6 @@
             ganho.connect(audioCtx.destination);
             osc.start(agora);
             osc.stop(agora + 0.06);
-        }
-
-        function tocarNotaOficial(freq, nomeNota) {
-            verificarAudioContext();
-            if(audioCtx.state === 'suspended') audioCtx.resume();
-
-            document.getElementById('status-som').innerText = "Ouvindo nota fundamental de: " + nomeNota;
-
-            let agora = audioCtx.currentTime;
-            let osc = audioCtx.createOscillator();
-            let ganho = audioCtx.createGain();
-            let filtro = audioCtx.createBiquadFilter();
-
-            osc.type = "sawtooth"; 
-            osc.frequency.setValueAtTime(freq, agora);
-
-            filtro.type = "lowpass";
-            filtro.frequency.setValueAtTime(1000, agora);
-
-            ganho.gain.setValueAtTime(0.15, agora);
-            ganho.gain.exponentialRampToValueAtTime(0.00001, agora + 1.8);
-
-            osc.connect(filtro);
-            filtro.connect(ganho);
-            ganho.connect(audioCtx.destination);
-
-            osc.start(agora);
-            osc.stop(agora + 1.8);
         }
     </script>
 </body>
