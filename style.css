@@ -350,3 +350,17 @@ a, button, select, input[type="submit"], .acorde-btn, th, td {
 html, body, button, a, input, select, textarea {
     cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDMyIDMyJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J3BHcmFkJyB4MT0nMCUnIHkxPScwJScgeDI9JzEwMCUnIHkyPScxMDAnJz48c3RvcCBvZmZzZXQ9JzAlJyBzdG9wLWNvbG9yPScjZmY1ZjFmJy8+PHN0b3Agb2Zmc2V0PScxMDAlJyBzdG9wLWNvbG9yPScjYjIyMjIyJy8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHBhdGggZD0nTTIsNCBDMTAsMCAyMiwyIDI5LDExQzMzLDE4IDI2LDI2IDE2LDMxQzYsMjYgLTEsMTggMiw0IFonIGZpbGw9J3VybCgjcEdyYWQpJyBzdHJva2U9JyNmZmZmZmYnIHN0cm9rZS13aWR0aD0nMS41Jy8+PGNpcmNsZSBjeD0nMTYnIGN5PScxMicgcj0nMycgZmlsbD0nI2ZmZmZmZicgb3BhY2l0eT0nMC4zJy8+PGxpbmUgeDE9JzEyJyB5MT0nMTInIHgyPSIyMCIgeTI9JzEyJyBzdHJva2U9JyMwMDAwMDAnIHN0cm9rZS13aWR0aD0nMScgb3BhY2l0eT0nMC40Jy8+PGxpbmUgeDE9JzE0JyB5MT0nMTUnIHgyPScxOCcgeTI9JzE1JyBzdHJva2U9JyMwMDAwMDAnIHN0cm9rZS13aWR0aD0nMScgb3BhY2l0eT0nMC40Jy8+PC9zdmc+") 0 0, auto !important;
 }
+/* Aplica o cursor personalizado em links, botões e elementos interativos */
+a, 
+button, 
+.nav-link-btn, 
+.dropdown-item, 
+.nota-btn, 
+.guitar-model-card {
+    cursor: url('images/Cursor.png'), pointer !important;
+}
+
+/* Opcional: Se quiser que o cursor mude em TODO o site (inclusive no fundo) */
+body {
+    cursor: url('images/Cursor.png'), default;
+}
