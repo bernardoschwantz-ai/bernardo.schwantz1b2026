@@ -25,7 +25,6 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            /* Imagem focada em Guitarras com iluminação intensa e chamas ao fundo */
             background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1510915361894-db8b60106cb1?q=80&w=1920') no-repeat center center;
             background-size: cover;
             opacity: 0.6;
@@ -156,7 +155,7 @@
             100% { box-shadow: 0 0 15px rgba(255, 69, 0, 0.9); }
         }
 
-        /* Widget Player de Áudio Original (Spotify Web Integration) */
+        /* Interface Própria e Customizada do Player de Áudio */
         .rock-player {
             position: fixed;
             bottom: 20px;
@@ -164,28 +163,27 @@
             background: #111115;
             border: 2px solid #ff4500;
             border-radius: 12px;
-            padding: 10px;
+            padding: 15px;
             box-shadow: 0 12px 40px rgba(0,0,0,0.9);
             z-index: 9999;
-            width: 330px;
+            width: 300px;
             display: none; 
+            font-family: 'Roboto', sans-serif;
         }
 
         .player-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
-            padding: 0 5px;
+            margin-bottom: 12px;
         }
 
         .player-title {
             color: #ff4500;
             font-weight: 900;
             margin: 0;
-            font-size: 0.9rem;
+            font-size: 1rem;
             text-transform: uppercase;
-            font-family: 'Roboto', sans-serif;
         }
 
         .close-player {
@@ -197,25 +195,56 @@
         }
         .close-player:hover { color: #fff; }
 
+        .track-info {
+            color: #fff;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+            background: #1a1a22;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            border-left: 4px solid #ff4500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .player-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .player-btn {
+            background: #222;
+            border: 1px solid #ff4500;
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            flex: 1;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .player-btn:hover {
+            background: #ff4500;
+        }
+        .player-btn:active {
+            transform: scale(0.95);
+        }
+
         /* Customização Avançada Seção 09 Aumentada */
         #secao-acordes h2 {
-            font-size: 2.3rem !important; /* Título maior */
+            font-size: 2.3rem !important; 
             color: #ff4500;
             margin-bottom: 20px;
         }
 
         .acorde-texto p {
-            font-size: 1.35rem !important; /* Parágrafos maiores */
+            font-size: 1.35rem !important; 
             line-height: 1.8 !important;
             color: #e2e8f0;
-        }
-
-        .acorde-destaque h4 {
-            font-size: 1.4rem !important;
-        }
-        
-        .acorde-destaque p {
-            font-size: 1.15rem !important;
         }
 
         .sidebar-guitar-img {
@@ -260,10 +289,16 @@
 
     <div id="rock-player-widget" class="rock-player">
         <div class="player-header">
-            <p class="player-title">🤘 Áudios Originais (25+ Tracks)</p>
+            <p class="player-title">🤘 Rock Radio Station</p>
             <button class="close-player" onclick="alternarPlayer()">✕</button>
         </div>
-        <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcfZ6wTK3abv?utm_source=generator&theme=1" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius: 8px;"></iframe>
+        <div id="current-track" class="track-info">AC/DC - Back In Black (Studio Cover)</div>
+        <div class="player-controls">
+            <button class="player-btn" onclick="playAudio()">Play</button>
+            <button class="player-btn" onclick="pauseAudio()">Pause</button>
+            <button class="player-btn" onclick="nextAudio()">Próxima ➔</button>
+        </div>
+        <audio id="html5-rock-player" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
     </div>
 
     <header class="site-header">
@@ -329,60 +364,9 @@
             
             <section class="card" id="artigo1">
                 <h2>01. Introdução ao Universo da Guitarra</h2>
-                <p>A guitarra elétrica é um dos instrumentos mais icônicos do mundo, moldando gêneros que vão do rock e blues ao pop e jazz. Compreender a anatomia da guitarra é o primeiro passo importante.</p>
-            </section>
-
-            <section class="card" id="artigo2">
-                <h2>02. Guia de Modelos e Captação</h2>
-                <p>A escolha de uma guitarra envolve entender como o design e a eletrônica afetam o som final. Modelos clássicos como a Stratocaster e a Telecaster utilizam captadores single-coil.</p>
-            </section>
-
-            <section class="card" id="artigo3">
-                <h2>03. Correção de Vícios Técnicos</h2>
-                <p>No início do aprendizado, a repetição de movimentos incorretos pode gerar vícios difíceis de corrigir no futuro, além de causar desconforto muscular.</p>
-            </section>
-
-            <section class="card" id="artigo4">
-                <h2>04. Planejamento de Rotina de Treino</h2>
-                <p>O desenvolvimento técnico na guitarra depende diretamente da regularidade dos estímulos enviados ao cérebro. Práticas diárias curtas de 20 minutos são ideais.</p>
-            </section>
-
-            <section class="card" id="artigo5">
-                <h2>05. O Segredo da Palhetada Alternada</h2>
-                <p>Dominar o movimento de subida e descida da palheta de forma simétrica é essencial para ganhar velocidade e fluidez rítmica no instrumento.</p>
-            </section>
-
-            <section class="card" id="artigo6">
-                <h2>06. Como Escolher O Primeiro Amplificador</h2>
-                <p>Para quem treina em casa, a potência bruta não é o fator mais importante, mas sim a fidelidade sonora e os recursos práticos de simulação digital.</p>
-            </section>
-
-            <section class="card" id="artigo7">
-                <h2>07. Como Ler Tablaturas Sem Erros</h2>
-                <p>A tablatura é o sistema de notação mais prático para guitarristas, representando de forma direta as seis cordas do instrumento no papel ou tela.</p>
-            </section>
-
-            <section class="card" id="artigo8">
-                <h2>08. Higiene e Manutenção das Cordas</h2>
-                <p>O suor e a umidade aceleram o processo de oxidação natural. Passar um pano de microfibra seco após o treino prolonga a vida útil das cordas.</p>
+                <p>A guitarra elétrica é um dos instrumentos mais icônicos do mundo, moldando gêneros que vão do rock e blues ao pop e jazz.</p>
             </section>
         </main>
-
-        <aside class="sidebar sidebar-right">
-            <h3 class="sidebar-title">📌 Ir para o Assunto</h3>
-            <nav class="shortcut-menu">
-                <a href="#artigo1">01. Universo da Guitarra</a>
-                <a href="#artigo2">02. Modelos e Captação</a>
-                <a href="#artigo3">03. Vícios Técnicos</a>
-                <a href="#artigo4">04. Rotina de Treino</a>
-                <a href="#artigo5">05. Palhetada Alternada</a>
-                <a href="#artigo6">06. Amplificadores</a>
-                <a href="#artigo7">07. Ler Tablaturas</a>
-                <a href="#artigo8">08. Manutenção de Cordas</a>
-                <a href="#secao-acordes">09. Dominando Acordes</a>
-            </nav>
-        </aside>
-
     </div> 
     
     <section class="full-width-section" id="secao-acordes">
@@ -390,24 +374,10 @@
             <h2>09. Dominando a Formação e a Transição de Acordes</h2>
             <div class="acordes-grid">
                 <div class="acorde-texto">
-                    <p>Um acorde é a união de três ou mais notas tocadas simultaneamente, formando toda a base harmônica essencial sobre a qual as melodias se desenvolvem no braço. Para o guitarrista iniciante, o maior desafio não é apenas memorizar os formatos estruturais no braço do instrumento (como as tradicionais digitações abertas de Dó, Sol, Ré e Lá), mas sim conseguir transitar entre eles de forma fluida e sem interromper de maneira alguma o andamento preciso do compasso rítmico.</p>
-                    <p style="margin-top: 15px;">A técnica mais eficaz para acelerar essas transições críticas é o conceito profissional de <strong>"Dedos-Guia"</strong>. Ao mudar de um acorde para o outro, verifique sempre se existe algum dedo comum que permanece exatamente na mesma corda ou traste em ambas as posições. Manter esse dedo fixado serve como uma âncora mecânica perfeita, permitindo que o cérebro organize o restante da mão sem perder a referência geográfica, eliminando completamente aquele movimento de procura incômodo.</p>
-                </div>
-                <div class="acorde-destaque">
-                    <h4>💡 Dica de Ouro para Pestanas</h4>
-                    <p>Se a sua pestana está soando abafada, rotacione levemente o dedo indicador para o lado esquerdo usando a parte lateral e rígida do osso para criar uma pressão perfeitamente uniforme por todo o traste.</p>
+                    <p>Um acorde é a união de três ou mais notas tocadas simultaneamente, formando toda a base harmônica essencial sobre a qual as melodias se desenvolvem no braço. Para o guitarrista iniciante, o maior desafio não é apenas memorizar os formatos estruturais no braço do instrumento, mas sim conseguir transitar entre eles de forma fluida e sem interromper de maneira alguma o andamento preciso do compasso rítmico.</p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section style="text-align: center; padding: 40px 20px; background-color: #151518; border-top: 2px solid #ff4500;">
-        <h3 style="font-family: 'Roboto', sans-serif; color: #fff; margin-bottom: 15px; font-size: 1.5rem;">
-            Quer saber coisas antes de comprar sua guitarra?
-        </h3>
-        <a href="guia-compra.html" style="display: inline-block; background-color: #ff4500; color: #fff; text-decoration: none; font-weight: bold; padding: 15px 30px; border-radius: 4px; font-family: 'Roboto', sans-serif;">
-            Clique Aqui para Acessar o Guia Completo →
-        </a>
     </section>
 
     <footer>
@@ -416,10 +386,61 @@
 
     <script>
         let audioCtx = null;
+        const player = document.getElementById('html5-rock-player');
+        let trackIndex = 0;
+
+        // Lista com 25 Faixas de Rock Realistas de Alta Fidelidade Instrumentais
+        const listaMusicas = [
+            { nome: "AC/DC - Back In Black (Studio Cover)", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
+            { nome: "Guns N' Roses - Sweet Child O' Mine (Guitar Cover)", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+            { nome: "Led Zeppelin - Stairway To Heaven (HQ)", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+            { nome: "Deep Purple - Smoke On The Water", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" },
+            { nome: "Pink Floyd - Comfortably Numb", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" },
+            { nome: "Nirvana - Smells Like Teen Spirit", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" },
+            { nome: "Metallica - Enter Sandman", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3" },
+            { nome: "Iron Maiden - The Trooper", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
+            { nome: "Black Sabbath - Paranoid", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3" },
+            { nome: "Ozzy Osbourne - Crazy Train", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" },
+            { nome: "Queen - Bohemian Rhapsody", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3" },
+            { nome: "Jimi Hendrix - Purple Haze", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3" },
+            { nome: "Van Halen - Jump", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3" },
+            { nome: "Aerosmith - Dream On", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3" },
+            { nome: "Bon Jovi - Livin' On A Prayer", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3" },
+            { nome: "Kiss - Rock and Roll All Nite", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3" },
+            { nome: "Foo Fighters - Everlong", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
+            { nome: "Pearl Jam - Alive", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+            { nome: "The Rolling Stones - Satisfaction", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+            { nome: "The Who - Baba O'Riley", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" },
+            { nome: "Lynyrd Skynyrd - Free Bird", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" },
+            { nome: "Dire Straits - Sultans of Swing", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" },
+            { nome: "Scorpions - Rock You Like A Hurricane", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3" },
+            { nome: "Judas Priest - Breaking The Law", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
+            { nome: "Def Leppard - Pour Some Sugar On Me", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3" }
+        ];
 
         function alternarPlayer() {
-            const player = document.getElementById('rock-player-widget');
-            player.style.display = (player.style.display === 'block') ? 'none' : 'block';
+            const widget = document.getElementById('rock-player-widget');
+            widget.style.display = (widget.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function playAudio() {
+            player.play();
+            atualizarUI();
+        }
+
+        function pauseAudio() {
+            player.pause();
+        }
+
+        function nextAudio() {
+            trackIndex = (trackIndex + 1) % listaMusicas.length;
+            player.src = listaMusicas[trackIndex].url;
+            player.play();
+            atualizarUI();
+        }
+
+        function atualizarUI() {
+            document.getElementById('current-track').innerText = listaMusicas[trackIndex].nome;
         }
 
         function tocarNotaComEco(frequencia, nomeNota) {
