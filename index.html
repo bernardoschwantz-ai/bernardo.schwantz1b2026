@@ -50,6 +50,14 @@
             animation: stageFlashes 4s infinite linear;
         }
 
+        body.live-mode-active .card, 
+        body.live-mode-active .acorde-destaque,
+        body.live-mode-active .afinador-container {
+            border-color: #ff8c00 !important;
+            box-shadow: 0 0 15px rgba(255, 69, 0, 0.4);
+            transition: all 0.5s ease;
+        }
+
         @keyframes stageFlashes {
             0%, 100% { background: radial-gradient(circle at 10% 20%, rgba(255, 69, 0, 0.2), transparent 40%); }
             25% { background: radial-gradient(circle at 90% 80%, rgba(0, 191, 255, 0.25), transparent 45%); }
@@ -208,17 +216,56 @@
             100% { box-shadow: 0 0 15px rgba(255, 69, 0, 0.9); }
         }
 
-        /* Customização Avançada Seção 09 Aumentada */
+        /* Seção 09 Corrigida e Alinhada com CSS Grid */
         #secao-acordes h2 {
             font-size: 2.3rem !important;
             color: #ff4500;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .acordes-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 30px;
+            align-items: start;
         }
 
         .acorde-texto p {
             font-size: 1.35rem !important;
             line-height: 1.8 !important;
             color: #e2e8f0;
+            margin: 0 0 15px 0;
+        }
+
+        /* Dica de ouro integrada simetricamente */
+        .acorde-destaque {
+            background-color: rgba(255, 69, 0, 0.06);
+            border: 2px dashed #ff4500;
+            border-radius: 8px;
+            padding: 25px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        .acorde-destaque h4 {
+            font-size: 1.4rem !important;
+            color: #ff4500;
+            margin: 0 0 12px 0;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 900;
+        }
+
+        .acorde-destaque p {
+            font-size: 1.15rem !important;
+            line-height: 1.6 !important;
+            color: #cbd5e1;
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .acordes-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .sidebar-guitar-img {
@@ -326,7 +373,7 @@
             
             <section class="card" id="artigo1">
                 <h2>01. Introdução ao Universo da Guitarra</h2>
-                <p>A guitarra elétrica é um dos instrumentos mais icônicos do mundo, moldando gêneros que vão do rock e blues ao pop e jazz. Compreender a anatomia da guitarra é o primeiro passo importante.</p>
+                <p>A guitarra elétrica é um dos instrumentos mais icônicos do mundo, moldando genres que vão do rock e blues ao pop e jazz. Compreender a anatomia da guitarra é o primeiro passo importante.</p>
             </section>
 
             <section class="card" id="artigo2">
@@ -388,8 +435,9 @@
             <div class="acordes-grid">
                 <div class="acorde-texto">
                     <p>Um acorde é a união de três ou mais notas tocadas simultaneamente, formando toda a base harmônica essencial sobre a qual as melodias se desenvolvem no braço. Para o guitarrista iniciante, o maior desafio não é apenas memorizar os formatos estruturais no braço do instrumento (como as tradicionais digitações abertas de Dó, Sol, Ré e Lá), mas sim conseguir transitar entre eles de forma fluida e sem interromper de maneira alguma o andamento preciso do compasso rítmico.</p>
-                    <p style="margin-top: 15px;">A técnica mais eficaz para acelerar essas transições críticas é o conceito profissional de <strong>"Dedos-Guia"</strong>. Ao mudar de um acorde para o outro, verifique sempre se existe algum dedo comum que permanece exatamente na mesma corda ou traste em ambas as posições. Manter esse dedo fixado serve como uma âncora mecânica perfeita, permitindo que o cérebro organize o restante da mão sem perder a referência geográfica, eliminando completamente aquele movimento de procura incômodo.</p>
+                    <p>A técnica mais eficaz para acelerar essas transições críticas é o conceito profissional de <strong>"Dedos-Guia"</strong>. Ao mudar de um acorde para o outro, verifique sempre se existe algum dedo comum que permanece exatamente na mesma corda ou traste em ambas as posições. Manter esse dedo fixado serve como uma âncora mecânica perfeita, permitindo que o cérebro organize o restante da mão sem referência geográfica instável.</p>
                 </div>
+                
                 <div class="acorde-destaque">
                     <h4>💡 Dica de Ouro para Pestanas</h4>
                     <p>Se a sua pestana está soando abafada, rotacione levemente o dedo indicador para o lado esquerdo usando a parte lateral e rígida do osso para criar uma pressão perfeitamente uniforme por todo o traste.</p>
@@ -415,7 +463,6 @@
         let audioCtx = null;
         let liveModeInterval = null;
 
-        // Função Alternadora do Novo Modo Interativo
         function toggleLiveMode() {
             const body = document.body;
             const btn = document.getElementById('live-mode-btn');
@@ -425,7 +472,6 @@
             if (body.classList.contains('live-mode-active')) {
                 btn.innerText = "SAIR DO SHOW ✕";
                 btn.classList.add('active');
-                // Inicia a chuva contínua de palhetas virtuais
                 liveModeInterval = setInterval(createPickParticle, 300);
             } else {
                 btn.innerText = "MODO SHOW ⚡";
@@ -434,35 +480,29 @@
             }
         }
 
-        // Motor de Partículas: Cria palhetas caindo dinamicamente na tela
         function createPickParticle() {
             if (!document.body.classList.contains('live-mode-active')) return;
 
             const pick = document.createElement('div');
             pick.classList.add('pick-particle');
             
-            // Alterna cores vibrantes neon para as palhetas virtuais
             const colors = ['#ff4500', '#ff8c00', '#00bfff', '#9400d3', '#ffd700'];
             pick.style.color = colors[Math.floor(Math.random() * colors.length)];
-            pick.innerText = '🔺'; // Forma geométrica que emula uma palheta customizada
+            pick.innerText = '🔺'; 
             
-            // Posição horizontal randômica de queda
             pick.style.left = Math.random() * 100 + 'vw';
             
-            // Velocidade e rotação assíncronas (Física Variável de nível Sênior)
-            const duration = Math.random() * 2 + 2; // entre 2s e 4s
+            const duration = Math.random() * 2 + 2; 
             pick.style.animationDuration = duration + 's';
             pick.style.opacity = Math.random() * 0.7 + 0.3;
             
             document.body.appendChild(pick);
 
-            // Remove o elemento do DOM assim que a animação acaba para não sobrecarregar o navegador
             setTimeout(() => {
                 pick.remove();
             }, duration * 1000);
         }
 
-        // Código Original Mantido do Afinador Técnico
         function tocarNotaComEco(frequencia, nomeNota) {
             if (!audioCtx) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
