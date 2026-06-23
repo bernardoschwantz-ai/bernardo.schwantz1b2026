@@ -83,26 +83,35 @@
         <aside class="sidebar sidebar-left">
             <h3 class="sidebar-title">⚡ Guia de Modelos</h3>
             
-            <div class="guitar-model-card">
-                <img src="images/Stratocaster.webp" alt="Stratocaster" class="sidebar-guitar-img">
-                <h4>Stratocaster</h4>
-                <p><strong>Características:</strong> Corpo ergonômico, 3 captadores single-coil.</p>
-                <p class="ponto-forte"><strong>Ponto Forte:</strong> Som estalado e limpo (perfeito para Blues e Funk).</p>
-            </div>
+            <a href="detalhes.html#stratocaster" style="text-decoration: none; color: inherit; display: block;">
+                <div class="guitar-model-card" style="cursor: pointer; transition: transform 0.2s;">
+                    <img src="images/Stratocaster.webp" alt="Stratocaster" class="sidebar-guitar-img">
+                    <h4>Stratocaster</h4>
+                    <p><strong>Características:</strong> Corpo ergonômico, 3 captadores single-coil.</p>
+                    <p class="ponto-forte"><strong>Ponto Forte:</strong> Som estalado e limpo (perfeito para Blues e Funk).</p>
+                    <span style="color: #ff4500; font-size: 0.85rem; font-weight: bold; display: block; margin-top: 5px;">Ver Detalhes e Onde Comprar →</span>
+                </div>
+            </a>
 
-            <div class="guitar-model-card">
-                <img src="images/Les.webp" alt="Les Paul" class="sidebar-guitar-img">
-                <h4>Les Paul</h4>
-                <p><strong>Características:</strong> Corpo pesado de mogno, 2 humbuckers.</p>
-                <p class="ponto-forte"><strong>Ponto Forte:</strong> Longo sustain e peso para distorções pesadas (Rock/Metal).</p>
-            </div>
+            <a href="detalhes.html#lespaul" style="text-decoration: none; color: inherit; display: block; margin-top: 15px;">
+                <div class="guitar-model-card" style="cursor: pointer; transition: transform 0.2s;">
+                    <img src="images/Les.webp" alt="Les Paul" class="sidebar-guitar-img">
+                    <h4>Les Paul</h4>
+                    <p><strong>Características:</strong> Corpo pesado de mogno, 2 humbuckers.</p>
+                    <p class="ponto-forte"><strong>Ponto Forte:</strong> Longo sustain e peso para distorções pesadas (Rock/Metal).</p>
+                    <span style="color: #ff4500; font-size: 0.85rem; font-weight: bold; display: block; margin-top: 5px;">Ver Detalhes e Onde Comprar →</span>
+                </div>
+            </a>
 
-            <div class="guitar-model-card">
-                <img src="images/Tele.webp" alt="Telecaster" class="sidebar-guitar-img">
-                <h4>Telecaster</h4>
-                <p><strong>Características:</strong> Design rústico, 2 captadores single-coil.</p>
-                <p class="ponto-forte"><strong>Ponto Forte:</strong> Som brilhante com agudos marcantes (Indie/Pop-Rock).</p>
-            </div>
+            <a href="detalhes.html#telecaster" style="text-decoration: none; color: inherit; display: block; margin-top: 15px;">
+                <div class="guitar-model-card" style="cursor: pointer; transition: transform 0.2s;">
+                    <img src="images/Tele.webp" alt="Telecaster" class="sidebar-guitar-img">
+                    <h4>Telecaster</h4>
+                    <p><strong>Características:</strong> Design rústico, 2 captadores single-coil.</p>
+                    <p class="ponto-forte"><strong>Ponto Forte:</strong> Som brilhante com agudos marcantes (Indie/Pop-Rock).</p>
+                    <span style="color: #ff4500; font-size: 0.85rem; font-weight: bold; display: block; margin-top: 5px;">Ver Detalhes e Onde Comprar →</span>
+                </div>
+            </a>
         </aside>
 
         <main class="main-content">
@@ -148,7 +157,7 @@
 
             <section class="card" id="artigo5">
                 <h2>05. O Segredo da Palhetada Alternada</h2>
-                <p>Dominar o movimento de subida e descida da palheta de forma simétrica é essencial para ganhar velocidade e fluidez. Muitos iniciantes tendem a usar apenas palhetadas para baixo, o que limita o ritmo e causa fadiga precoce no pulso. O movimento ideal deve partir da articulação do pulso e não do antebraço inteiro, mantendo a palheta ligeiramente inclinada em relação às cordas para cortar a resistência do metal, garantindo dinâmicas equilibradas tanto em palhetadas ascendentesamp quanto descendentes.</p>
+                <p>Dominar o movimento de subida e descida da palheta de forma simétrica é essencial para ganhar velocidade e fluidez. Muitos iniciantes tendem a usar apenas palhetadas para baixo, o que limita o ritmo e causa fadiga precoce no pulso. O movimento ideal deve partir da articulação do pulso e não do antebraço inteiro, mantendo a palheta ligeiramente inclinada em relação às cordas para cortar a resistência do metal, garantindo dinâmicas equilibradas tanto em palhetadas ascendentesamp tanto descendentes.</p>
             </section>
 
             <section class="card" id="artigo6">
@@ -212,7 +221,6 @@
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             }
 
-            // Alterado o estilo inline para usar cinza claro prateado (#e2e8f0) em vez de amarelo
             document.getElementById('nota-tocando').innerHTML = `Ecoando: <strong style="color: #e2e8f0;">${nomeNota}</strong>`;
 
             let agora = audioCtx.currentTime;
