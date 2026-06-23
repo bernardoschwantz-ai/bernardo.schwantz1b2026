@@ -284,25 +284,25 @@
     <div id="stage-lights" class="stage-lights"></div>
 
     <nav class="top-navbar">
-        <a href="index.html" class="top-navbar-brand">
+        <a href="index.html" class="top-navbar-brand" onmouseenter="tocarFeedbackInteracao()">
             <span class="guitar-icon">🎸</span>
             <span>BERNARDO</span>
         </a>
 
         <ul class="nav-links">
-            <li class="nav-item">
+            <li class="nav-item" onmouseenter="tocarFeedbackInteracao()">
                 <span class="nav-link-btn">Guitarras ▼</span>
                 <div class="dropdown-menu">
-                    <a href="detalhes.html#stratocaster" class="dropdown-item">⚡ Stratocaster</a>
-                    <a href="detalhes.html#lespaul" class="dropdown-item">⚡ Les Paul</a>
-                    <a href="detalhes.html#telecaster" class="dropdown-item">⚡ Telecaster</a>
+                    <a href="detalhes.html#stratocaster" class="dropdown-item" onclick="tocarFeedbackInteracao()">⚡ Stratocaster</a>
+                    <a href="detalhes.html#lespaul" class="dropdown-item" onclick="tocarFeedbackInteracao()">⚡ Les Paul</a>
+                    <a href="detalhes.html#telecaster" class="dropdown-item" onclick="tocarFeedbackInteracao()">⚡ Telecaster</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a href="treinos.html" class="nav-link-btn">Treinos</a>
+            <li class="nav-item" onmouseenter="tocarFeedbackInteracao()">
+                <a href="treinos.html" class="nav-link-btn" onclick="tocarFeedbackInteracao()">Treinos</a>
             </li>
-            <li class="nav-item">
-                <a href="guia-compra.html" class="nav-link-btn">Guia de Compra</a>
+            <li class="nav-item" onmouseenter="tocarFeedbackInteracao()">
+                <a href="guia-compra.html" class="nav-link-btn" onclick="tocarFeedbackInteracao()">Guia de Compra</a>
             </li>
             <li class="nav-item">
                 <button id="live-mode-btn" onclick="toggleLiveMode()" class="btn-live-rock">MODO SHOW ⚡</button>
@@ -319,7 +319,7 @@
         
         <aside class="sidebar sidebar-left">
             <h3 class="sidebar-title">⚡ Guia de Modelos</h3>
-            <a href="detalhes.html#stratocaster" style="text-decoration: none; color: inherit; display: block;">
+            <a href="detalhes.html#stratocaster" style="text-decoration: none; color: inherit; display: block;" onclick="tocarFeedbackInteracao()">
                 <div class="guitar-model-card" style="cursor: pointer; transition: transform 0.2s;">
                     <img src="images/Stratocaster.webp" alt="Stratocaster" class="sidebar-guitar-img">
                     <h4>Stratocaster</h4>
@@ -329,7 +329,7 @@
                 </div>
             </a>
 
-            <a href="detalhes.html#lespaul" style="text-decoration: none; color: inherit; display: block; margin-top: 15px;">
+            <a href="detalhes.html#lespaul" style="text-decoration: none; color: inherit; display: block; margin-top: 15px;" onclick="tocarFeedbackInteracao()">
                 <div class="guitar-model-card" style="cursor: pointer; transition: transform 0.2s;">
                     <img src="images/Les.webp" alt="Les Paul" class="sidebar-guitar-img">
                     <h4>Les Paul</h4>
@@ -339,7 +339,7 @@
                 </div>
             </a>
 
-            <a href="detalhes.html#telecaster" style="text-decoration: none; color: inherit; display: block; margin-top: 15px;">
+            <a href="detalhes.html#telecaster" style="text-decoration: none; color: inherit; display: block; margin-top: 15px;" onclick="tocarFeedbackInteracao()">
                 <div class="guitar-model-card" style="cursor: pointer; transition: transform 0.2s;">
                     <img src="images/Tele.webp" alt="Telecaster" class="sidebar-guitar-img">
                     <h4>Telecaster</h4>
@@ -373,7 +373,7 @@
             
             <section class="card" id="artigo1">
                 <h2>01. Introdução ao Universo da Guitarra</h2>
-                <p>A guitarra elétrica é um dos instrumentos mais icônicos do mundo, moldando genres que vão do rock e blues ao pop e jazz. Compreender a anatomia da guitarra é o primeiro passo importante.</p>
+                <p>A guitarra elétrica é um dos instrumentos mais icônicos do mundo, moldando gêneros que vão do rock e blues ao pop e jazz. Compreender a anatomia da guitarra é o primeiro passo importante.</p>
             </section>
 
             <section class="card" id="artigo2">
@@ -415,15 +415,15 @@
         <aside class="sidebar sidebar-right">
             <h3 class="sidebar-title">📌 Ir para o Assunto</h3>
             <nav class="shortcut-menu">
-                <a href="#artigo1">01. Universo da Guitarra</a>
-                <a href="#artigo2">02. Modelos e Captação</a>
-                <a href="#artigo3">03. Vícios Técnicos</a>
-                <a href="#artigo4">04. Rotina de Treino</a>
-                <a href="#artigo5">05. Palhetada Alternada</a>
-                <a href="#artigo6">06. Amplificadores</a>
-                <a href="#artigo7">07. Ler Tablaturas</a>
-                <a href="#artigo8">08. Manutenção de Cordas</a>
-                <a href="#secao-acordes">09. Dominando Acordes</a>
+                <a href="#artigo1" onclick="tocarFeedbackInteracao()">01. Universo da Guitarra</a>
+                <a href="#artigo2" onclick="tocarFeedbackInteracao()">02. Modelos e Captação</a>
+                <a href="#artigo3" onclick="tocarFeedbackInteracao()">03. Vícios Técnicos</a>
+                <a href="#artigo4" onclick="tocarFeedbackInteracao()">04. Rotina de Treino</a>
+                <a href="#artigo5" onclick="tocarFeedbackInteracao()">05. Palhetada Alternada</a>
+                <a href="#artigo6" onclick="tocarFeedbackInteracao()">06. Amplificadores</a>
+                <a href="#artigo7" onclick="tocarFeedbackInteracao()">07. Ler Tablaturas</a>
+                <a href="#artigo8" onclick="tocarFeedbackInteracao()">08. Manutenção de Cordas</a>
+                <a href="#secao-acordes" onclick="tocarFeedbackInteracao()">09. Dominando Acordes</a>
             </nav>
         </aside>
 
@@ -450,7 +450,7 @@
         <h3 style="font-family: 'Roboto', sans-serif; color: #fff; margin-bottom: 15px; font-size: 1.5rem;">
             Quer saber coisas antes de comprar sua guitarra?
         </h3>
-        <a href="guia-compra.html" style="display: inline-block; background-color: #ff4500; color: #fff; text-decoration: none; font-weight: bold; padding: 15px 30px; border-radius: 4px; font-family: 'Roboto', sans-serif;">
+        <a href="guia-compra.html" style="display: inline-block; background-color: #ff4500; color: #fff; text-decoration: none; font-weight: bold; padding: 15px 30px; border-radius: 4px; font-family: 'Roboto', sans-serif;" onclick="tocarFeedbackInteracao()">
             Clique Aqui para Acessar o Guia Completo →
         </a>
     </section>
@@ -463,7 +463,94 @@
         let audioCtx = null;
         let liveModeInterval = null;
 
+        // Inicializa o contexto de áudio sob demanda para respeitar políticas dos navegadores
+        function verificarAudioContext() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        // NOVO: Som de guitarra distorcida real (Power Chord) gerado via código para o Modo Show
+        function tocarGuitarraModoShow(ativo) {
+            verificarAudioContext();
+            let agora = audioCtx.currentTime;
+
+            if (ativo) {
+                // Simulação de um acorde de quinta (Power Chord) encorpado e distorcido
+                const notasAcorde = [146.83, 220.00, 293.66]; // Ré (D), Lá (A), Ré (D) oitava acima
+                notasAcorde.forEach((freq) => {
+                    let osc = audioCtx.createOscillator();
+                    let ganho = audioCtx.createGain();
+                    let distorcao = audioCtx.createWaveShaper();
+
+                    // Algoritmo matemático sênior de distorção de onda (Overdrive de amplificador)
+                    function calcularCurvaDistorcao(amount = 50) {
+                        let k = typeof amount === 'number' ? amount : 50,
+                            n_samples = 44100,
+                            curve = new Float32Array(n_samples),
+                            deg = Math.PI / 180, i = 0, x;
+                        for ( ; i < n_samples; ++i ) {
+                            x = (i * 2) / n_samples - 1;
+                            curve[i] = ( 3 + k ) * x * 20 * deg / ( Math.PI + k * Math.abs(x) );
+                        }
+                        return curve;
+                    }
+
+                    osc.type = "sawtooth"; // Onda dente de serra para timbres mais agressivos e realistas
+                    osc.frequency.value = freq;
+                    distorcao.curve = calcularCurvaDistorcao(80);
+                    distorcao.oversample = '4x';
+
+                    ganho.gain.setValueAtTime(0.12, agora);
+                    ganho.gain.exponentialRampToValueAtTime(0.00001, agora + 1.5);
+
+                    osc.connect(distorcao);
+                    distorcao.connect(ganho);
+                    ganho.connect(audioCtx.destination);
+
+                    osc.start(agora);
+                    osc.stop(agora + 1.5);
+                });
+            } else {
+                // Efeito de "slide" descendente rápido ao sair do modo show
+                let osc = audioCtx.createOscillator();
+                let ganho = audioCtx.createGain();
+                osc.type = "sawtooth";
+                osc.frequency.setValueAtTime(220, agora);
+                osc.frequency.linearRampToValueAtTime(80, agora + 0.4);
+                
+                ganho.gain.setValueAtTime(0.15, agora);
+                ganho.gain.exponentialRampToValueAtTime(0.00001, agora + 0.4);
+                
+                osc.connect(ganho);
+                ganho.connect(audioCtx.destination);
+                osc.start(agora);
+                osc.stop(agora + 0.4);
+            }
+        }
+
+        // NOVO: Barulho sutil ao interagir ou passar o mouse em elementos clicáveis
+        function tocarFeedbackInteracao() {
+            if (!audioCtx) return; // Só ativa após o primeiro clique do usuário na página
+            let agora = audioCtx.currentTime;
+            let osc = audioCtx.createOscillator();
+            let ganho = audioCtx.createGain();
+            
+            osc.type = "sine";
+            osc.frequency.setValueAtTime(800, agora);
+            osc.frequency.exponentialRampToValueAtTime(1200, agora + 0.05); // Pequeno estalo agudo limpo
+            
+            ganho.gain.setValueAtTime(0.03, agora); // Volume baixo e discreto para não incomodar
+            ganho.gain.exponentialRampToValueAtTime(0.00001, agora + 0.05);
+            
+            osc.connect(ganho);
+            ganho.connect(audioCtx.destination);
+            osc.start(agora);
+            osc.stop(agora + 0.06);
+        }
+
         function toggleLiveMode() {
+            verificarAudioContext();
             const body = document.body;
             const btn = document.getElementById('live-mode-btn');
             
@@ -472,10 +559,12 @@
             if (body.classList.contains('live-mode-active')) {
                 btn.innerText = "SAIR DO SHOW ✕";
                 btn.classList.add('active');
+                tocarGuitarraModoShow(true); // Toca o riff pesado
                 liveModeInterval = setInterval(createPickParticle, 300);
             } else {
                 btn.innerText = "MODO SHOW ⚡";
                 btn.classList.remove('active');
+                tocarGuitarraModoShow(false); // Som de encerramento
                 clearInterval(liveModeInterval);
             }
         }
@@ -504,9 +593,7 @@
         }
 
         function tocarNotaComEco(frequencia, nomeNota) {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            }
+            verificarAudioContext();
             document.getElementById('nota-tocando').innerHTML = `Ecoando: <strong style="color: #e2e8f0;">${nomeNota}</strong>`;
             let agora = audioCtx.currentTime;
             criarSomIndividual(frequencia, agora, 0.3);       
