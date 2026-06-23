@@ -15,6 +15,7 @@
             background-color: #0b0200; 
             position: relative;
             overflow-x: hidden;
+            transition: background-color 0.3s ease;
         }
 
         body::before {
@@ -25,10 +26,52 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            /* Imagem focada em Guitarras com iluminação intensa e chamas ao fundo */
             background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1510915361894-db8b60106cb1?q=80&w=1920') no-repeat center center;
             background-size: cover;
             opacity: 0.6;
+        }
+
+        /* Efeito de Luzes de Palco do Modo Show */
+        .stage-lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            mix-blend-mode: screen;
+        }
+
+        body.live-mode-active .stage-lights {
+            opacity: 1;
+            animation: stageFlashes 4s infinite linear;
+        }
+
+        @keyframes stageFlashes {
+            0%, 100% { background: radial-gradient(circle at 10% 20%, rgba(255, 69, 0, 0.2), transparent 40%); }
+            25% { background: radial-gradient(circle at 90% 80%, rgba(0, 191, 255, 0.25), transparent 45%); }
+            50% { background: radial-gradient(circle at 50% 10%, rgba(148, 0, 211, 0.2), transparent 40%); }
+            75% { background: radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.25), transparent 45%); }
+        }
+
+        /* Partículas de Palhetas Caindo */
+        .pick-particle {
+            position: fixed;
+            top: -50px;
+            pointer-events: none;
+            z-index: 10001;
+            font-size: 24px;
+            user-select: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(720deg);
+            }
         }
 
         /* Barra Fixa Superior Ampliada e Premium */
@@ -139,6 +182,7 @@
             color: #ffffff;
         }
 
+        /* Botão Interativo Mutável Modo Show */
         .btn-live-rock {
             background: linear-gradient(90deg, #ff4500, #ff8c00);
             padding: 9px 18px;
@@ -149,6 +193,14 @@
             animation: glow 1.5s infinite alternate;
             border: none;
             cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-live-rock.active {
+            background: linear-gradient(90deg, #00bfff, #9400d3);
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.8);
         }
 
         @keyframes glow {
@@ -156,66 +208,17 @@
             100% { box-shadow: 0 0 15px rgba(255, 69, 0, 0.9); }
         }
 
-        /* Widget Player de Áudio Original (Spotify Web Integration) */
-        .rock-player {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #111115;
-            border: 2px solid #ff4500;
-            border-radius: 12px;
-            padding: 10px;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.9);
-            z-index: 9999;
-            width: 330px;
-            display: none; 
-        }
-
-        .player-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-            padding: 0 5px;
-        }
-
-        .player-title {
-            color: #ff4500;
-            font-weight: 900;
-            margin: 0;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        .close-player {
-            background: none;
-            border: none;
-            color: #888;
-            cursor: pointer;
-            font-size: 1.1rem;
-        }
-        .close-player:hover { color: #fff; }
-
         /* Customização Avançada Seção 09 Aumentada */
         #secao-acordes h2 {
-            font-size: 2.3rem !important; /* Título maior */
+            font-size: 2.3rem !important;
             color: #ff4500;
             margin-bottom: 20px;
         }
 
         .acorde-texto p {
-            font-size: 1.35rem !important; /* Parágrafos maiores */
+            font-size: 1.35rem !important;
             line-height: 1.8 !important;
             color: #e2e8f0;
-        }
-
-        .acorde-destaque h4 {
-            font-size: 1.4rem !important;
-        }
-        
-        .acorde-destaque p {
-            font-size: 1.15rem !important;
         }
 
         .sidebar-guitar-img {
@@ -230,6 +233,8 @@
     </style>
 </head>
 <body>
+
+    <div id="stage-lights" class="stage-lights"></div>
 
     <nav class="top-navbar">
         <a href="index.html" class="top-navbar-brand">
@@ -253,18 +258,10 @@
                 <a href="guia-compra.html" class="nav-link-btn">Guia de Compra</a>
             </li>
             <li class="nav-item">
-                <button onclick="alternarPlayer()" class="btn-live-rock">MÚSICA 🎵</button>
+                <button id="live-mode-btn" onclick="toggleLiveMode()" class="btn-live-rock">MODO SHOW ⚡</button>
             </li>
         </ul>
     </nav>
-
-    <div id="rock-player-widget" class="rock-player">
-        <div class="player-header">
-            <p class="player-title">🤘 Áudios Originais (25+ Tracks)</p>
-            <button class="close-player" onclick="alternarPlayer()">✕</button>
-        </div>
-        <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcfZ6wTK3abv?utm_source=generator&theme=1" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius: 8px;"></iframe>
-    </div>
 
     <header class="site-header">
         <h1>Acorde Perfeito</h1>
@@ -416,12 +413,56 @@
 
     <script>
         let audioCtx = null;
+        let liveModeInterval = null;
 
-        function alternarPlayer() {
-            const player = document.getElementById('rock-player-widget');
-            player.style.display = (player.style.display === 'block') ? 'none' : 'block';
+        // Função Alternadora do Novo Modo Interativo
+        function toggleLiveMode() {
+            const body = document.body;
+            const btn = document.getElementById('live-mode-btn');
+            
+            body.classList.toggle('live-mode-active');
+            
+            if (body.classList.contains('live-mode-active')) {
+                btn.innerText = "SAIR DO SHOW ✕";
+                btn.classList.add('active');
+                // Inicia a chuva contínua de palhetas virtuais
+                liveModeInterval = setInterval(createPickParticle, 300);
+            } else {
+                btn.innerText = "MODO SHOW ⚡";
+                btn.classList.remove('active');
+                clearInterval(liveModeInterval);
+            }
         }
 
+        // Motor de Partículas: Cria palhetas caindo dinamicamente na tela
+        function createPickParticle() {
+            if (!document.body.classList.contains('live-mode-active')) return;
+
+            const pick = document.createElement('div');
+            pick.classList.add('pick-particle');
+            
+            // Alterna cores vibrantes neon para as palhetas virtuais
+            const colors = ['#ff4500', '#ff8c00', '#00bfff', '#9400d3', '#ffd700'];
+            pick.style.color = colors[Math.floor(Math.random() * colors.length)];
+            pick.innerText = '🔺'; // Forma geométrica que emula uma palheta customizada
+            
+            // Posição horizontal randômica de queda
+            pick.style.left = Math.random() * 100 + 'vw';
+            
+            // Velocidade e rotação assíncronas (Física Variável de nível Sênior)
+            const duration = Math.random() * 2 + 2; // entre 2s e 4s
+            pick.style.animationDuration = duration + 's';
+            pick.style.opacity = Math.random() * 0.7 + 0.3;
+            
+            document.body.appendChild(pick);
+
+            // Remove o elemento do DOM assim que a animação acaba para não sobrecarregar o navegador
+            setTimeout(() => {
+                pick.remove();
+            }, duration * 1000);
+        }
+
+        // Código Original Mantido do Afinador Técnico
         function tocarNotaComEco(frequencia, nomeNota) {
             if (!audioCtx) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
