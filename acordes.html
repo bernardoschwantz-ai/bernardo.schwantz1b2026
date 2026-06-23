@@ -3,164 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dicionário de Acordes - Bernardo Studio</title>
+    <title>Acorde Perfeito - Dicionário de Acordes & Velocidade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
-            margin: 0;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('http://googleusercontent.com/image_collection/image_retrieval/7335301488832048116') no-repeat center center fixed;
-            background-size: cover;
+            margin-top: 85px !important;
+            background-color: #0a0a0c;
             color: #fff;
             font-family: 'Roboto', sans-serif;
+        }
+
+        .container-acordes {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn-voltar:hover { background: #444; }
+
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: rgba(10, 10, 12, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid #ff4500;
+        }
+
+        .top-navbar-content {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 1px;
+        }
+
+        .secao-container {
+            background-color: #151518;
+            border: 1px solid #2a2a30;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 35px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        h2 {
+            color: #ff4500;
+            margin-top: 0;
+            border-bottom: 1px solid #ff4500;
+            padding-bottom: 10px;
+        }
+
+        /* Grid do Dicionário de Acordes */
+        .dicionario-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .dicionario-layout { grid-template-columns: 1fr; }
+        }
+
+        .lista-botoes-acordes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .acorde-btn {
+            background-color: #222;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .acorde-btn:hover {
+            background-color: #ff4500;
+            border-color: #ff4500;
+            transform: scale(1.05);
+        }
+
+        .acorde-btn.active {
+            background-color: #ff4500;
+            border-color: #fff;
+            box-shadow: 0 0 10px rgba(255, 69, 0, 0.6);
+        }
+
+        .visualizador-acorde {
+            background-color: #111;
+            border: 2px dashed #ff4500;
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
+            justify-content: center;
+            min-height: 250px;
         }
 
-        h1 { margin-top: 40px; font-size: 3rem; color: #ff4500; text-transform: uppercase; }
-
-        .fretboard-container {
-            background: rgba(20, 20, 20, 0.9);
-            border: 4px solid #333;
-            border-radius: 15px;
-            padding: 40px;
-            margin: 40px 0;
-            box-shadow: 0 0 50px rgba(0,0,0,1);
-            position: relative;
+        .nome-acorde-display {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #ff4500;
+            margin-bottom: 15px;
         }
 
-        /* O BRAÇO DA GUITARRA */
-        .fretboard {
-            display: flex;
-            width: 800px;
-            height: 250px;
-            background: #2a1b12; /* Cor da madeira rosewood */
-            border-left: 10px solid #ddd; /* Pestana */
-            position: relative;
-            background-image: url('http://googleusercontent.com/image_collection/image_retrieval/17807682409713500153');
-            background-size: cover;
-        }
-
-        .fret {
-            flex: 1;
-            border-right: 4px solid #888; /* Trastes prateados */
-            position: relative;
-        }
-
-        .string {
-            position: absolute;
-            width: 100%;
-            background: #ddd;
-            left: 0;
-            z-index: 2;
-        }
-
-        /* Espaçamento das 6 cordas */
-        .string:nth-child(1) { top: 10%; height: 2px; }
-        .string:nth-child(2) { top: 26%; height: 2px; }
-        .string:nth-child(3) { top: 42%; height: 3px; }
-        .string:nth-child(4) { top: 58%; height: 4px; }
-        .string:nth-child(5) { top: 74%; height: 5px; }
-        .string:nth-child(6) { top: 90%; height: 6px; }
-
-        /* PONTOS DOS DEDOS */
-        .dot {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background: #ff4500;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-            box-shadow: 0 0 15px #ff4500;
-            display: none;
-        }
-
-        .menu-acordes {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn-acorde {
-            background: #333;
-            color: white;
-            border: 2px solid #ff4500;
-            padding: 15px 30px;
+        .diagrama-placeholder {
+            font-family: monospace;
+            white-space: pre;
+            background: #050505;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #222;
+            color: #2ecc71;
             font-size: 1.2rem;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: 0.3s;
+            line-height: 1.4;
         }
 
-        .btn-acorde:hover { background: #ff4500; }
+        /* Seção de Velocidade */
+        .dicas-velocidade-list {
+            list-style: none;
+            padding: 0;
+        }
 
-        .btn-voltar {
-            margin-top: 30px;
-            color: #aaa;
-            text-decoration: none;
+        .dicas-velocidade-list li {
+            background: #1e1e24;
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            border-left: 4px solid #ff4500;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .dicas-velocidade-list strong {
+            color: #ff4500;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
         }
     </style>
 </head>
 <body>
 
-    <h1>Dicionário de Bernardo</h1>
-    <p>Selecione o acorde e veja onde posicionar seus dedos no braço do estúdio:</p>
-
-    <div class="menu-acordes">
-        <button class="btn-acorde" onclick="mostrarAcorde('C')">Dó (C)</button>
-        <button class="btn-acorde" onclick="mostrarAcorde('G')">Sol (G)</button>
-        <button class="btn-acorde" onclick="mostrarAcorde('D')">Ré (D)</button>
-        <button class="btn-acorde" onclick="mostrarAcorde('Am')">Lá Menor (Am)</button>
-    </div>
-
-    <div class="fretboard-container">
-        <div class="fretboard">
-            <div class="string"></div><div class="string"></div>
-            <div class="string"></div><div class="string"></div>
-            <div class="string"></div><div class="string"></div>
-
-            <div class="fret"></div><div class="fret"></div>
-            <div class="fret"></div><div class="fret"></div>
-            <div class="fret"></div>
-            
-            <div id="d1" class="dot"></div>
-            <div id="d2" class="dot"></div>
-            <div id="d3" class="dot"></div>
-            <div id="d4" class="dot"></div>
+    <div class="top-navbar">
+        <div class="top-navbar-content">
+            <span class="guitar-icon">🎸</span>
+            <span>BERNARDO</span>
         </div>
     </div>
 
-    <a href="index.html" class="btn-voltar">← Sair do Estúdio e Voltar ao Início</a>
+    <div class="container-acordes">
+        <a href="index.html" class="btn-voltar">← Voltar ao Menu Principal</a>
+
+        <section class="secao-container">
+            <h2>📖 Dicionário de Acordes Interativo</h2>
+            <p>Selecione um acorde abaixo para visualizar como posicionar os dedos nas cordas e casas do braço da guitarra:</p>
+            
+            <div class="dicionario-layout">
+                <div class="lista-botoes-acordes">
+                    <button class="acorde-btn active" onclick="mostrarAcorde('C', 'Dó Maior', 'E|--0--\nB|--1-- (Dedo 1)\nG|--0--\nD|--2-- (Dedo 2)\nA|--3-- (Dedo 3)\nE|--X--')">C</button>
+                    <button class="acorde-btn" onclick="mostrarAcorde('D', 'Ré Maior', 'E|--2-- (Dedo 2)\nB|--3-- (Dedo 3)\nG|--2-- (Dedo 1)\nD|--0--\nA|--X--\nE|--X--')">D</button>
+                    <button class="acorde-btn" onclick="mostrarAcorde('E', 'Mi Maior', 'E|--0--\nB|--0--\nG|--1-- (Dedo 1)\nD|--2-- (Dedo 3)\nA|--2-- (Dedo 2)\nE|--0--')">E</button>
+                    <button class="acorde-btn" onclick="mostrarAcorde('F', 'Fá Maior (Pestana)', 'E|--1-- [Pestana]\nB|--1-- [Pestana]\nG|--2-- (Dedo 2)\nD|--3-- (Dedo 4)\nA|--3-- (Dedo 3)\nE|--1-- [Pestana]')">F</button>
+                    <button class="acorde-btn" onclick="mostrarAcorde('G', 'Sol Maior', 'E|--3-- (Dedo 3)\nB|--0--\nG|--0--\nD|--0--\nA|--2-- (Dedo 1)\nE|--3-- (Dedo 2)')">G</button>
+                    <button class="acorde-btn" onclick="mostrarAcorde('A', 'Lá Maior', 'E|--0--\nB|--2-- (Dedo 3)\nG|--2-- (Dedo 2)\nD|--2-- (Dedo 1)\nA|--0--\nE|--X--')">A</button>
+                    <button class="acorde-btn" onclick="mostrarAcorde('Am', 'Lá Menor', 'E|--0--\nB|--1-- (Dedo 1)\nG|--2-- (Dedo 3)\nD|--2-- (Dedo 2)\nA|--0--\nE|--X--')">Am</button>
+                    <button class="acorde-btn" onclick="mostrarAcorde('Em', 'Mi Menor', 'E|--0--\nB|--0--\nG|--0--\nD|--2-- (Dedo 3)\nA|--2-- (Dedo 2)\nE|--0--')">Em</button>
+                </div>
+
+                <div class="visualizador-acorde">
+                    <div class="nome-acorde-display" id="acorde-nome">Dó Maior (C)</div>
+                    <div class="diagrama-placeholder" id="acorde-diagrama">E|--0--
+B|--1-- (Dedo 1)
+G|--0--
+D|--2-- (Dedo 2)
+A|--3-- (Dedo 3)
+E|--X--</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao-container">
+            <h2>⚡ Como Melhorar a Velocidade nas Trocas de Casas e Acordes</h2>
+            <p>Mudar de notas ou movimentar-se pelo braço com rapidez exige técnica correta. Aplique estes pilares diariamente:</p>
+            
+            <ul class="dicas-velocidade-list">
+                <li>
+                    <strong>1. O Princípio dos Movimentos Mínimos (Economia)</strong>
+                    Não afaste demais os dedos das cordas ao trocar de casa. Mantenha os dedos flutuando o mais próximo possível dos trastes. Quanto menor a distância percorrida, mais rápida será a troca.
+                </li>
+                <li>
+                    <strong>2. Técnica do Pivot (Dedo Âncora)</strong>
+                    Ao mudar entre dois acordes, verifique se eles compartilham alguma nota ou o mesmo dedo na mesma casa. Mantenha esse dedo fixo no braço enquanto move os outros. Ele servirá de guia estável.
+                </li>
+                <li>
+                    <strong>3. Movimento em Bloco (Aterrissagem Simultânea)</strong>
+                    Pratique montar a forma do acorde inteiro no ar antes de tocar as cordas. Evite colocar um dedo de cada vez de forma sequencial; force sua mente a mover todos os dedos juntos para pousarem de uma só vez.
+                </li>
+                <li>
+                    <strong>4. Antecipação Mental</strong>
+                    Um milissegundo antes de mudar de casa, olhe diretamente para o traste de destino. Seus olhos guiam a sua mão. Nunca mude de casa sem saber exatamente para onde seu dedo indicador vai pousar.
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>⚡ Desenvolvido com muito Rock por: <strong>Bernardo Oliveira</strong> | Turma 1 B ⚡</p>
+    </footer>
 
     <script>
-        function mostrarAcorde(nome) {
-            // Esconde todos
-            document.querySelectorAll('.dot').forEach(d => d.style.display = 'none');
-            
-            if(nome === 'C') {
-                posicionar('d1', 1, 26); // Corda 2 (Si), Casa 1
-                posicionar('d2', 2, 58); // Corda 4 (Ré), Casa 2
-                posicionar('d3', 3, 74); // Corda 5 (Lá), Casa 3
-            }
-            if(nome === 'G') {
-                posicionar('d1', 2, 74); // Corda 5, Casa 2
-                posicionar('d2', 3, 90); // Corda 6, Casa 3
-                posicionar('d3', 3, 10); // Corda 1, Casa 3
-            }
-            // Adicione outros conforme desejar
-        }
+        function mostrarAcorde(cifra, nomeCompleto, diagrama) {
+            document.getElementById('acorde-nome').innerText = nomeCompleto + " (" + cifra + ")";
+            document.getElementById('acorde-diagrama').innerText = diagrama;
 
-        function posicionar(id, casa, cordaPercent) {
-            const d = document.getElementById(id);
-            const frets = document.querySelectorAll('.fret');
-            const targetFret = frets[casa - 1];
-            const rect = targetFret.getBoundingClientRect();
-            const board = document.querySelector('.fretboard').getBoundingClientRect();
-            
-            d.style.display = 'block';
-            d.style.left = (targetFret.offsetLeft + (targetFret.offsetWidth / 2)) + 'px';
-            d.style.top = cordaPercent + '%';
+            // Altera estado ativo do botão
+            let botoes = document.querySelectorAll('.acorde-btn');
+            botoes.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
         }
     </script>
 </body>
