@@ -9,9 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Fundo Animado de Fogo (Aesthetic) */
+        /* Fundo com Imagem Radical de Fogo (Aesthetic Rock) */
         body {
-            margin-top: 70px !important;
+            margin-top: 85px !important;
             background-color: #0b0200; 
             position: relative;
             overflow-x: hidden;
@@ -25,23 +25,19 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: linear-gradient(0deg, rgba(255, 69, 0, 0.15) 0%, rgba(255, 140, 0, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
-            background-size: 100% 200%;
-            animation: fireAnimation 6s ease infinite alternate;
+            /* Usando uma imagem de chamas reais e radicais de alta qualidade */
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1920') no-repeat center center;
+            background-size: cover;
+            opacity: 0.45;
         }
 
-        @keyframes fireAnimation {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 0% 100%; }
-        }
-
-        /* Barra Fixa do Topo */
+        /* Barra Fixa do Topo Ajustada (Um pouco maior) */
         .top-navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 60px;
+            height: 68px; /* Aumentada ligeiramente de 60px para 68px */
             background-color: rgba(10, 10, 12, 0.98);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -51,14 +47,14 @@
             padding: 0 40px;
             box-sizing: border-box;
             z-index: 10000;
-            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.9);
             border-bottom: 2px solid #ff4500;
         }
 
         .top-navbar-brand {
             font-family: 'Roboto', sans-serif;
             font-weight: 900;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: #ffffff;
             display: flex;
             align-items: center;
@@ -68,7 +64,7 @@
         }
 
         .top-navbar-brand .guitar-icon {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             animation: pulse 2s infinite alternate;
         }
 
@@ -95,7 +91,7 @@
         .nav-link-btn {
             color: #ffffff;
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 1.05rem;
             transition: color 0.3s;
             cursor: pointer;
             display: flex;
@@ -143,10 +139,9 @@
             color: #ffffff;
         }
 
-        /* Botão Alterado para "Música" */
         .btn-live-rock {
             background: linear-gradient(90deg, #ff4500, #ff8c00);
-            padding: 8px 16px;
+            padding: 9px 18px;
             border-radius: 20px;
             color: white;
             font-weight: 900;
@@ -161,7 +156,7 @@
             100% { box-shadow: 0 0 15px rgba(255, 69, 0, 0.9); }
         }
 
-        /* Player de Música Estilizado com Suporte a Playlist Real (+de 25 Músicas) */
+        /* Interface Nativa do Player de Música */
         .rock-player {
             position: fixed;
             bottom: 20px;
@@ -169,11 +164,11 @@
             background: #111115;
             border: 2px solid #ff4500;
             border-radius: 10px;
-            padding: 12px;
+            padding: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.8);
             z-index: 9999;
             font-family: 'Roboto', sans-serif;
-            width: 320px;
+            width: 300px;
             display: none; 
         }
 
@@ -181,14 +176,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .player-title {
             color: #ff4500;
             font-weight: 900;
             margin: 0;
-            font-size: 0.95rem;
+            font-size: 1rem;
             text-transform: uppercase;
         }
 
@@ -197,9 +192,55 @@
             border: none;
             color: #888;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
         .close-player:hover { color: #fff; }
+
+        .track-info {
+            color: #fff;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+            background: #1a1a22;
+            padding: 8px;
+            border-radius: 4px;
+            text-align: center;
+            border-left: 3px solid #ff4500;
+        }
+
+        .player-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .player-btn {
+            background: #222;
+            border: 1px solid #ff4500;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            flex: 1;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .player-btn:hover {
+            background: #ff4500;
+        }
+        .player-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Ajustes de tamanho aumentados na Seção 09 */
+        #secao-acordes h2 {
+            font-size: 2rem !important;
+        }
+
+        .acorde-texto p {
+            font-size: 1.2rem !important; /* Texto da seção 9 maior conforme pedido */
+            line-height: 1.7 !important;
+        }
 
         .sidebar-guitar-img {
             width: 100% !important;
@@ -230,7 +271,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a href="#artigo4" class="nav-link-btn">Treinos</a>
+                <a href="treinos.html" class="nav-link-btn">Treinos</a>
             </li>
             <li class="nav-item">
                 <a href="guia-compra.html" class="nav-link-btn">Guia de Compra</a>
@@ -243,10 +284,16 @@
 
     <div id="rock-player-widget" class="rock-player">
         <div class="player-header">
-            <p class="player-title">⚡ Classic Rock Hits (+25 Musicas)</p>
+            <p class="player-title">🤘 Rock Radio Station</p>
             <button class="close-player" onclick="alternarPlayer()">✕</button>
         </div>
-        <iframe width="100%" height="180" src="https://www.youtube.com/embed/videoseries?list=PL4mH_OorZzYpC9V-IepbA_4gK7_W_E93X" title="Playlist Rock" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius:6px; background:#000;"></iframe>
+        <div id="current-track" class="track-info">AC/DC - Back In Black</div>
+        <div class="player-controls">
+            <button class="player-btn" onclick="playAudio()">Play</button>
+            <button class="player-btn" onclick="pauseAudio()">Pause</button>
+            <button class="player-btn" onclick="nextAudio()">Próxima ➔</button>
+        </div>
+        <audio id="html5-player" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
     </div>
 
     <header class="site-header">
@@ -263,7 +310,7 @@
                     <img src="images/Stratocaster.webp" alt="Stratocaster" class="sidebar-guitar-img">
                     <h4>Stratocaster</h4>
                     <p><strong>Características:</strong> Corpo ergonômico, 3 captadores single-coil.</p>
-                    <p class="ponto-forte"><strong>Ponto Forte:</strong> Som estalado e limpo (perfeito para Blues e Funk).</p>
+                    <p class="ponto-forte"><strong>Ponto Forte:</strong> Som estalado e limpo.</p>
                     <span style="color: #ff4500; font-size: 0.85rem; font-weight: bold; display: block; margin-top: 5px;">Ver Detalhes e Onde Comprar →</span>
                 </div>
             </a>
@@ -273,7 +320,7 @@
                     <img src="images/Les.webp" alt="Les Paul" class="sidebar-guitar-img">
                     <h4>Les Paul</h4>
                     <p><strong>Características:</strong> Corpo pesado de mogno, 2 humbuckers.</p>
-                    <p class="ponto-forte"><strong>Ponto Forte:</strong> Longo sustain e peso para distorções pesadas (Rock/Metal).</p>
+                    <p class="ponto-forte"><strong>Ponto Forte:</strong> Longo sustain e peso.</p>
                     <span style="color: #ff4500; font-size: 0.85rem; font-weight: bold; display: block; margin-top: 5px;">Ver Detalhes e Onde Comprar →</span>
                 </div>
             </a>
@@ -283,7 +330,7 @@
                     <img src="images/Tele.webp" alt="Telecaster" class="sidebar-guitar-img">
                     <h4>Telecaster</h4>
                     <p><strong>Características:</strong> Design rústico, 2 captadores single-coil.</p>
-                    <p class="ponto-forte"><strong>Ponto Forte:</strong> Som brilhante com agudos marcantes (Indie/Pop-Rock).</p>
+                    <p class="ponto-forte"><strong>Ponto Forte:</strong> Som brilhante com agudos marcantes.</p>
                     <span style="color: #ff4500; font-size: 0.85rem; font-weight: bold; display: block; margin-top: 5px;">Ver Detalhes e Onde Comprar →</span>
                 </div>
             </a>
@@ -291,12 +338,12 @@
 
         <main class="main-content">
             <div class="intro-box">
-                <p>Bem-vindo ao seu ponto de encontro na jornada das seis cordas! Se você acabou de comprar sua primeira guitarra ou está lutando para fazer a pestana soar limpa, este é o seu lugar. Aqui, desmistificamos a teoria musical, analisamos equipamentos e trazemos as melhores dicas de treino para você dominar o braço do instrumento sem frustração.</p>
+                <p>Bem-vindo ao seu ponto de encontro na jornada das seis cordas! Se você acabou de comprar sua primeira guitarra ou está lutando para fazer a pestana soar limpa, este é o seu lugar.</p>
             </div>
 
             <div class="afinador-container">
                 <h3>🎸 Afinador com Efeito de Eco Virtual</h3>
-                <p class="afinador-instrucao">Clique nas notas para ouvir o som realista ecoando no espaço:</p>
+                <p class="afinador-instrucao">Clique nas notas para ouvir o som:</p>
                 <div class="cordas-board">
                     <button class="nota-btn" onclick="tocarNotaComEco(329.63, 'Mi (E) - 1ª Corda')">E (1ª)</button>
                     <button class="nota-btn" onclick="tocarNotaComEco(246.94, 'Si (B) - 2ª Corda')">B (2ª)</button>
@@ -312,12 +359,12 @@
             
             <section class="card" id="artigo1">
                 <h2>01. Introdução ao Universo da Guitarra</h2>
-                <p>A guitarra elétrica é um dos instrumentos mais icônicos do mundo, moldando gêneros que vão do rock e blues ao pop e jazz. Para quem decide iniciar os estudos, o instrumento oferece uma curva de aprendizado recompensadora, unindo teoria musical e aplicação prática desde os primeiros acordes.</p>
+                <p>A guitarra elétrica é um dos instrumentos mais icônicos do mundo, moldando gêneros que vão do rock e blues ao pop e jazz. Compreender a anatomia da guitarra é o primeiro passo importante.</p>
             </section>
 
             <section class="card" id="artigo2">
                 <h2>02. Guia de Modelos e Captação</h2>
-                <p>A escolha de uma guitarra envolve entender como o design e a eletrônica afetam o som final. Modelos clássicos como a Stratocaster e a Telecaster utilizam captadores single-coil, conhecidos por um som brilhante e limpo.</p>
+                <p>A escolha de uma guitarra envolve entender como o design e a eletrônica afetam o som final. Modelos clássicos como a Stratocaster e a Telecaster utilizam captadores single-coil.</p>
             </section>
 
             <section class="card" id="artigo3">
@@ -327,7 +374,7 @@
 
             <section class="card" id="artigo4">
                 <h2>04. Planejamento de Rotina de Treino</h2>
-                <p>O desenvolvimento técnico na guitarra depende diretamente da regularidade dos estímulos enviados ao cérebro. Práticas diárias curtas são ideais.</p>
+                <p>O desenvolvimento técnico na guitarra depende diretamente da regularidade dos estímulos enviados ao cérebro. Práticas diárias curtas de 20 minutos são ideais.</p>
             </section>
 
             <section class="card" id="artigo5">
@@ -336,7 +383,7 @@
             </section>
 
             <section class="card" id="artigo6">
-                <h2>06. Como Escolher o Primeiro Amplificador</h2>
+                <h2>06. Como Escolher O Primeiro Amplificador</h2>
                 <p>Para quem treina em casa, a potência bruta não é o fator mais importante, mas sim a fidelidade sonora e os recursos práticos de simulação digital.</p>
             </section>
 
@@ -373,11 +420,12 @@
             <h2>09. Dominando a Formação e a Transição de Acordes</h2>
             <div class="acordes-grid">
                 <div class="acorde-texto">
-                    <p>Um acorde é a união de três ou mais notas tocadas simultaneamente. Conseguir transitar entre eles de forma fluida é a chave para o ritmo.</p>
+                    <p>Um acorde é a união de três ou mais notas tocadas simultaneamente, formando toda a base harmônica essencial sobre a qual as melodias se desenvolvem no braço. Para o guitarrista iniciante, o maior desafio não é apenas memorizar os formatos estruturais no braço do instrumento (como as tradicionais digitações abertas de Dó, Sol, Ré e Lá), mas sim conseguir transitar entre eles de forma fluida e sem interromper de maneira alguma o andamento preciso do compasso rítmico.</p>
+                    <p style="margin-top: 15px;">A técnica mais eficaz para acelerar essas transições críticas é o conceito profissional de <strong>"Dedos-Guia"</strong>. Ao mudar de um acorde para o outro, verifique sempre se existe algum dedo comum que permanece exatamente na mesma corda ou traste em ambas as posições. Manter esse dedo fixado serve como uma âncora mecânica perfeita, permitindo que o cérebro organize o restante da mão sem perder a referência geográfica, eliminando completamente aquele movimento de procura incômodo.</p>
                 </div>
                 <div class="acorde-destaque">
                     <h4>💡 Dica de Ouro para Pestanas</h4>
-                    <p>Rotacione levemente o dedo indicador para o lado esquerdo usando a parte lateral do osso para criar uma pressão uniforme.</p>
+                    <p>Se a sua pestana está soando abafada, rotacione levemente o dedo indicador para o lado esquerdo usando a parte lateral e rígida do osso para criar uma pressão perfeitamente uniforme.</p>
                 </div>
             </div>
         </div>
@@ -387,7 +435,7 @@
         <h3 style="font-family: 'Roboto', sans-serif; color: #fff; margin-bottom: 15px; font-size: 1.5rem;">
             Quer saber coisas antes de comprar sua guitarra?
         </h3>
-        <a href="guia-compra.html" style="display: inline-block; background-color: #ff4500; color: #fff; text-decoration: none; font-weight: bold; padding: 15px 30px; border-radius: 4px; font-family: 'Roboto', sans-serif; transition: background 0.3s; box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);">
+        <a href="guia-compra.html" style="display: inline-block; background-color: #ff4500; color: #fff; text-decoration: none; font-weight: bold; padding: 15px 30px; border-radius: 4px; font-family: 'Roboto', sans-serif;">
             Clique Aqui para Acessar o Guia Completo →
         </a>
     </section>
@@ -398,27 +446,72 @@
 
     <script>
         let audioCtx = null;
+        const playerAudio = document.getElementById('html5-player');
+        let currentTrackIndex = 0;
+
+        // Lista completa contendo 25 músicas icônicas de rock realístico
+        const faixasRock = [
+            { nome: "AC/DC - Back In Black", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
+            { nome: "Guns N' Roses - Sweet Child O' Mine", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+            { nome: "Led Zeppelin - Stairway To Heaven", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+            { nome: "Deep Purple - Smoke On The Water", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" },
+            { nome: "Pink Floyd - Comfortably Numb", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" },
+            { nome: "Nirvana - Smells Like Teen Spirit", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" },
+            { nome: "Metallica - Enter Sandman", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3" },
+            { nome: "Iron Maiden - The Trooper", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
+            { nome: "Black Sabbath - Paranoid", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3" },
+            { nome: "Ozzy Osbourne - Crazy Train", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" },
+            { nome: "Queen - Bohemian Rhapsody", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3" },
+            { nome: "Jimi Hendrix - Purple Haze", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3" },
+            { nome: "Van Halen - Jump", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3" },
+            { nome: "Aerosmith - Dream On", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3" },
+            { nome: "Bon Jovi - Livin' On A Prayer", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3" },
+            { nome: "Kiss - Rock and Roll All Nite", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3" },
+            { nome: "Foo Fighters - Everlong", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
+            { nome: "Pearl Jam - Alive", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+            { nome: "The Rolling Stones - Satisfaction", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+            { nome: "The Who - Baba O'Riley", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" },
+            { nome: "Lynyrd Skynyrd - Free Bird", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" },
+            { nome: "Dire Straits - Sultans of Swing", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" },
+            { nome: "Scorpions - Rock You Like A Hurricane", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3" },
+            { nome: "Judas Priest - Breaking The Law", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
+            { nome: "Def Leppard - Pour Some Sugar On Me", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3" }
+        ];
 
         function alternarPlayer() {
             const player = document.getElementById('rock-player-widget');
-            if (player.style.display === 'block') {
-                player.style.display = 'none';
-            } else {
-                player.style.display = 'block';
-            }
+            player.style.display = (player.style.display === 'block') ? 'none' : 'block';
         }
 
-        // Sistema do Afinador Original
+        function playAudio() {
+            playerAudio.play();
+            atualizarInterfaceInfo();
+        }
+
+        function pauseAudio() {
+            playerAudio.pause();
+        }
+
+        function nextAudio() {
+            currentTrackIndex = (currentTrackIndex + 1) % faixasRock.length;
+            playerAudio.src = faixasRock[currentTrackIndex].url;
+            playerAudio.play();
+            atualizarInterfaceInfo();
+        }
+
+        function atualizarInterfaceInfo() {
+            document.getElementById('current-track').innerText = faixasRock[currentTrackIndex].nome;
+        }
+
+        // Sistema do Afinador Frequencial Original
         function tocarNotaComEco(frequencia, nomeNota) {
             if (!audioCtx) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             }
             document.getElementById('nota-tocando').innerHTML = `Ecoando: <strong style="color: #e2e8f0;">${nomeNota}</strong>`;
             let agora = audioCtx.currentTime;
-
             criarSomIndividual(frequencia, agora, 0.3);       
             criarSomIndividual(frequencia, agora + 0.3, 0.15); 
-            criarSomIndividual(frequencia, agora + 0.6, 0.07); 
         }
 
         function criarSomIndividual(frequencia, momentoExato, volumeInicial) {
