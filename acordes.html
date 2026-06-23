@@ -3,165 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dicionário de Acordes - Acorde Perfeito</title>
+    <title>Acordes - Acorde Perfeito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
         body {
-            margin-top: 85px;
-            background-color: #0b0200;
-            color: #fff;
+            margin-top: 85px !important;
+            background-color: #0b0200; 
             font-family: 'Roboto', sans-serif;
-            min-height: 100vh;
+            color: #fff;
         }
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)), url('https://images.unsplash.com/photo-1510915361894-db8b60106cb1?q=80&w=1920') no-repeat center center;
-            background-size: cover;
-            opacity: 0.4;
-        }
+
         .top-navbar {
-            position: fixed; top: 0; left: 0; width: 100%; height: 68px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 68px; 
             background-color: rgba(10, 10, 12, 0.98);
-            backdrop-filter: blur(10px); display: flex; align-items: center;
-            justify-content: space-between; padding: 0 40px; box-sizing: border-box;
-            z-index: 10000; border-bottom: 2px solid #ff4500;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            box-sizing: border-box;
+            z-index: 10000;
+            border-bottom: 2px solid #ff4500;
         }
-        .top-navbar-brand { font-weight: 900; size: 1.4rem; color: #ffffff; text-decoration: none; display: flex; gap: 10px; }
-        .nav-links { display: flex; align-items: center; gap: 25px; list-style: none; margin: 0; padding: 0; font-weight: 700; }
-        .nav-link-btn { color: #ffffff; text-decoration: none; font-size: 1.05rem; }
-        .nav-link-btn:hover { color: #ff4500; }
-        
-        .container-acordes { max-width: 900px; margin: 40px auto; padding: 20px; }
-        .dic-aesthetic-box {
-            background: linear-gradient(145deg, #120502, #1c0a05);
-            border: 2px solid #ff4500; border-radius: 12px; padding: 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+
+        .top-navbar-brand {
+            font-weight: 900;
+            font-size: 1.4rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
         }
-        .dic-title { color: #ff8c00; font-size: 2.2rem; margin-top: 0; font-weight: 900; text-transform: uppercase; text-align: center;}
-        .dic-selectors { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; justify-content: center; }
-        .dic-chord-btn {
-            background: #25120c; color: #fff; border: 2px solid #ff4500;
-            padding: 12px 20px; font-weight: 900; border-radius: 6px; font-size: 1.1rem;
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-weight: 700;
         }
-        .dic-chord-btn:hover, .dic-chord-btn.active {
-            background: #ff4500; box-shadow: 0 0 12px #ff4500; transform: translateY(-2px);
+
+        .nav-link-btn {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: color 0.3s;
         }
-        .guitar-neck-container {
-            width: 100%; max-width: 760px; height: 190px;
-            background: linear-gradient(90deg, #3d2314, #2b180d);
-            border-left: 14px solid #d1d5db; border-radius: 4px;
-            position: relative; display: flex; margin: 0 auto;
-            box-shadow: inset 0 0 25px rgba(0,0,0,0.9), 0 10px 20px rgba(0,0,0,0.5);
+
+        .nav-link-btn:hover {
+            color: #ff4500;
         }
-        .guitar-fret { flex: 1; border-right: 4px solid #9ca3af; position: relative; }
-        .guitar-string { position: absolute; width: 100%; background: linear-gradient(#e5e7eb, #9ca3af); }
-        .guitar-string:nth-child(1) { top: 10%; height: 2px; }
-        .guitar-string:nth-child(2) { top: 26%; height: 2.5px; }
-        .guitar-string:nth-child(3) { top: 42%; height: 3px; }
-        .guitar-string:nth-child(4) { top: 58%; height: 3.5px; }
-        .guitar-string:nth-child(5) { top: 74%; height: 4px; }
-        .guitar-string:nth-child(6) { top: 90%; height: 4.5px; }
-        
-        .fret-dot-marker {
-            position: absolute; width: 26px; height: 26px;
-            background: radial-gradient(#ff5f1f, #ff2e00); border: 2px solid #ffffff;
-            border-radius: 50%; transform: translate(-50%, -50%); z-index: 10;
-            display: none; box-shadow: 0 0 15px #ff4500;
-            text-align: center; font-size: 14px; line-height: 26px; font-weight: 900; color: white;
+
+        .container-acordes {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
         }
-        footer { text-align: center; padding: 20px; color: #888; margin-top: 40px; }
+
+        .grid-botoes-acordes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .btn-nota-oficial {
+            background: linear-gradient(135deg, #1a1a1f, #121215);
+            border: 2px solid #ff4500;
+            color: white;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-nota-oficial:hover {
+            background: #ff4500;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
+        }
+
+        .card-acorde {
+            background-color: #121215;
+            border: 1px solid #2a2a30;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 5px solid #ff4500;
+        }
+
+        .card-acorde h3 {
+            color: #ff4500;
+            font-size: 1.6rem;
+            margin-top: 0;
+        }
+
+        .info-nota {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        #status-som {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #ff8c00;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
     <nav class="top-navbar">
-        <a href="index.html" class="top-navbar-brand">
-            <span>🎸 BERNARDO</span>
+        <a href="index.html" class="top-navbar-brand" onclick="tocarSomClique()">
+            <span>🎸</span>
+            <span>BERNARDO</span>
         </a>
         <ul class="nav-links">
-            <li><a href="index.html" class="nav-link-btn">Início</a></li>
-            <li><a href="acordes.html" class="nav-link-btn" style="color: #ff4500;">Acordes</a></li>
-            <li><a href="treinos.html" class="nav-link-btn">Treinos</a></li>
-            <li><a href="guia-compra.html" class="nav-link-btn">Guia de Compra</a></li>
+            <li><a href="index.html" class="nav-link-btn" onclick="tocarSomClique()">Início</a></li>
+            <li><a href="treinos.html" class="nav-link-btn" onclick="tocarSomClique()">Treinos</a></li>
+            <li><a href="acordes.html" class="nav-link-btn" onclick="tocarSomClique()" style="color: #ff4500;">🎵 Acordes</a></li>
+            <li><a href="guia-compra.html" class="nav-link-btn" onclick="tocarSomClique()">Guia de Compra</a></li>
         </ul>
     </nav>
 
     <div class="container-acordes">
-        <div class="dic-aesthetic-box">
-            <h1 class="dic-title">🎵 Dicionário de Acordes</h1>
-            <p style="text-align:center; color: #cbd5e1; margin-bottom: 25px;">Selecione o acorde para visualizar o mapa de dedos no braço da guitarra:</p>
-            
-            <div class="dic-selectors">
-                <button class="dic-chord-btn" onclick="exibirAcordeBraço('C', this)">C</button>
-                <button class="dic-chord-btn" onclick="exibirAcordeBraço('D', this)">D</button>
-                <button class="dic-chord-btn" onclick="exibirAcordeBraço('E', this)">E</button>
-                <button class="dic-chord-btn" onclick="exibirAcordeBraço('F', this)">F</button>
-                <button class="dic-chord-btn" onclick="exibirAcordeBraço('G', this)">G</button>
-                <button class="dic-chord-btn" onclick="exibirAcordeBraço('A', this)">A</button>
-                <button class="dic-chord-btn" onclick="exibirAcordeBraço('B', this)">B</button>
-            </div>
+        <header style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 2.5rem; color: #fff;">Dicionário de Acordes Oficiais</h1>
+            <p style="color: #cbd5e1;">Clique nos botões para ouvir a nota fundamental afinada de cada acorde:</p>
+        </header>
 
-            <div class="guitar-neck-container">
-                <div class="guitar-string"></div><div class="guitar-string"></div><div class="guitar-string"></div>
-                <div class="guitar-string"></div><div class="guitar-string"></div><div class="guitar-string"></div>
-                <div class="guitar-fret"></div><div class="guitar-fret"></div><div class="guitar-fret"></div>
-                <div class="guitar-fret"></div><div class="guitar-fret"></div>
+        <p id="status-som">Toque em um acorde para ouvir...</p>
 
-                <div id="finger1" class="fret-dot-marker">1</div>
-                <div id="finger2" class="fret-dot-marker">2</div>
-                <div id="finger3" class="fret-dot-marker">3</div>
-                <div id="finger4" class="fret-dot-marker">4</div>
-            </div>
+        <div class="grid-botoes-acordes">
+            <button class="btn-nota-oficial" onclick="tocarNotaOficial(261.63, 'Dó'); tocarSomClique();">Dó (C)</button>
+            <button class="btn-nota-oficial" onclick="tocarNotaOficial(293.66, 'Ré'); tocarSomClique();">Ré (D)</button>
+            <button class="btn-nota-oficial" onclick="tocarNotaOficial(329.63, 'Mi'); tocarSomClique();">Mi (E)</button>
+            <button class="btn-nota-oficial" onclick="tocarNotaOficial(349.23, 'Fá'); tocarSomClique();">Fá (F)</button>
+            <button class="btn-nota-oficial" onclick="tocarNotaOficial(392.00, 'Sol'); tocarSomClique();">Sol (G)</button>
+            <button class="btn-nota-oficial" onclick="tocarNotaOficial(440.00, 'Lá'); tocarSomClique();">Lá (A)</button>
+            <button class="btn-nota-oficial" onclick="tocarNotaOficial(493.88, 'Si'); tocarSomClique();">Si (B)</button>
         </div>
-    </div>
 
-    <footer>
-        <p>⚡ Desenvolvido por Bernardo Oliveira ⚡</p>
-    </footer>
+        <section class="card-acorde">
+            <h3>Acorde de Dó Maior</h3>
+            <p class="info-nota">Formado pelas notas Dó, Mi e Sol. É um dos primeiros acordes que todo guitarrista aprende, sendo a base da música ocidental e essencial para treinar a abertura dos dedos no braço do instrumento.</p>
+        </section>
+
+        <section class="card-acorde">
+            <h3>Acorde de Ré Maior</h3>
+            <p class="info-nota">Formado pelas notas Ré, Fá sustenido e Lá. Possui um formato triangular bem confortável nas primeiras três cordas e tem um som brilhante e muito alegre, muito usado no Rock clássico.</p>
+        </section>
+
+        <section class="card-acorde">
+            <h3>Acorde de Mi Maior</h3>
+            <p class="info-nota">Formado pelas notas Mi, Sol sustenido e Si. Usa todas as seis cordas da guitarra, o que confere a ele um som encorpado, pesado e cheio de sustentação natural.</p>
+        </section>
+
+        <section class="card-acorde">
+            <h3>Acorde de Fá Maior</h3>
+            <p class="info-nota">Formado pelas notas Fá, Lá e Dó. Geralmente introduz o estudante ao desafio da <strong>pestana</strong>. Exige o uso do osso lateral do dedo indicador para pressionar todas as cordas na primeira casa.</p>
+        </section>
+
+        <section class="card-acorde">
+            <h3>Acorde de Sol Maior</h3>
+            <p class="info-nota">Formado pelas notas Sol, Si e Ré. Um acorde aberto que exige uma boa extensão do dedo anelar e mindinho nas cordas mais agudas, ideal para ganhar flexibilidade na mão esquerda.</p>
+        </section>
+
+        <section class="card-acorde">
+            <h3>Acorde de Lá Maior</h3>
+            <p class="info-nota">Formado pelas notas Lá, Dó sustenido e Mi. É montado espremendo três dedos na mesma casa (casa 2), ótimo para praticar o posicionamento bem vertical da ponta dos dedos para não abafar as cordas vizinhas.</p>
+        </section>
+
+        <section class="card-acorde">
+            <h3>Acorde de Si Maior</h3>
+            <p class="info-nota">Formado pelas notas Si, Ré sustenido e Fá sustenido. Geralmente feito com formato de pestana na segunda casa, sendo uma ótima evolução técnica para quem já dominou o acorde de Fá.</p>
+        </section>
+    </div>
 
     <script>
         let audioCtx = null;
-        function iniciarAudio() { if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
 
-        function emitirSomClique() {
-            iniciarAudio();
-            let osc = audioCtx.createOscillator();
-            let gain = audioCtx.createGain();
-            osc.type = 'sine'; osc.frequency.setValueAtTime(600, audioCtx.currentTime);
-            gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + 0.05);
-            osc.connect(gain); gain.connect(audioCtx.destination);
-            osc.start(); osc.stop(audioCtx.currentTime + 0.05);
-        }
-
-        function exibirAcordeBraço(nomeAcorde, botaoAlvo) {
-            emitirSomClique();
-            document.querySelectorAll('.dic-chord-btn').forEach(btn => btn.classList.remove('active'));
-            if(botaoAlvo) botaoAlvo.classList.add('active');
-            document.querySelectorAll('.fret-dot-marker').forEach(dot => dot.style.display = 'none');
-
-            if(nomeAcorde === 'C') { posicionarDedo(1, 1, 26); posicionarDedo(2, 2, 58); posicionarDedo(3, 3, 74); }
-            else if(nomeAcorde === 'D') { posicionarDedo(1, 2, 42); posicionarDedo(2, 3, 10); posicionarDedo(3, 2, 26); }
-            else if(nomeAcorde === 'E') { posicionarDedo(1, 1, 42); posicionarDedo(2, 2, 74); posicionarDedo(3, 2, 58); }
-            else if(nomeAcorde === 'F') { posicionarDedo(1, 1, 50); posicionarDedo(2, 2, 42); posicionarDedo(3, 3, 74); posicionarDedo(4, 3, 58); }
-            else if(nomeAcorde === 'G') { posicionarDedo(1, 2, 74); posicionarDedo(2, 3, 90); posicionarDedo(3, 3, 10); }
-            else if(nomeAcorde === 'A') { posicionarDedo(1, 2, 58); posicionarDedo(2, 2, 42); posicionarDedo(3, 2, 26); }
-            else if(nomeAcorde === 'B') { posicionarDedo(1, 2, 50); posicionarDedo(2, 4, 58); posicionarDedo(3, 4, 42); posicionarDedo(4, 4, 26); }
-        }
-
-        function posicionarDedo(numDedo, casaAlvo, cordaYPercent) {
-            let elDedo = document.getElementById('finger' + numDedo);
-            let listaTrastes = document.querySelectorAll('.guitar-fret');
-            let trasteSelecionado = listaTrastes[casaAlvo - 1];
-            if(trasteSelecionado) {
-                elDedo.style.display = 'block';
-                elDedo.style.left = (trasteSelecionado.offsetLeft + (trasteSelecionado.offsetWidth / 2)) + 'px';
-                elDedo.style.top = cordaYPercent + '%';
+        function verificarAudioContext() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             }
+        }
+
+        function tocarSomClique() {
+            verificarAudioContext();
+            let agora = audioCtx.currentTime;
+            let osc = audioCtx.createOscillator();
+            let ganho = audioCtx.createGain();
+            
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(1000, agora);
+            ganho.gain.setValueAtTime(0.08, agora);
+            ganho.gain.exponentialRampToValueAtTime(0.00001, agora + 0.05);
+            
+            osc.connect(ganho);
+            ganho.connect(audioCtx.destination);
+            osc.start(agora);
+            osc.stop(agora + 0.06);
+        }
+
+        function tocarNotaOficial(freq, nomeNota) {
+            verificarAudioContext();
+            if(audioCtx.state === 'suspended') audioCtx.resume();
+
+            document.getElementById('status-som').innerText = "Ouvindo nota fundamental de: " + nomeNota;
+
+            let agora = audioCtx.currentTime;
+            let osc = audioCtx.createOscillator();
+            let ganho = audioCtx.createGain();
+            let filtro = audioCtx.createBiquadFilter();
+
+            osc.type = "sawtooth"; 
+            osc.frequency.setValueAtTime(freq, agora);
+
+            filtro.type = "lowpass";
+            filtro.frequency.setValueAtTime(1000, agora);
+
+            ganho.gain.setValueAtTime(0.15, agora);
+            ganho.gain.exponentialRampToValueAtTime(0.00001, agora + 1.8);
+
+            osc.connect(filtro);
+            filtro.connect(ganho);
+            ganho.connect(audioCtx.destination);
+
+            osc.start(agora);
+            osc.stop(agora + 1.8);
         }
     </script>
 </body>

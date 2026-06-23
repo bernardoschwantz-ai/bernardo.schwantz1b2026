@@ -32,18 +32,6 @@
             opacity: 0.6;
         }
 
-        /* Aplicação do Cursor Personalizado nas Guias e Elementos Interativos */
-        .nav-link-btn, 
-        .dropdown-item, 
-        .top-navbar-brand, 
-        .nota-btn, 
-        .btn-live-rock, 
-        .shortcut-menu a, 
-        .guitar-model-card,
-        a {
-            cursor: url('images/Cursor.png'), pointer !important;
-        }
-
         /* Efeito de Luzes de Palco do Modo Show */
         .stage-lights {
             position: fixed;
@@ -371,8 +359,8 @@
             </div>
 
             <div class="afinador-container">
-                <h3>🎸 Afinador com Efeito de Eco Virtual</h3>
-                <p class="afinador-instrucao">Clique nas notas para ouvir o som:</p>
+                <h3>🎸 Afinador Dinâmico</h3>
+                <p class="afinador-instrucao">Clique nas notas para ouvir o som real das cordas afinadas:</p>
                 <div class="cordas-board">
                     <button class="nota-btn" onclick="tocarNotaComEco(329.63, 'Mi (E) - 1ª Corda'); tocarSomClique();">E (1ª)</button>
                     <button class="nota-btn" onclick="tocarNotaComEco(246.94, 'Si (B) - 2ª Corda'); tocarSomClique();">B (2ª)</button>
@@ -381,7 +369,7 @@
                     <button class="nota-btn" onclick="tocarNotaComEco(110.00, 'Lá (A) - 5ª Corda'); tocarSomClique();">A (5ª)</button>
                     <button class="nota-btn" onclick="tocarNotaComEco(82.41, 'Mi (E) - 6ª Corda'); tocarSomClique();">E (6ª)</button>
                 </div>
-                <p id="nota-tocando">Toque em uma corda para ouvir o eco...</p>
+                <p id="nota-tocando">Toque em uma corda para ouvir a nota...</p>
             </div>
             
             <img id="guitarra-img" src="images/imagem01.jpg" alt="Guitarra elétrica principal" class="imagem-blog">
@@ -403,7 +391,7 @@
 
             <section class="card" id="artigo4">
                 <h2>04. Planejamento de Rotina de Treino</h2>
-                <p>O desenvolvimento técnico na guitarra depende diretamente da regularidade dos estímulos enviados ao cérebro. Práticas diárias curtas de 20 minutos são ideais.</p>
+                <p>O desenvolvimento técnico na guitarra depende diretamente da regularidade dos estruturais estímulos enviados ao cérebro. Práticas diárias curtas de 20 minutos são ideais.</p>
             </section>
 
             <section class="card" id="artigo5">
@@ -476,7 +464,6 @@
 
     <script>
         let audioCtx = null;
-        let liveModeInterval = null;
 
         function verificarAudioContext() {
             if (!audioCtx) {
@@ -489,7 +476,7 @@
             if(audioCtx.state === 'suspended') audioCtx.resume();
         }
 
-        // Função nativa para criar um som básico de clique (Estalo rápido)
+        // Som de clique limpo e rápido
         function tocarSomClique() {
             verificarAudioContext();
             if(audioCtx.state === 'suspended') audioCtx.resume();
@@ -499,10 +486,10 @@
             let ganho = audioCtx.createGain();
             
             osc.type = 'sine';
-            osc.frequency.setValueAtTime(1000, agora); // Frequência do clique
+            osc.frequency.setValueAtTime(1000, agora);
             
             ganho.gain.setValueAtTime(0.08, agora);
-            ganho.gain.exponentialRampToValueAtTime(0.00001, agora + 0.05); // Curto e rápido
+            ganho.gain.exponentialRampToValueAtTime(0.00001, agora + 0.05);
             
             osc.connect(ganho);
             ganho.connect(audioCtx.destination);
@@ -527,9 +514,50 @@
             }
         }
 
+        // Função do Afinador: Gera o som real sustentado de cada corda com eco
         function tocarNotaComEco(freq, nomeString) {
             verificarAudioContext();
+            if(audioCtx.state === 'suspended') audioCtx.resume();
+
             document.getElementById('nota-tocando').innerText = "Tocando: " + nomeString;
+
+            let agora = audioCtx.currentTime;
+            let osc = audioCtx.createOscillator();
+            let ganho = audioCtx.createGain();
+            let delay = audioCtx.createDelay();
+            let feedback = audioCtx.createGain();
+
+            // Formato de onda dente de serra para simular o brilho da corda de guitarra
+            osc.type = "sawtooth";
+            osc.frequency.setValueAtTime(freq, agora);
+
+            // Filtro sutil para suavizar o som e torná-lo mais natural
+            let filtro = audioCtx.createBiquadFilter();
+            filtro.type = "lowpass";
+            filtro.frequency.setValueAtTime(1200, agora);
+
+            // Configuração do Eco (Delay)
+            delay.delayTime.value = 0.3; // tempo do eco
+            feedback.gain.value = 0.4;  // volume das repetições
+
+            // Envelhecimento do ganho principal (Sustain de 2 segundos)
+            ganho.gain.setValueAtTime(0.15, agora);
+            ganho.gain.exponentialRampToValueAtTime(0.00001, agora + 2.0);
+
+            // Conexões de áudio
+            osc.connect(filtro);
+            filtro.connect(ganho);
+            
+            // Loop do Eco
+            ganho.connect(delay);
+            delay.connect(feedback);
+            feedback.connect(delay);
+            delay.connect(audioCtx.destination); // Envia o eco para as caixas
+            
+            ganho.connect(audioCtx.destination); // Envia o som direto para as caixas
+
+            osc.start(agora);
+            osc.stop(agora + 2.0);
         }
 
         function tocarGuitarraModoShow(ativo) {
