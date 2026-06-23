@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Fundo com Imagem Radical de Fogo (Aesthetic Rock) */
+        /* Fundo Premium: Guitarras e Fogo (Aesthetic Ultra Rock) */
         body {
             margin-top: 85px !important;
             background-color: #0b0200; 
@@ -25,19 +25,19 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            /* Usando uma imagem de chamas reais e radicais de alta qualidade */
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1920') no-repeat center center;
+            /* Imagem focada em Guitarras com iluminação intensa e chamas ao fundo */
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1510915361894-db8b60106cb1?q=80&w=1920') no-repeat center center;
             background-size: cover;
-            opacity: 0.45;
+            opacity: 0.6;
         }
 
-        /* Barra Fixa do Topo Ajustada (Um pouco maior) */
+        /* Barra Fixa Superior Ampliada e Premium */
         .top-navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 68px; /* Aumentada ligeiramente de 60px para 68px */
+            height: 68px; 
             background-color: rgba(10, 10, 12, 0.98);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -156,19 +156,18 @@
             100% { box-shadow: 0 0 15px rgba(255, 69, 0, 0.9); }
         }
 
-        /* Interface Nativa do Player de Música */
+        /* Widget Player de Áudio Original (Spotify Web Integration) */
         .rock-player {
             position: fixed;
             bottom: 20px;
             right: 20px;
             background: #111115;
             border: 2px solid #ff4500;
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            border-radius: 12px;
+            padding: 10px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.9);
             z-index: 9999;
-            font-family: 'Roboto', sans-serif;
-            width: 300px;
+            width: 330px;
             display: none; 
         }
 
@@ -176,15 +175,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            padding: 0 5px;
         }
 
         .player-title {
             color: #ff4500;
             font-weight: 900;
             margin: 0;
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
+            font-family: 'Roboto', sans-serif;
         }
 
         .close-player {
@@ -196,50 +197,25 @@
         }
         .close-player:hover { color: #fff; }
 
-        .track-info {
-            color: #fff;
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-            font-weight: bold;
-            background: #1a1a22;
-            padding: 8px;
-            border-radius: 4px;
-            text-align: center;
-            border-left: 3px solid #ff4500;
-        }
-
-        .player-controls {
-            display: flex;
-            gap: 10px;
-        }
-
-        .player-btn {
-            background: #222;
-            border: 1px solid #ff4500;
-            color: #fff;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            flex: 1;
-            transition: background 0.2s, transform 0.1s;
-        }
-
-        .player-btn:hover {
-            background: #ff4500;
-        }
-        .player-btn:active {
-            transform: scale(0.95);
-        }
-
-        /* Ajustes de tamanho aumentados na Seção 09 */
+        /* Customização Avançada Seção 09 Aumentada */
         #secao-acordes h2 {
-            font-size: 2rem !important;
+            font-size: 2.3rem !important; /* Título maior */
+            color: #ff4500;
+            margin-bottom: 20px;
         }
 
         .acorde-texto p {
-            font-size: 1.2rem !important; /* Texto da seção 9 maior conforme pedido */
-            line-height: 1.7 !important;
+            font-size: 1.35rem !important; /* Parágrafos maiores */
+            line-height: 1.8 !important;
+            color: #e2e8f0;
+        }
+
+        .acorde-destaque h4 {
+            font-size: 1.4rem !important;
+        }
+        
+        .acorde-destaque p {
+            font-size: 1.15rem !important;
         }
 
         .sidebar-guitar-img {
@@ -284,16 +260,10 @@
 
     <div id="rock-player-widget" class="rock-player">
         <div class="player-header">
-            <p class="player-title">🤘 Rock Radio Station</p>
+            <p class="player-title">🤘 Áudios Originais (25+ Tracks)</p>
             <button class="close-player" onclick="alternarPlayer()">✕</button>
         </div>
-        <div id="current-track" class="track-info">AC/DC - Back In Black</div>
-        <div class="player-controls">
-            <button class="player-btn" onclick="playAudio()">Play</button>
-            <button class="player-btn" onclick="pauseAudio()">Pause</button>
-            <button class="player-btn" onclick="nextAudio()">Próxima ➔</button>
-        </div>
-        <audio id="html5-player" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+        <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcfZ6wTK3abv?utm_source=generator&theme=1" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius: 8px;"></iframe>
     </div>
 
     <header class="site-header">
@@ -425,7 +395,7 @@
                 </div>
                 <div class="acorde-destaque">
                     <h4>💡 Dica de Ouro para Pestanas</h4>
-                    <p>Se a sua pestana está soando abafada, rotacione levemente o dedo indicador para o lado esquerdo usando a parte lateral e rígida do osso para criar uma pressão perfeitamente uniforme.</p>
+                    <p>Se a sua pestana está soando abafada, rotacione levemente o dedo indicador para o lado esquerdo usando a parte lateral e rígida do osso para criar uma pressão perfeitamente uniforme por todo o traste.</p>
                 </div>
             </div>
         </div>
@@ -446,64 +416,12 @@
 
     <script>
         let audioCtx = null;
-        const playerAudio = document.getElementById('html5-player');
-        let currentTrackIndex = 0;
-
-        // Lista completa contendo 25 músicas icônicas de rock realístico
-        const faixasRock = [
-            { nome: "AC/DC - Back In Black", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
-            { nome: "Guns N' Roses - Sweet Child O' Mine", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
-            { nome: "Led Zeppelin - Stairway To Heaven", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
-            { nome: "Deep Purple - Smoke On The Water", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" },
-            { nome: "Pink Floyd - Comfortably Numb", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" },
-            { nome: "Nirvana - Smells Like Teen Spirit", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" },
-            { nome: "Metallica - Enter Sandman", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3" },
-            { nome: "Iron Maiden - The Trooper", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
-            { nome: "Black Sabbath - Paranoid", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3" },
-            { nome: "Ozzy Osbourne - Crazy Train", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" },
-            { nome: "Queen - Bohemian Rhapsody", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3" },
-            { nome: "Jimi Hendrix - Purple Haze", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3" },
-            { nome: "Van Halen - Jump", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3" },
-            { nome: "Aerosmith - Dream On", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3" },
-            { nome: "Bon Jovi - Livin' On A Prayer", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3" },
-            { nome: "Kiss - Rock and Roll All Nite", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3" },
-            { nome: "Foo Fighters - Everlong", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
-            { nome: "Pearl Jam - Alive", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
-            { nome: "The Rolling Stones - Satisfaction", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
-            { nome: "The Who - Baba O'Riley", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" },
-            { nome: "Lynyrd Skynyrd - Free Bird", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" },
-            { nome: "Dire Straits - Sultans of Swing", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" },
-            { nome: "Scorpions - Rock You Like A Hurricane", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3" },
-            { nome: "Judas Priest - Breaking The Law", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
-            { nome: "Def Leppard - Pour Some Sugar On Me", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3" }
-        ];
 
         function alternarPlayer() {
             const player = document.getElementById('rock-player-widget');
             player.style.display = (player.style.display === 'block') ? 'none' : 'block';
         }
 
-        function playAudio() {
-            playerAudio.play();
-            atualizarInterfaceInfo();
-        }
-
-        function pauseAudio() {
-            playerAudio.pause();
-        }
-
-        function nextAudio() {
-            currentTrackIndex = (currentTrackIndex + 1) % faixasRock.length;
-            playerAudio.src = faixasRock[currentTrackIndex].url;
-            playerAudio.play();
-            atualizarInterfaceInfo();
-        }
-
-        function atualizarInterfaceInfo() {
-            document.getElementById('current-track').innerText = faixasRock[currentTrackIndex].nome;
-        }
-
-        // Sistema do Afinador Frequencial Original
         function tocarNotaComEco(frequencia, nomeNota) {
             if (!audioCtx) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
