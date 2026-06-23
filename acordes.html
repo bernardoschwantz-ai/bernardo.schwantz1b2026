@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dicionário de Acordes - Bernardo Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('http://googleusercontent.com/image_collection/image_retrieval/7335301488832048116') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 { margin-top: 40px; font-size: 3rem; color: #ff4500; text-transform: uppercase; }
+
+        .fretboard-container {
+            background: rgba(20, 20, 20, 0.9);
+            border: 4px solid #333;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 0 50px rgba(0,0,0,1);
+            position: relative;
+        }
+
+        /* O BRAÇO DA GUITARRA */
+        .fretboard {
+            display: flex;
+            width: 800px;
+            height: 250px;
+            background: #2a1b12; /* Cor da madeira rosewood */
+            border-left: 10px solid #ddd; /* Pestana */
+            position: relative;
+            background-image: url('http://googleusercontent.com/image_collection/image_retrieval/17807682409713500153');
+            background-size: cover;
+        }
+
+        .fret {
+            flex: 1;
+            border-right: 4px solid #888; /* Trastes prateados */
+            position: relative;
+        }
+
+        .string {
+            position: absolute;
+            width: 100%;
+            background: #ddd;
+            left: 0;
+            z-index: 2;
+        }
+
+        /* Espaçamento das 6 cordas */
+        .string:nth-child(1) { top: 10%; height: 2px; }
+        .string:nth-child(2) { top: 26%; height: 2px; }
+        .string:nth-child(3) { top: 42%; height: 3px; }
+        .string:nth-child(4) { top: 58%; height: 4px; }
+        .string:nth-child(5) { top: 74%; height: 5px; }
+        .string:nth-child(6) { top: 90%; height: 6px; }
+
+        /* PONTOS DOS DEDOS */
+        .dot {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #ff4500;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            box-shadow: 0 0 15px #ff4500;
+            display: none;
+        }
+
+        .menu-acordes {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-acorde {
+            background: #333;
+            color: white;
+            border: 2px solid #ff4500;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .btn-acorde:hover { background: #ff4500; }
+
+        .btn-voltar {
+            margin-top: 30px;
+            color: #aaa;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dicionário de Bernardo</h1>
+    <p>Selecione o acorde e veja onde posicionar seus dedos no braço do estúdio:</p>
+
+    <div class="menu-acordes">
+        <button class="btn-acorde" onclick="mostrarAcorde('C')">Dó (C)</button>
+        <button class="btn-acorde" onclick="mostrarAcorde('G')">Sol (G)</button>
+        <button class="btn-acorde" onclick="mostrarAcorde('D')">Ré (D)</button>
+        <button class="btn-acorde" onclick="mostrarAcorde('Am')">Lá Menor (Am)</button>
+    </div>
+
+    <div class="fretboard-container">
+        <div class="fretboard">
+            <div class="string"></div><div class="string"></div>
+            <div class="string"></div><div class="string"></div>
+            <div class="string"></div><div class="string"></div>
+
+            <div class="fret"></div><div class="fret"></div>
+            <div class="fret"></div><div class="fret"></div>
+            <div class="fret"></div>
+            
+            <div id="d1" class="dot"></div>
+            <div id="d2" class="dot"></div>
+            <div id="d3" class="dot"></div>
+            <div id="d4" class="dot"></div>
+        </div>
+    </div>
+
+    <a href="index.html" class="btn-voltar">← Sair do Estúdio e Voltar ao Início</a>
+
+    <script>
+        function mostrarAcorde(nome) {
+            // Esconde todos
+            document.querySelectorAll('.dot').forEach(d => d.style.display = 'none');
+            
+            if(nome === 'C') {
+                posicionar('d1', 1, 26); // Corda 2 (Si), Casa 1
+                posicionar('d2', 2, 58); // Corda 4 (Ré), Casa 2
+                posicionar('d3', 3, 74); // Corda 5 (Lá), Casa 3
+            }
+            if(nome === 'G') {
+                posicionar('d1', 2, 74); // Corda 5, Casa 2
+                posicionar('d2', 3, 90); // Corda 6, Casa 3
+                posicionar('d3', 3, 10); // Corda 1, Casa 3
+            }
+            // Adicione outros conforme desejar
+        }
+
+        function posicionar(id, casa, cordaPercent) {
+            const d = document.getElementById(id);
+            const frets = document.querySelectorAll('.fret');
+            const targetFret = frets[casa - 1];
+            const rect = targetFret.getBoundingClientRect();
+            const board = document.querySelector('.fretboard').getBoundingClientRect();
+            
+            d.style.display = 'block';
+            d.style.left = (targetFret.offsetLeft + (targetFret.offsetWidth / 2)) + 'px';
+            d.style.top = cordaPercent + '%';
+        }
+    </script>
+</body>
+</html>
