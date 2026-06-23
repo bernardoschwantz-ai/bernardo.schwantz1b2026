@@ -3,58 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acorde Perfeito - Treinos</title>
+    <title>Acorde Perfeito - Central de Treinos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* CURSOR DA PALHETA EM SVG */
-        html, body { 
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C8 2 4 8 4 14c0 4.4 3.6 8 8 8s8-3.6 8-8c0-6-4-12-8-12z" fill="%23ff4500" stroke="%23ffffff" stroke-width="1"/></svg>') 12 12, auto !important; 
+        /* CURSOR FIXO DIRETO NO HTML */
+        html, body {
+            cursor: url('images/palheta-cursor.png') 16 16, auto !important;
         }
-        a, button, .bloco-treino { 
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C8 2 4 8 4 14c0 4.4 3.6 8 8 8s8-3.6 8-8c0-6-4-12-8-12z" fill="%23ffffff" stroke="%23ff4500" stroke-width="2"/></svg>') 12 12, pointer !important; 
+        a, button, select, input[type="submit"], .btn-voltar, .bloco-treino {
+            cursor: url('images/palheta-pointer.png') 16 16, pointer !important;
         }
 
-        /* MENU DE NAVEGAÇÃO */
-        .top-navbar {
-            position: fixed; top: 0; left: 0; width: 100%; height: 60px;
-            background-color: rgba(10, 10, 12, 0.95); border-bottom: 2px solid #ff4500;
-            display: flex; align-items: center; justify-content: center; z-index: 10000;
+        body {
+            margin-top: 85px !important;
+            background-color: #0b0200;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
         }
-        .nav-menu { display: flex; gap: 20px; margin-left: 30px; }
-        .nav-menu a { color: #fff; text-decoration: none; font-weight: bold; font-family: 'Roboto', sans-serif; }
-        .nav-menu a:hover { color: #ff4500; }
-        .nav-active { color: #ff4500 !important; border-bottom: 2px solid #ff4500; }
-        
-        /* ESTILOS GERAIS */
-        body { margin-top: 80px; background-color: #0b0200; color: #fff; font-family: 'Roboto', sans-serif; }
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-        .bloco-treino { background-color: #151518; border-left: 4px solid #ff4500; padding: 20px; border-radius: 6px; margin-bottom: 25px; }
+        .container-treino {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .bloco-treino {
+            background-color: #151518;
+            border-left: 4px solid #ff4500;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
         h2 { color: #ff4500; margin-top: 0; }
+        .btn-voltar {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .btn-voltar:hover { background: #444; }
     </style>
 </head>
 <body>
-
-    <div class="top-navbar">
-        <span style="color: #fff; font-weight: 900; font-family: 'Roboto'; font-size: 1.2rem;">🎸 BERNARDO</span>
-        <nav class="nav-menu">
-            <a href="index.html">Início</a>
-            <a href="acordes.html">Dicionário</a>
-            <a href="detalhes.html">Detalhes</a>
-            <a href="treinos.html" class="nav-active">Treinos</a>
-            <a href="Guia-Compra.html">Guia de Compra</a>
-        </nav>
-    </div>
-
-    <div class="container">
+    <div class="container-treino">
+        <a href="index.html" class="btn-voltar">← Voltar ao Início</a>
+        
         <div class="bloco-treino">
             <h2>🔥 Aquecimento Espartano (Exercício 1-2-3-4)</h2>
-            <p>Posicione o dedo 1 na casa 1, dedo 2 na 2... repita descendo corda por corda. Excelente para ganhar independência nos dedos da mão esquerda.</p>
+            <p>Posicione o dedo 1 na casa 1 da sexta corda, dedo 2 na casa 2, dedo 3 na casa 3 e dedo 4 na casa 4. Repita descendo corda por corda usando palhetada alternada rigorosa. Foque na clareza do som, não na velocidade!</p>
         </div>
+
         <div class="bloco-treino">
-            <h2>⚡ Velocidade de Palhetada</h2>
-            <p>Use o metrônomo em 60 BPM e aumente 5 BPM apenas quando estiver tocando no automático, sem pensar na palheta (baixo, cima, baixo, cima).</p>
+            <h2>⚡ Velocidade de Palhetada Alternada</h2>
+            <p>Configure o metrônomo em 60 BPM. Toque quatro notas por batida (Semicolcheias) usando apenas uma corda presa na casa 5. Aumente 5 BPM apenas quando o movimento estiver totalmente automático e relaxado.</p>
+        </div>
+
+        <div class="bloco-treino">
+            <h2>🎸 Troca Veloz de Acordes Complexos</h2>
+            <p>Escolha dois acordes difíceis (ex: Sol Maior e Fá Maior em pestana). Cronometre 1 minuto no relógio e conte quantas trocas limpas você consegue realizar entre eles dentro desse tempo.</p>
         </div>
     </div>
-
 </body>
 </html>
