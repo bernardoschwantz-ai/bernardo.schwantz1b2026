@@ -9,43 +9,156 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Barra Fixa do Topo */
+        /* Fundo Animado de Fogo (Aesthetic) */
+        body {
+            margin-top: 70px !important;
+            background-color: #0b0200; /* Tom escuro avermelhado de base */
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(0deg, rgba(255, 69, 0, 0.15) 0%, rgba(255, 140, 0, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+            background-size: 100% 200%;
+            animation: fireAnimation 6s ease infinite alternate;
+        }
+
+        @keyframes fireAnimation {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 0% 100%; }
+        }
+
+        /* Barra Fixa do Topo Estilo Premium */
         .top-navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 50px;
-            background-color: rgba(10, 10, 12, 0.95);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            height: 60px;
+            background-color: rgba(10, 10, 12, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            box-sizing: border-box;
             z-index: 10000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.9);
             border-bottom: 2px solid #ff4500;
         }
 
-        .top-navbar-content {
+        .top-navbar-brand {
             font-family: 'Roboto', sans-serif;
-            font-weight: 700;
-            font-size: 1.2rem;
+            font-weight: 900;
+            font-size: 1.3rem;
             color: #ffffff;
             display: flex;
             align-items: center;
             gap: 10px;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            text-decoration: none;
         }
 
-        .top-navbar-content .guitar-icon {
-            font-size: 1.4rem;
+        .top-navbar-brand .guitar-icon {
+            font-size: 1.5rem;
             animation: pulse 2s infinite alternate;
         }
 
         @keyframes pulse {
             0% { transform: scale(1); }
             100% { transform: scale(1.15); }
+        }
+
+        /* Itens de Navegação e Dropdown */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link-btn {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-link-btn:hover {
+            color: #ff4500;
+        }
+
+        /* Aba Suspensa (Dropdown) */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(15px);
+            background-color: #121215;
+            border: 1px solid #ff4500;
+            border-radius: 6px;
+            min-width: 180px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(5px);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 10px 20px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .dropdown-item:hover {
+            background-color: #ff4500;
+            color: #ffffff;
+        }
+
+        /* Botão Criativo de Destaque */
+        .btn-live-rock {
+            background: linear-gradient(90deg, #ff4500, #ff8c00);
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: white;
+            font-weight: 900;
+            box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px rgba(255, 69, 0, 0.5); }
+            100% { box-shadow: 0 0 15px rgba(255, 69, 0, 0.9); }
         }
 
         /* Dimensionamento correto das imagens locais */
@@ -58,20 +171,37 @@
             background-color: #1a1a1a;
             border: 1px solid #ff4500;
         }
-
-        body {
-            margin-top: 70px !important;
-        }
     </style>
 </head>
 <body>
 
-    <div class="top-navbar">
-        <div class="top-navbar-content">
+    <nav class="top-navbar">
+        <a href="index.html" class="top-navbar-brand">
             <span class="guitar-icon">🎸</span>
             <span>BERNARDO</span>
-        </div>
-    </div>
+        </a>
+
+        <ul class="nav-links">
+            <li class="nav-item">
+                <span class="nav-link-btn">Guitarras ▼</span>
+                <div class="dropdown-menu">
+                    <a href="detalhes.html#stratocaster" class="dropdown-item">⚡ Stratocaster</a>
+                    <a href="detalhes.html#lespaul" class="dropdown-item">⚡ Les Paul</a>
+                    <a href="detalhes.html#telecaster" class="dropdown-item">⚡ Telecaster</a>
+                </div>
+            </li>
+            
+            <li class="nav-item">
+                <a href="#artigo4" class="nav-link-btn">Treinos</a>
+            </li>
+            <li class="nav-item">
+                <a href="guia-compra.html" class="nav-link-btn">Guia de Compra</a>
+            </li>
+            <li class="nav-item">
+                <a href="guia-compra.html" class="nav-link-btn btn-live-rock">MODO ROCKER 🔥</a>
+            </li>
+        </ul>
+    </nav>
 
     <header class="site-header">
         <h1>Acorde Perfeito</h1>
@@ -142,7 +272,7 @@
 
             <section class="card" id="artigo2">
                 <h2>02. Guia de Modelos e Captação</h2>
-                <p>A escolha de uma guitarra envolve entender como o design e a eletrônica afetam o som final. Modelos clássicos como a Stratocaster e a Telecaster utilizan captadores single-coil (bobina simples), conhecidos por um som brilhante, estalado e com alta definição, ideais para vertentes mais limpas. Por outro lado, modelos como a Les Paul utilizam captadores humbucker (bobina dupla), desenvolvidos para cancelar ruídos e entregar um som mais encorpado, com maior sustentação, sendo a escolha preferida para distorções pesadas no rock e no metal.</p>
+                <p>A escolha de uma guitarra envolve entender como o design e a eletrônica afetam o som final. Modelos clássicos como a Stratocaster e a Telecaster utilizam captadores single-coil (bobina simples), conhecidos por um som brilhante, estalado e com alta definição, ideais para vertentes mais limpas. Por outro lado, modelos como a Les Paul utilizam captadores humbucker (bobina dupla), desenvolvidos para cancelar ruídos e entregar um som mais encorpado, com maior sustentação, sendo a escolha preferida para distorções pesadas no rock e no metal.</p>
             </section>
 
             <section class="card" id="artigo3">
@@ -157,7 +287,7 @@
 
             <section class="card" id="artigo5">
                 <h2>05. O Segredo da Palhetada Alternada</h2>
-                <p>Dominar o movimento de subida e descida da palheta de forma simétrica é essencial para ganhar velocidade e fluidez. Muitos iniciantes tendem a usar apenas palhetadas para baixo, o que limita o ritmo e causa fadiga precoce no pulso. O movimento ideal deve partir da articulação do pulso e não do antebraço inteiro, mantendo a palheta ligeiramente inclinada em relação às cordas para cortar a resistência do metal, garantindo dinâmicas equilibradas tanto em palhetadas ascendentesamp tanto descendentes.</p>
+                <p>Dominar o movimento de subida e descida da palheta de forma simétrica é essencial para ganhar velocidade e fluidez. Muitos iniciantes tendem a usar apenas palhetadas para baixo, o que limita o ritmo e causa fadiga precoce no pulso. O movimento ideal deve partir da articulação do pulso e não do antebraço inteiro, mantendo a palheta ligeiramente inclinada em relação às cordas para cortar a resistência do metal, gerando dinâmicas equilibradas tanto em palhetadas ascendentes quanto descendentes.</p>
             </section>
 
             <section class="card" id="artigo6">
@@ -167,12 +297,12 @@
 
             <section class="card" id="artigo7">
                 <h2>07. Como Ler Tablaturas Sem Erros</h2>
-                <p>A tablatura é o sistema de notação mais prático para guitarristas, representando visualmente as seis cordas do instrumento, com a linha superior indicando a corda mais fina (E) e a inferior indicando a mais grossa (E). Os números sobre as linhas apontam o traste exato que deve ser pressionado. O principal erro de interpretação consiste em ignorar os símbolos de técnicas expressivas indispensáveis, como o 'h' para hammer-on, 'p' para pull-off, e as setas indicativas de bend, elements que conferem dinâmica à execução.</p>
+                <p>A tablatura é o sistema de notação mais prático para guitarristas, representando visualmente as seis cordas do instrumento, com a linha superior indicando a corda mais fina (E) e a inferior indicando a mais grossa (E). Os números sobre as linhas apontam o traste exato que deve ser pressionado. O principal erro de interpretação consiste em ignorar os símbolos de técnicas expressivas indispensáveis, como o 'h' para hammer-on, 'p' para pull-off, e as setas indicativas de bend, elementos que conferem dinâmica à execução.</p>
             </section>
 
             <section class="card" id="artigo8">
                 <h2>08. Higiene e Manutenção das Cordas</h2>
-                <p>O suor e a umidade natural das manos aceleram o processo de oxidação do aço e do níquel das cordas, resultando em um som opaco, perda de sustentação e desgaste prematuro dos trastes. Criar o hábito de passar um pano de microfibra limpo e seco ao longo de toda a extensão das cordas após cada sessão de treino prolonga consideravelmente a vida útil do encordoamento. Adicionalmente, realizar a troca periódica do conjunto a cada três ou quatro meses mantém a afinação estável e preserva o brilho tonal original.</p>
+                <p>O suor e a umidade natural das mãos aceleram o processo de oxidação do aço e do níquel das cordas, resultando em um som opaco, perda de sustentação e desgaste prematuro dos trastes. Criar o hábito de passar um pano de microfibra limpo e seco ao longo de toda a extensão das cordas após cada sessão de treino prolonga consideravelmente a vida útil do encordoamento. Adicionalmente, realizar a troca periódica do conjunto a cada três ou quatro meses mantém a afinação estável e preserva o brilho tonal original.</p>
             </section>
         </main>
 
@@ -181,7 +311,7 @@
             <nav class="shortcut-menu">
                 <a href="#artigo1">01. Universo da Guitarra</a>
                 <a href="#artigo2">02. Modelos e Captação</a>
-                <a href="#artigo3">03. Vícios Técnico</a>
+                <a href="#artigo3">03. Vícios Técnicos</a>
                 <a href="#artigo4">04. Rotina de Treino</a>
                 <a href="#artigo5">05. Palhetada Alternada</a>
                 <a href="#artigo6">06. Amplificadores</a>
