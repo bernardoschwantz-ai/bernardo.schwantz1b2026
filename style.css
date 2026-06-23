@@ -339,14 +339,10 @@ footer strong {
         width: auto;
     }
 }
-/* ==========================================================================
-   CURSOR DE PALHETA PERSONALIZADO (Para todas as páginas via style.css)
-   ========================================================================== */
 html, body {
     cursor: url('images/palheta-cursor.png') 16 16, auto !important;
 }
 
-/* Cursor de palheta ativa/invertida ao passar por cima de links, botões ou elementos clicáveis */
 a, button, select, input[type="submit"], .acorde-btn, th, td {
     cursor: url('images/palheta-pointer.png') 16 16, pointer !important;
 }
