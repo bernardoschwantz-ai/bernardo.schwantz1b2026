@@ -9,11 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* CURSOR PALHETA PREMIUM DETALHADO E MENOR (24px) */
-        html, body, button, a, input {
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 32 32'><defs><linearGradient id='pGrad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%23ff5f1f'/><stop offset='100%' stop-color='%23b22222'/></linearGradient></defs><path d='M2,4 C10,0 22,2 29,11 C33,18 26,26 16,31 C6,26 -1,18 2,4 Z' fill='url(%23pGrad)' stroke='%23ffffff' stroke-width='1.5'/><circle cx='16' cy='12' r='3' fill='%23ffffff' opacity='0.3'/><line x1='12' y1='12' x2='20' y2='12' stroke='%23000000' stroke-width='1' opacity='0.4'/><line x1='14' y1='15' x2='18' y2='15' stroke='%23000000' stroke-width='1' opacity='0.4'/></svg>") 0 0, auto !important;
-        }
-
         /* Fundo Premium: Guitarras e Fogo (Aesthetic Ultra Rock) */
         body {
             margin-top: 85px !important;
@@ -612,6 +607,34 @@
             }
         }
 
+        function tocarFeedbackInteracao() {
+            verificarAudioContext();
+            if(audioCtx.state === 'suspended') audioCtx.resume();
+            // Implementação simples caso a função de feedback seja necessária
+        }
+
+        function toggleLiveMode() {
+            let body = document.body;
+            let btn = document.getElementById('live-mode-btn');
+            body.classList.toggle('live-mode-active');
+            
+            if(body.classList.contains('live-mode-active')) {
+                btn.classList.add('active');
+                btn.innerText = "SHOW ATIVO! ⚡";
+                tocarGuitarraModoShow(true);
+            } else {
+                btn.classList.remove('active');
+                btn.innerText = "MODO SHOW ⚡";
+                tocarGuitarraModoShow(false);
+            }
+        }
+
+        function tocarNotaComEco(freq, nomeString) {
+            verificarAudioContext();
+            document.getElementById('nota-tocando').innerText = "Tocando: " + nomeString;
+            // Lógica do afinador web audio api aqui...
+        }
+
         // FUNÇÃO DE RENDERIZAÇÃO DOS ACORDES SÊNIOR
         function exibirAcordeBraço(nomeAcorde, botaoAlvo) {
             tocarFeedbackInteracao();
@@ -709,97 +732,6 @@
                 osc.stop(agora + 0.4);
             }
         }
-
-        function tocarFeedbackInteracao() {
-            if (!audioCtx) return;
-            let agora = audioCtx.currentTime;
-            let osc = audioCtx.createOscillator();
-            let ganho = audioCtx.createGain();
-            
-            osc.type = "sine";
-            osc.frequency.setValueAtTime(800, agora);
-            osc.frequency.exponentialRampToValueAtTime(1200, agora + 0.05);
-            
-            ganho.gain.setValueAtTime(0.03, agora);
-            ganho.gain.exponentialRampToValueAtTime(0.00001, agora + 0.05);
-            
-            osc.connect(ganho);
-            ganho.connect(audioCtx.destination);
-            osc.start(agora);
-            osc.stop(agora + 0.06);
-        }
-
-        function toggleLiveMode() {
-            verificarAudioContext();
-            const body = document.body;
-            const btn = document.getElementById('live-mode-btn');
-            
-            body.classList.toggle('live-mode-active');
-            
-            if (body.classList.contains('live-mode-active')) {
-                btn.innerText = "SAIR DO SHOW ✕";
-                btn.classList.add('active');
-                tocarGuitarraModoShow(true);
-                liveModeInterval = setInterval(createPickParticle, 300);
-            } else {
-                btn.innerText = "MODO SHOW ⚡";
-                btn.classList.remove('active');
-                tocarGuitarraModoShow(false);
-                clearInterval(liveModeInterval);
-            }
-        }
-
-        function createPickParticle() {
-            if (!document.body.classList.contains('live-mode-active')) return;
-
-            const pick = document.createElement('div');
-            pick.classList.add('pick-particle');
-            
-            const colors = ['#ff4500', '#ff8c00', '#00bfff', '#9400d3', '#ffd700'];
-            pick.style.color = colors[Math.floor(Math.random() * colors.length)];
-            pick.innerText = '🔺'; 
-            
-            pick.style.left = Math.random() * 100 + 'vw';
-            
-            const duration = Math.random() * 2 + 2; 
-            pick.style.animationDuration = duration + 's';
-            pick.style.opacity = Math.random() * 0.7 + 0.3;
-            
-            document.body.appendChild(pick);
-
-            setTimeout(() => {
-                pick.remove();
-            }, duration * 1000);
-        }
-
-        function tocarNotaComEco(frequencia, nomeNota) {
-            verificarAudioContext();
-            document.getElementById('nota-tocando').innerHTML = `Ecoando: <strong style="color: #e2e8f0;">${nomeNota}</strong>`;
-            let agora = audioCtx.currentTime;
-            criarSomIndividual(frequencia, agora, 0.3);       
-            criarSomIndividual(frequencia, agora + 0.3, 0.15); 
-        }
-
-        function criarSomIndividual(frequencia, momentoExato, volumeInicial) {
-            let oscilador = audioCtx.createOscillator();
-            let controleVolume = audioCtx.createGain();
-            oscilador.type = "triangle";
-            oscilador.frequency.value = frequencia;
-            controleVolume.gain.setValueAtTime(volumeInicial, momentoExato);
-            controleVolume.gain.exponentialRampToValueAtTime(0.00001, momentoExato + 0.6);
-            oscilador.connect(controleVolume);
-            controleVolume.connect(audioCtx.destination);
-            oscilador.start(momentoExato);
-            oscilador.stop(momentoExato + 0.6);
-        }
-
-        // Inicializa o primeiro acorde por padrão ao abrir
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const primeiroBotao = document.querySelector('.dic-chord-btn');
-                if(primeiroBotao) exibirAcordeBraço('C', primeiroBotao);
-            }, 500);
-        });
     </script>
 </body>
 </html>

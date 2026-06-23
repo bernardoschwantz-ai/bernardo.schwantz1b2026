@@ -346,3 +346,7 @@ html, body {
 a, button, select, input[type="submit"], .acorde-btn, th, td {
     cursor: url('images/palheta-pointer.png') 16 16, pointer !important;
 }
+/* CURSOR PALHETA PREMIUM (Injetado via SVG Data URI) */
+html, body, button, a, input, select, textarea {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 32 32'><defs><linearGradient id='pGrad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%23ff5f1f'/><stop offset='100%' stop-color='%23b22222'/></linearGradient></defs><path d='M2,4 C10,0 22,2 29,11 C33,18 26,26 16,31 C6,26 -1,18 2,4 Z' fill='url(%23pGrad)' stroke='%23ffffff' stroke-width='1.5'/><circle cx='16' cy='12' r='3' fill='%23ffffff' opacity='0.3'/><line x1='12' y1='12' x2='20' y2='12' stroke='%23000000' stroke-width='1' opacity='0.4'/><line x1='14' y1='15' x2='18' y2='15' stroke='%23000000' stroke-width='1' opacity='0.4'/></svg>") 0 0, auto !important;
+}

@@ -9,11 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* CURSOR FIXO DIRETO NO HTML */
+        /* CURSOR FIXO DIRETO NO HTML - ESSÊNCIA PRESERVADA */
         html, body {
             cursor: url('images/palheta-cursor.png') 16 16, auto !important;
         }
-        a, button, select, input[type="submit"], .btn-voltar, .chord-card {
+        a, button, select, input[type="submit"], .btn-voltar, .chord-card, li, td, th {
             cursor: url('images/palheta-pointer.png') 16 16, pointer !important;
         }
 
@@ -124,7 +124,6 @@
             margin-bottom: 15px;
         }
 
-        /* Representação visual simplificada das cordas/dedos */
         .chord-diagram {
             font-family: monospace;
             background: #0a0a0c;
@@ -139,7 +138,7 @@
             box-sizing: border-box;
         }
 
-        /* Seção de Dicas de Velocidade */
+        /* Seção de Dicas e Notas */
         .dicas-lista {
             list-style-type: none;
             padding-left: 0;
@@ -158,6 +157,30 @@
             display: block;
             font-size: 1.1rem;
             margin-bottom: 5px;
+        }
+
+        .tabela-notas {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: #0a0a0c;
+        }
+
+        .tabela-notas th, .tabela-notas td {
+            border: 1px solid #3a3a42;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .tabela-notas th {
+            background-color: #ff4500;
+            color: #fff;
+        }
+
+        .tabela-notas td:first-child {
+            font-weight: bold;
+            color: #ff4500;
+            background-color: #1e1e24;
         }
 
         footer {
@@ -180,12 +203,84 @@
     </div>
 
     <header class="site-header" style="text-align: center; padding: 30px 0;">
-        <h1>Dicionário & Guia de Transição</h1>
-        <p class="subtitulo" style="color: #aaa;">Aprenda a montar os acordes e domine a velocidade das trocas no braço</p>
+        <h1>Dicionário & Guia de Teoria</h1>
+        <p class="subtitulo" style="color: #aaa;">Aprenda a estrutura das notas, monte acordes e domine a agilidade</p>
     </header>
 
     <div class="container">
         <a href="index.html" class="btn-voltar">← Voltar para a Página Inicial</a>
+
+        <section class="secao-acordes">
+            <h2>🎵 Guia Prático das Notas e Cordas</h2>
+            <p>Antes de montar os acordes, entenda como as notas estão distribuídas no braço da guitarra. A afinação padrão conta com 6 cordas contadas de baixo para cima (da mais fina para a mais grossa):</p>
+            
+            <ul class="dicas-lista">
+                <li><strong>1ª Corda (Mizinha - E):</strong> A mais fina, embaixo de tudo.</li>
+                <li><strong>2ª Corda (Si - B):</strong> Segunda de baixo para cima.</li>
+                <li><strong>3ª Corda (Sol - G):</strong> Terceira de baixo para cima.</li>
+                <li><strong>4ª Corda (Ré - D):</strong> Quarta corda.</li>
+                <li><strong>5ª Corda (Lá - A):</strong> Quinta corda.</li>
+                <li><strong>6ª Corda (Mizão - E):</strong> A mais grossa, em cima de tudo.</li>
+            </ul>
+
+            <h3 style="color: #ff4500; margin-top: 20px;">Mapa das Primeiras Casas (Notas Naturais)</h3>
+            <p>Veja quais notas você encontra ao pressionar as primeiras casas de cada corda:</p>
+            <table class="tabela-notas">
+                <thead>
+                    <tr>
+                        <th>Corda</th>
+                        <th>Solta (Casa 0)</th>
+                        <th>Casa 1</th>
+                        <th>Casa 2</th>
+                        <th>Casa 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1ª (E)</td>
+                        <td>Mi (E)</td>
+                        <td>Fá (F)</td>
+                        <td>Fá# (F#)</td>
+                        <td>Sol (G)</td>
+                    </tr>
+                    <tr>
+                        <td>2ª (B)</td>
+                        <td>Si (B)</td>
+                        <td>Dó (C)</td>
+                        <td>Dó# (C#)</td>
+                        <td>Ré (D)</td>
+                    </tr>
+                    <tr>
+                        <td>3ª (G)</td>
+                        <td>Sol (G)</td>
+                        <td>Sol# (G#)</td>
+                        <td>Lá (A)</td>
+                        <td>Lá# (A#)</td>
+                    </tr>
+                    <tr>
+                        <td>4ª (D)</td>
+                        <td>Ré (D)</td>
+                        <td>Ré# (D#)</td>
+                        <td>Mi (E)</td>
+                        <td>Fá (F)</td>
+                    </tr>
+                    <tr>
+                        <td>5ª (A)</td>
+                        <td>Lá (A)</td>
+                        <td>Lá# (A#)</td>
+                        <td>Si (B)</td>
+                        <td>Dó (C)</td>
+                    </tr>
+                    <tr>
+                        <td>6ª (E)</td>
+                        <td>Mi (E)</td>
+                        <td>Fá (F)</td>
+                        <td>Fá# (F#)</td>
+                        <td>Sol (G)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
         <section class="secao-acordes">
             <h2>🎵 Dicionário de Acordes Essenciais</h2>

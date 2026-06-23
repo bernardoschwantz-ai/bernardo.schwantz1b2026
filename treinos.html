@@ -17,9 +17,38 @@
             cursor: url('images/palheta-pointer.png') 16 16, pointer !important;
         }
 
+        /* Barra Fixa do Topo */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: rgba(10, 10, 12, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid #ff4500;
+        }
+
+        .top-navbar-content {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 1px;
+        }
+
         body {
             margin-top: 85px !important;
-            background-color: #0b0200;
+            background-color: #0a0a0c;
             color: #fff;
             font-family: 'Roboto', sans-serif;
         }
@@ -47,9 +76,25 @@
             font-weight: bold;
         }
         .btn-voltar:hover { background: #444; }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid #2a2a30;
+            font-size: 0.9rem;
+            color: #888;
+        }
     </style>
 </head>
 <body>
+    <div class="top-navbar">
+        <div class="top-navbar-content">
+            <span class="guitar-icon">🎸</span>
+            <span>BERNARDO</span>
+        </div>
+    </div>
+
     <div class="container-treino">
         <a href="index.html" class="btn-voltar">← Voltar ao Início</a>
         
@@ -60,7 +105,7 @@
 
         <div class="bloco-treino">
             <h2>⚡ Velocidade de Palhetada Alternada</h2>
-            <p>Configure o metrônomo em 60 BPM. Toque quatro notas por batida (Semicolcheias) usando apenas uma corda presa na casa 5. Aumente 5 BPM apenas quando o movimento estiver totalmente automático e relaxado.</p>
+            <p>Configure o metrônomo em 60 BPM. Toque quatro notas por batida (Semicolcheias) usando apenas uma corda presa na casa 5. Aumente 5 BPM apenas quando o movemento estiver totalmente automático e relaxado.</p>
         </div>
 
         <div class="bloco-treino">
@@ -68,5 +113,9 @@
             <p>Escolha dois acordes difíceis (ex: Sol Maior e Fá Maior em pestana). Cronometre 1 minuto no relógio e conte quantas trocas limpas você consegue realizar entre eles dentro desse tempo.</p>
         </div>
     </div>
+
+    <footer>
+        <p>⚡ Desenvolvido com muito Rock por: <strong>Bernardo Oliveira</strong> | Turma 1 B ⚡</p>
+    </footer>
 </body>
 </html>
