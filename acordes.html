@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acordes - Acorde Perfeito</title>
+    <title>Acordes Interativos - Acorde Perfeito</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
@@ -14,8 +14,10 @@
             background-color: #0b0200; 
             font-family: 'Roboto', sans-serif;
             color: #fff;
+            overflow-x: hidden;
         }
 
+        /* Barra Fixa Superior */
         .top-navbar {
             position: fixed;
             top: 0;
@@ -66,84 +68,130 @@
 
         .container-acordes {
             max-width: 1000px;
-            margin: 40px auto;
+            margin: 0 auto;
             padding: 20px;
+            text-align: center;
         }
 
+        /* Seletor de Acordes */
         .grid-botoes-acordes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 15px;
-            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
         }
 
-        .btn-nota-oficial {
-            background: linear-gradient(135deg, #1a1a1f, #121215);
+        .btn-chord-selector {
+            background: #1a1a1f;
             border: 2px solid #ff4500;
             color: white;
-            padding: 15px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .btn-nota-oficial:hover {
-            background: #ff4500;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
-        }
-
-        .card-acorde {
-            background-color: #121215;
-            border: 1px solid #2a2a30;
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-left: 5px solid #ff4500;
-            scroll-margin-top: 90px; /* Para não cobrir o título ao rolar a página */
-        }
-
-        .card-acorde h3 {
-            color: #ff4500;
-            font-size: 1.6rem;
-            margin-top: 0;
-        }
-
-        .info-nota {
+            padding: 12px 25px;
             font-size: 1.1rem;
-            color: #cbd5e1;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        /* Caixa com a posição dos dedos */
-        .posicao-dedos-box {
-            background-color: rgba(255, 69, 0, 0.05);
-            border: 1px solid rgba(255, 69, 0, 0.3);
+            font-weight: 900;
             border-radius: 6px;
-            padding: 15px;
-            font-family: monospace;
-            font-size: 1.05rem;
-            color: #ff8c00;
-            line-height: 1.5;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
 
-        .posicao-dedos-box strong {
-            color: #fff;
-            font-family: 'Roboto', sans-serif;
+        .btn-chord-selector:hover, .btn-chord-selector.active {
+            background: #ff4500;
+            box-shadow: 0 0 15px #ff4500;
+            transform: translateY(-2px);
+        }
+
+        /* DESIGN DO BRAÇO DA GUITARRA (Dicionário Visual) */
+        .guitar-neck-display {
+            background: linear-gradient(145deg, #120502, #1c0a05);
+            border: 2px solid #ff4500;
+            border-radius: 12px;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+        }
+
+        .guitar-neck-container {
+            width: 100%;
+            max-width: 700px;
+            height: 200px;
+            background: linear-gradient(90deg, #3d2314, #2b180d);
+            border-left: 12px solid #d1d5db; /* Nut (Pestana de osso) */
+            border-radius: 4px;
+            position: relative;
+            display: flex;
+            margin: 0 auto;
+            box-shadow: inset 0 0 25px rgba(0,0,0,0.9);
+        }
+
+        /* Trastes */
+        .guitar-fret {
+            flex: 1;
+            border-right: 4px solid #9ca3af;
+            position: relative;
+        }
+
+        /* Cordas */
+        .guitar-string {
+            position: absolute;
+            width: 100%;
+            background: linear-gradient(#e5e7eb, #9ca3af);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+            z-index: 5;
+        }
+        /* Posições verticais das cordas */
+        .string-1 { top: 10%; height: 2px; }   /* Mi fina */
+        .string-2 { top: 26%; height: 2.2px; }
+        .string-3 { top: 42%; height: 2.5px; }
+        .string-4 { top: 58%; height: 2.8px; }
+        .string-5 { top: 74%; height: 3.2px; }
+        .string-6 { top: 90%; height: 3.8px; } /* Mi grossa */
+
+        /* Marcadores de Dedo (As Bolinhas) */
+        .finger-marker {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            background: radial-gradient(#ff5f1f, #ff2e00);
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            display: none; /* Escondido por padrão */
+            box-shadow: 0 0 15px #ff4500, inset 0 0 5px #fff;
+            color: white;
+            font-weight: 900;
+            line-height: 28px;
+            text-align: center;
+            font-size: 14px;
+            animation: notePop 0.2s ease-out;
+        }
+
+        @keyframes notePop {
+            0% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        .chord-info-text {
+            margin-top: 20px;
+            font-size: 1.4rem;
+            color: #ff8c00;
+            font-weight: bold;
+            height: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #888;
+            border-top: 1px solid #2a2a30;
         }
     </style>
 </head>
 <body>
 
     <nav class="top-navbar">
-        <a href="index.html" class="top-navbar-brand" onclick="tocarSomClique()">
-            <span>🎸</span>
-            <span>BERNARDO</span>
+        <a href="index.html" class="top-navbar-brand">
+            <span>🎸 BERNARDO</span>
         </a>
         <ul class="nav-links">
             <li><a href="index.html" class="nav-link-btn" onclick="tocarSomClique()">Início</a></li>
@@ -154,138 +202,139 @@
     </nav>
 
     <div class="container-acordes">
-        <header style="text-align: center; margin-bottom: 40px;">
-            <h1 style="font-size: 2.5rem; color: #fff;">Posicionamento dos Acordes</h1>
-            <p style="color: #cbd5e1;">Clique em um acorde para pular direto para o guia de montagem no braço:</p>
-        </header>
+        <h1 style="font-size: 2.8rem; margin-bottom: 10px;">Dicionário Visual</h1>
+        <p style="color: #aaa; margin-bottom: 30px;">Clique na nota para ver a posição dos dedos no braço da guitarra</p>
 
         <div class="grid-botoes-acordes">
-            <a href="#docard" class="btn-nota-oficial" onclick="tocarSomClique();">Dó</a>
-            <a href="#recard" class="btn-nota-oficial" onclick="tocarSomClique();">Ré</a>
-            <a href="#micard" class="btn-nota-oficial" onclick="tocarSomClique();">Mi</a>
-            <a href="#facard" class="btn-nota-oficial" onclick="tocarSomClique();">Fá</a>
-            <a href="#solcard" class="btn-nota-oficial" onclick="tocarSomClique();">Sol</a>
-            <a href="#lacard" class="btn-nota-oficial" onclick="tocarSomClique();">Lá</a>
-            <a href="#sicard" class="btn-nota-oficial" onclick="tocarSomClique();">Si</a>
+            <button class="btn-chord-selector" onclick="atualizarBraco('Dó', this)">Dó</button>
+            <button class="btn-chord-selector" onclick="atualizarBraco('Ré', this)">Ré</button>
+            <button class="btn-chord-selector" onclick="atualizarBraco('Mi', this)">Mi</button>
+            <button class="btn-chord-selector" onclick="atualizarBraco('Fá', this)">Fá</button>
+            <button class="btn-chord-selector" onclick="atualizarBraco('Sol', this)">Sol</button>
+            <button class="btn-chord-selector" onclick="atualizarBraco('Lá', this)">Lá</button>
+            <button class="btn-chord-selector" onclick="atualizarBraco('Si', this)">Si</button>
         </div>
 
-        <section class="card-acorde" id="docard">
-            <h3>Acorde de Dó Maior (C)</h3>
-            <p class="info-nota">Um dos acordes fundamentais abertos. Certifique-se de arquear bem os dedos para não abafar as cordas soltas adjacentes.</p>
-            <div class="posicao-dedos-box">
-                <strong>COMO MONTAR NO BRAÇO:</strong><br>
-                • Dedo 1: 2ª corda (Si), na Casa 1<br>
-                • Dedo 2: 4ª corda (Ré), na Casa 2<br>
-                • Dedo 3: 5ª corda (Lá), na Casa 3<br>
-                • Cordas Soltas: 1ª (Mi) e 3ª (Sol)<br>
-                • Atenção: Não toque a 6ª corda (Mi grossa).
-            </div>
-        </section>
+        <div class="guitar-neck-display">
+            <div class="chord-info-text" id="chord-name-display">Selecione uma nota...</div>
+            
+            <div class="guitar-neck-container">
+                <div class="guitar-string string-1"></div>
+                <div class="guitar-string string-2"></div>
+                <div class="guitar-string string-3"></div>
+                <div class="guitar-string string-4"></div>
+                <div class="guitar-string string-5"></div>
+                <div class="guitar-string string-6"></div>
 
-        <section class="card-acorde" id="recard">
-            <h3>Acorde de Ré Maior (D)</h3>
-            <p class="info-nota">Possui um formato triangular muito comum e brilhante. Toque a palhetada apenas da quarta corda para baixo.</p>
-            <div class="posicao-dedos-box">
-                <strong>COMO MONTAR NO BRAÇO:</strong><br>
-                • Dedo 1: 3ª corda (Sol), na Casa 2<br>
-                • Dedo 2: 1ª corda (Mi fina), na Casa 2<br>
-                • Dedo 3: 2ª corda (Si), na Casa 3<br>
-                • Corda Solta: 4ª corda (Ré)<br>
-                • Atenção: Não toque a 5ª e a 6ª corda.
-            </div>
-        </section>
+                <div class="guitar-fret"></div>
+                <div class="guitar-fret"></div>
+                <div class="guitar-fret"></div>
+                <div class="guitar-fret"></div>
+                <div class="guitar-fret"></div>
 
-        <section class="card-acorde" id="micard">
-            <h3>Acorde de Mi Maior (E)</h3>
-            <p class="info-nota">Acorde cheio e poderoso que utiliza todas as seis cordas da guitarra, excelente para bases de rock.</p>
-            <div class="posicao-dedos-box">
-                <strong>COMO MONTAR NO BRAÇO:</strong><br>
-                • Dedo 1: 3ª corda (Sol), na Casa 1<br>
-                • Dedo 2: 5ª corda (Lá), na Casa 2<br>
-                • Dedo 3: 4ª corda (Ré), na Casa 2<br>
-                • Cordas Soltas: 1ª, 2ª e 6ª cordas<br>
-                • Atenção: Pode palhetar todas as 6 cordas uniformemente.
+                <div id="f1" class="finger-marker">1</div>
+                <div id="f2" class="finger-marker">2</div>
+                <div id="f3" class="finger-marker">3</div>
+                <div id="f4" class="finger-marker">4</div>
             </div>
-        </section>
+        </div>
 
-        <section class="card-acorde" id="facard">
-            <h3>Acorde de Fá Maior (F)</h3>
-            <p class="info-nota">O primeiro grande teste do iniciante por introduzir a pestana. Pressione firmemente perto do traste metálico.</p>
-            <div class="posicao-dedos-box">
-                <strong>COMO MONTAR NO BRAÇO:</strong><br>
-                • Dedo 1: Pestana completa cobrindo todas as cordas na Casa 1<br>
-                • Dedo 2: 3ª corda (Sol), na Casa 2<br>
-                • Dedo 3: 5ª corda (Lá), na Casa 3<br>
-                • Dedo 4: 4ª corda (Ré), na Casa 3
-            </div>
-        </section>
-
-        <section class="card-acorde" id="solcard">
-            <h3>Acorde de Sol Maior (G)</h3>
-            <p class="info-nota">Um acorde muito aberto que exige flexibilidade para alcançar as extremidades do braço do instrumento.</p>
-            <div class="posicao-dedos-box">
-                <strong>COMO MONTAR NO BRAÇO:</strong><br>
-                • Dedo 1: 5ª corda (Lá), na Casa 2<br>
-                • Dedo 2: 6ª corda (Mi grossa), na Casa 3<br>
-                • Dedo 3: 1ª corda (Mi fina), na Casa 3<br>
-                • Cordas Soltas: 2ª, 3ª e 4ª cordas
-            </div>
-        </section>
-
-        <section class="card-acorde" id="lacard">
-            <h3>Acorde de Lá Maior (A)</h3>
-            <p class="info-nota">Três dedos posicionados lado a lado dentro da mesma casa. Mantenha os dedos compactos para caberem perfeitamente.</p>
-            <div class="posicao-dedos-box">
-                <strong>COMO MONTAR NO BRAÇO:</strong><br>
-                • Dedo 1: 4ª corda (Ré), na Casa 2<br>
-                • Dedo 2: 3ª corda (Sol), na Casa 2<br>
-                • Dedo 3: 2ª corda (Si), na Casa 2<br>
-                • Cordas Soltas: 1ª (Mi fina) e 5ª (Lá)<br>
-                • Atenção: Não toque a 6ª corda.
-            </div>
-        </section>
-
-        <section class="card-acorde" id="sicard">
-            <h3>Acorde de Si Maior (B)</h3>
-            <p class="info-nota">Uma estrutura de pestana móvel baseada no formato de Lá, localizada duas casas acima no braço.</p>
-            <div class="posicao-dedos-box">
-                <strong>COMO MONTAR NO BRAÇO:</strong><br>
-                • Dedo 1: Pestana da 1ª à 5ª corda na Casa 2<br>
-                • Dedo 2: 4ª corda (Ré), na Casa 4<br>
-                • Dedo 3: 3ª corda (Sol), na Casa 4<br>
-                • Dedo 4: 2ª corda (Si), na Casa 4<br>
-                • Atenção: Não toque a 6ª corda.
-            </div>
-        </section>
+        <p style="color: #666; font-style: italic;">* Números nas bolinhas indicam qual dedo usar: 1(Indicador), 2(Médio), 3(Anelar), 4(Mindinho).</p>
     </div>
+
+    <footer>
+        <p>⚡ Desenvolvido com muito Rock por: <strong>Bernardo Oliveira</strong> | Turma 1 B ⚡</p>
+    </footer>
 
     <script>
         let audioCtx = null;
 
-        function verificarAudioContext() {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function iniciarAudio() {
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+
+        function tocarSomClique() {
+            iniciarAudio();
+            if(audioCtx.state === 'suspended') audioCtx.resume();
+            let osc = audioCtx.createOscillator();
+            let ganho = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(1000, audioCtx.currentTime);
+            ganho.gain.setValueAtTime(0.08, audioCtx.currentTime);
+            ganho.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + 0.05);
+            osc.connect(ganho);
+            ganho.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.06);
+        }
+
+        function posicionarMarcador(id, casa, cordaY) {
+            let marker = document.getElementById(id);
+            let frets = document.querySelectorAll('.guitar-fret');
+            let targetFret = frets[casa - 1];
+
+            if(targetFret) {
+                marker.style.display = 'block';
+                // Posiciona no meio da casa selecionada
+                marker.style.left = (targetFret.offsetLeft + (targetFret.offsetWidth / 2)) + 'px';
+                marker.style.top = cordaY + '%';
             }
         }
 
-        // Mantém apenas o som sutil do clique interativo ao navegar e interagir
-        function tocarSomClique() {
-            verificarAudioContext();
-            if(audioCtx.state === 'suspended') audioCtx.resume();
+        function atualizarBraco(nota, btn) {
+            tocarSomClique();
             
-            let agora = audioCtx.currentTime;
-            let osc = audioCtx.createOscillator();
-            let ganho = audioCtx.createGain();
+            // Estilo do botão
+            document.querySelectorAll('.btn-chord-selector').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Nome no display
+            document.getElementById('chord-name-display').innerText = "Acorde: " + nota + " Maior";
+
+            // Limpa todos os marcadores
+            document.querySelectorAll('.finger-marker').forEach(m => m.style.display = 'none');
+
+            // MAPA DE NOTAS (Casa, Corda Y %)
+            // Cordas Y: 1ª=10, 2ª=26, 3ª=42, 4ª=58, 5ª=74, 6ª=90
             
-            osc.type = 'sine';
-            osc.frequency.setValueAtTime(1000, agora);
-            ganho.gain.setValueAtTime(0.08, agora);
-            ganho.gain.exponentialRampToValueAtTime(0.00001, agora + 0.05);
-            
-            osc.connect(ganho);
-            ganho.connect(audioCtx.destination);
-            osc.start(agora);
-            osc.stop(agora + 0.06);
+            if(nota === 'Dó') {
+                posicionarMarcador('f1', 1, 26); // Dedo 1 na 2ª corda casa 1
+                posicionarMarcador('f2', 2, 58); // Dedo 2 na 4ª corda casa 2
+                posicionarMarcador('f3', 3, 74); // Dedo 3 na 5ª corda casa 3
+            } 
+            else if(nota === 'Ré') {
+                posicionarMarcador('f1', 2, 42); // Dedo 1 na 3ª corda casa 2
+                posicionarMarcador('f2', 2, 10); // Dedo 2 na 1ª corda casa 2
+                posicionarMarcador('f3', 3, 26); // Dedo 3 na 2ª corda casa 3
+            }
+            else if(nota === 'Mi') {
+                posicionarMarcador('f1', 1, 42); // Dedo 1 na 3ª corda casa 1
+                posicionarMarcador('f2', 2, 74); // Dedo 2 na 5ª corda casa 2
+                posicionarMarcador('f3', 2, 58); // Dedo 3 na 4ª corda casa 2
+            }
+            else if(nota === 'Fá') {
+                // Representação simplificada sem a barra inteira para facilitar
+                posicionarMarcador('f1', 1, 10); // Parte da pestana
+                posicionarMarcador('f2', 2, 42); 
+                posicionarMarcador('f3', 3, 74);
+                posicionarMarcador('f4', 3, 58);
+            }
+            else if(nota === 'Sol') {
+                posicionarMarcador('f1', 2, 74);
+                posicionarMarcador('f2', 3, 90);
+                posicionarMarcador('f3', 3, 10);
+            }
+            else if(nota === 'Lá') {
+                posicionarMarcador('f1', 2, 58);
+                posicionarMarcador('f2', 2, 42);
+                posicionarMarcador('f3', 2, 26);
+            }
+            else if(nota === 'Si') {
+                posicionarMarcador('f1', 2, 10); 
+                posicionarMarcador('f2', 4, 58);
+                posicionarMarcador('f3', 4, 42);
+                posicionarMarcador('f4', 4, 26);
+            }
         }
     </script>
 </body>
