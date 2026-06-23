@@ -32,6 +32,18 @@
             opacity: 0.6;
         }
 
+        /* Aplicação do Cursor Personalizado nas Guias e Elementos Interativos */
+        .nav-link-btn, 
+        .dropdown-item, 
+        .top-navbar-brand, 
+        .nota-btn, 
+        .btn-live-rock, 
+        .shortcut-menu a, 
+        .guitar-model-card,
+        a {
+            cursor: url('images/Cursor.png'), pointer !important;
+        }
+
         /* Efeito de Luzes de Palco do Modo Show */
         .stage-lights {
             position: fixed;
@@ -146,7 +158,6 @@
             text-decoration: none;
             font-size: 1.05rem;
             transition: color 0.3s;
-            cursor: pointer;
             display: flex;
             align-items: center;
             gap: 5px;
@@ -202,7 +213,6 @@
             box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
             animation: glow 1.5s infinite alternate;
             border: none;
-            cursor: pointer;
             font-family: 'Roboto', sans-serif;
             letter-spacing: 0.5px;
             transition: all 0.3s ease;
@@ -286,7 +296,7 @@
     <div id="stage-lights" class="stage-lights"></div>
 
     <nav class="top-navbar">
-        <a href="index.html" class="top-navbar-brand" onmouseenter="tocarFeedbackInteracao()">
+        <a href="index.html" class="top-navbar-brand" onmouseenter="tocarFeedbackInteracao()" onclick="tocarSomClique()">
             <span class="guitar-icon">🎸</span>
             <span>BERNARDO</span>
         </a>
@@ -295,22 +305,22 @@
             <li class="nav-item" onmouseenter="tocarFeedbackInteracao()">
                 <span class="nav-link-btn">Guitarras ▼</span>
                 <div class="dropdown-menu">
-                    <a href="detalhes.html#stratocaster" class="dropdown-item" onclick="tocarFeedbackInteracao()">⚡ Stratocaster</a>
-                    <a href="detalhes.html#lespaul" class="dropdown-item" onclick="tocarFeedbackInteracao()">⚡ Les Paul</a>
-                    <a href="detalhes.html#telecaster" class="dropdown-item" onclick="tocarFeedbackInteracao()">⚡ Telecaster</a>
+                    <a href="detalhes.html#stratocaster" class="dropdown-item" onclick="tocarFeedbackInteracao(); tocarSomClique();">⚡ Stratocaster</a>
+                    <a href="detalhes.html#lespaul" class="dropdown-item" onclick="tocarFeedbackInteracao(); tocarSomClique();">⚡ Les Paul</a>
+                    <a href="detalhes.html#telecaster" class="dropdown-item" onclick="tocarFeedbackInteracao(); tocarSomClique();">⚡ Telecaster</a>
                 </div>
             </li>
             <li class="nav-item" onmouseenter="tocarFeedbackInteracao()">
-                <a href="treinos.html" class="nav-link-btn" onclick="tocarFeedbackInteracao()">Treinos</a>
+                <a href="treinos.html" class="nav-link-btn" onclick="tocarFeedbackInteracao(); tocarSomClique();">Treinos</a>
             </li>
             <li class="nav-item" onmouseenter="tocarFeedbackInteracao()">
-                <a href="acordes.html" class="nav-link-btn" onclick="tocarFeedbackInteracao()">🎵 Acordes</a>
+                <a href="acordes.html" class="nav-link-btn" onclick="tocarFeedbackInteracao(); tocarSomClique();">🎵 Acordes</a>
             </li>
             <li class="nav-item" onmouseenter="tocarFeedbackInteracao()">
-                <a href="guia-compra.html" class="nav-link-btn" onclick="tocarFeedbackInteracao()">Guia de Compra</a>
+                <a href="guia-compra.html" class="nav-link-btn" onclick="tocarFeedbackInteracao(); tocarSomClique();">Guia de Compra</a>
             </li>
             <li class="nav-item">
-                <button id="live-mode-btn" onclick="toggleLiveMode()" class="btn-live-rock">MODO SHOW ⚡</button>
+                <button id="live-mode-btn" onclick="toggleLiveMode(); tocarSomClique();" class="btn-live-rock">MODO SHOW ⚡</button>
             </li>
         </ul>
     </nav>
@@ -324,8 +334,8 @@
         
         <aside class="sidebar sidebar-left">
             <h3 class="sidebar-title">⚡ Guia de Modelos</h3>
-            <a href="detalhes.html#stratocaster" style="text-decoration: none; color: inherit; display: block;" onclick="tocarFeedbackInteracao()">
-                <div class="guitar-model-card" style="cursor: pointer; transition: transform 0.2s;">
+            <a href="detalhes.html#stratocaster" style="text-decoration: none; color: inherit; display: block;" onclick="tocarFeedbackInteracao(); tocarSomClique();">
+                <div class="guitar-model-card" style="transition: transform 0.2s;">
                     <img src="images/Stratocaster.webp" alt="Stratocaster" class="sidebar-guitar-img">
                     <h4>Stratocaster</h4>
                     <p><strong>Características:</strong> Corpo ergonômico, 3 captadores single-coil.</p>
@@ -334,8 +344,8 @@
                 </div>
             </a>
 
-            <a href="detalhes.html#lespaul" style="text-decoration: none; color: inherit; display: block; margin-top: 15px;" onclick="tocarFeedbackInteracao()">
-                <div class="guitar-model-card" style="cursor: pointer; transition: transform 0.2s;">
+            <a href="detalhes.html#lespaul" style="text-decoration: none; color: inherit; display: block; margin-top: 15px;" onclick="tocarFeedbackInteracao(); tocarSomClique();">
+                <div class="guitar-model-card" style="transition: transform 0.2s;">
                     <img src="images/Les.webp" alt="Les Paul" class="sidebar-guitar-img">
                     <h4>Les Paul</h4>
                     <p><strong>Características:</strong> Corpo pesado de mogno, 2 humbuckers.</p>
@@ -344,8 +354,8 @@
                 </div>
             </a>
 
-            <a href="detalhes.html#telecaster" style="text-decoration: none; color: inherit; display: block; margin-top: 15px;" onclick="tocarFeedbackInteracao()">
-                <div class="guitar-model-card" style="cursor: pointer; transition: transform 0.2s;">
+            <a href="detalhes.html#telecaster" style="text-decoration: none; color: inherit; display: block; margin-top: 15px;" onclick="tocarFeedbackInteracao(); tocarSomClique();">
+                <div class="guitar-model-card" style="transition: transform 0.2s;">
                     <img src="images/Tele.webp" alt="Telecaster" class="sidebar-guitar-img">
                     <h4>Telecaster</h4>
                     <p><strong>Characteristics:</strong> Design rústico, 2 captadores single-coil.</p>
@@ -364,12 +374,12 @@
                 <h3>🎸 Afinador com Efeito de Eco Virtual</h3>
                 <p class="afinador-instrucao">Clique nas notas para ouvir o som:</p>
                 <div class="cordas-board">
-                    <button class="nota-btn" onclick="tocarNotaComEco(329.63, 'Mi (E) - 1ª Corda')">E (1ª)</button>
-                    <button class="nota-btn" onclick="tocarNotaComEco(246.94, 'Si (B) - 2ª Corda')">B (2ª)</button>
-                    <button class="nota-btn" onclick="tocarNotaComEco(196.00, 'Sol (G) - 3ª Corda')">G (3ª)</button>
-                    <button class="nota-btn" onclick="tocarNotaComEco(146.83, 'Ré (D) - 4ª Corda')">D (4ª)</button>
-                    <button class="nota-btn" onclick="tocarNotaComEco(110.00, 'Lá (A) - 5ª Corda')">A (5ª)</button>
-                    <button class="nota-btn" onclick="tocarNotaComEco(82.41, 'Mi (E) - 6ª Corda')">E (6ª)</button>
+                    <button class="nota-btn" onclick="tocarNotaComEco(329.63, 'Mi (E) - 1ª Corda'); tocarSomClique();">E (1ª)</button>
+                    <button class="nota-btn" onclick="tocarNotaComEco(246.94, 'Si (B) - 2ª Corda'); tocarSomClique();">B (2ª)</button>
+                    <button class="nota-btn" onclick="tocarNotaComEco(196.00, 'Sol (G) - 3ª Corda'); tocarSomClique();">G (3ª)</button>
+                    <button class="nota-btn" onclick="tocarNotaComEco(146.83, 'Ré (D) - 4ª Corda'); tocarSomClique();">D (4ª)</button>
+                    <button class="nota-btn" onclick="tocarNotaComEco(110.00, 'Lá (A) - 5ª Corda'); tocarSomClique();">A (5ª)</button>
+                    <button class="nota-btn" onclick="tocarNotaComEco(82.41, 'Mi (E) - 6ª Corda'); tocarSomClique();">E (6ª)</button>
                 </div>
                 <p id="nota-tocando">Toque em uma corda para ouvir o eco...</p>
             </div>
@@ -420,15 +430,15 @@
         <aside class="sidebar sidebar-right">
             <h3 class="sidebar-title">📌 Ir para o Assunto</h3>
             <nav class="shortcut-menu">
-                <a href="#artigo1" onclick="tocarFeedbackInteracao()">01. Universo da Guitarra</a>
-                <a href="#artigo2" onclick="tocarFeedbackInteracao()">02. Modelos e Captação</a>
-                <a href="#artigo3" onclick="tocarFeedbackInteracao()">03. Vícios Técnicos</a>
-                <a href="#artigo4" onclick="tocarFeedbackInteracao()">04. Rotina de Treino</a>
-                <a href="#artigo5" onclick="tocarFeedbackInteracao()">05. Palhetada Alternada</a>
-                <a href="#artigo6" onclick="tocarFeedbackInteracao()">06. Amplificadores</a>
-                <a href="#artigo7" onclick="tocarFeedbackInteracao()">07. Ler Tablaturas</a>
-                <a href="#artigo8" onclick="tocarFeedbackInteracao()">08. Manutenção de Cordas</a>
-                <a href="#secao-acordes" onclick="tocarFeedbackInteracao()">09. Dominando Acordes</a>
+                <a href="#artigo1" onclick="tocarFeedbackInteracao(); tocarSomClique();">01. Universo da Guitarra</a>
+                <a href="#artigo2" onclick="tocarFeedbackInteracao(); tocarSomClique();">02. Modelos e Captação</a>
+                <a href="#artigo3" onclick="tocarFeedbackInteracao(); tocarSomClique();">03. Vícios Técnicos</a>
+                <a href="#artigo4" onclick="tocarFeedbackInteracao(); tocarSomClique();">04. Rotina de Treino</a>
+                <a href="#artigo5" onclick="tocarFeedbackInteracao(); tocarSomClique();">05. Palhetada Alternada</a>
+                <a href="#artigo6" onclick="tocarFeedbackInteracao(); tocarSomClique();">06. Amplificadores</a>
+                <a href="#artigo7" onclick="tocarFeedbackInteracao(); tocarSomClique();">07. Ler Tablaturas</a>
+                <a href="#artigo8" onclick="tocarFeedbackInteracao(); tocarSomClique();">08. Manutenção de Cordas</a>
+                <a href="#secao-acordes" onclick="tocarFeedbackInteracao(); tocarSomClique();">09. Dominando Acordes</a>
             </nav>
         </aside>
 
@@ -440,7 +450,7 @@
             <div class="acordes-grid">
                 <div class="acorde-texto">
                     <p>Um acorde é a união de três ou mais notas tocadas simultaneamente, formando toda a base harmônica essencial sobre a qual as melodias se desenvolvem no braço. Para o guitarrista iniciante, o maior desafio não é apenas memorizar os formatos estruturais no braço do instrumento (como as tradicionais digitações abertas de Dó, Sol, Ré e Lá), mas sim conseguir transitar entre eles de forma fluida e sem interromper de maneira alguma o andamento preciso do compasso rítmico.</p>
-                    <p>A técnica mais eficaz para acelerar essas transições críticas é o concept profissional de <strong>"Dedos-Guia"</strong>. Ao mudar de um acorde para o outro, verifique sempre se existe algum dedo comum que permanece exatamente na mesma corda ou traste em ambas as posições. Manter esse dedo fixado serve como uma âncora mecânica perfeita, permitindo que o cérebro organize o restante da mão sem referência geográfica instável.</p>
+                    <p>A técnica mais eficaz para acelerar essas transições críticas é o conceito profissional de <strong>"Dedos-Guia"</strong>. Ao mudar de um acorde para o outro, verifique sempre se existe algum dedo comum que permanece exatamente na mesma corda ou traste em ambas as posições. Manter esse dedo fixado serve como uma âncora mecânica perfeita, permitindo que o cérebro organize o restante da mão sem referência geográfica instável.</p>
                 </div>
                 
                 <div class="acorde-destaque">
@@ -455,7 +465,7 @@
         <h3 style="font-family: 'Roboto', sans-serif; color: #fff; margin-bottom: 15px; font-size: 1.5rem;">
             Quer saber coisas antes de comprar sua guitarra?
         </h3>
-        <a href="guia-compra.html" style="display: inline-block; background-color: #ff4500; color: #fff; text-decoration: none; font-weight: bold; padding: 15px 30px; border-radius: 4px; font-family: 'Roboto', sans-serif;" onclick="tocarFeedbackInteracao()">
+        <a href="guia-compra.html" style="display: inline-block; background-color: #ff4500; color: #fff; text-decoration: none; font-weight: bold; padding: 15px 30px; border-radius: 4px; font-family: 'Roboto', sans-serif;" onclick="tocarFeedbackInteracao(); tocarSomClique();">
             Clique Aqui para Acessar o Guia Completo →
         </a>
     </section>
@@ -477,6 +487,28 @@
         function tocarFeedbackInteracao() {
             verificarAudioContext();
             if(audioCtx.state === 'suspended') audioCtx.resume();
+        }
+
+        // Função nativa para criar um som básico de clique (Estalo rápido)
+        function tocarSomClique() {
+            verificarAudioContext();
+            if(audioCtx.state === 'suspended') audioCtx.resume();
+            
+            let agora = audioCtx.currentTime;
+            let osc = audioCtx.createOscillator();
+            let ganho = audioCtx.createGain();
+            
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(1000, agora); // Frequência do clique
+            
+            ganho.gain.setValueAtTime(0.08, agora);
+            ganho.gain.exponentialRampToValueAtTime(0.00001, agora + 0.05); // Curto e rápido
+            
+            osc.connect(ganho);
+            ganho.connect(audioCtx.destination);
+            
+            osc.start(agora);
+            osc.stop(agora + 0.06);
         }
 
         function toggleLiveMode() {
